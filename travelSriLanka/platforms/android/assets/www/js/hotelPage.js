@@ -3,15 +3,7 @@
  */
 
 window.onload = function() {
-    //
-    // var el = $(".repeat-me").get(0);
-    // var numRepeat = $(el).attr("numRepeat");
-    //
-    // for(var i = 0;i < numRepeat;i++){
-    //     var newEl = $(el).after(el.cloneNode(true));
-    //     document.getElementById("R11T").innerText = i;
-    // }
-    
+
     jQuery.ajax({
         type: "GET",
         url: 'http://localhost/travelSL/web/user/hotelPage',
@@ -32,6 +24,17 @@ window.onload = function() {
                 document.getElementById(telephoneID[i]).innerText = 'Phone: ' + obj.result[i].Telephone;
                 document.getElementById(addressID[i]).innerText = 'Address: ' + obj.result[i].Address;
                 document.getElementById(districtID[i]).innerText = 'District: ' + obj.result[i].District;
+
+                $('#wrapper').append(
+
+                    '<div class="col-xs-6 col-md-3">'+ '<div class="thumbnail">'+
+                    '<img src="images/Hotels/hotel1.jpg" alt="Hotel">'+ '<div class="caption">' +
+                    '<h3> ' + obj.result[i].Name + '</h3>'+
+                    '<p>Phone: ' + obj.result[i].Telephone+ '</p>' +
+                    '<p>Address:' + obj.result[i].Address + '</p>' +
+                    '<p>District:' + obj.result[i].District + '</p>' +
+                    '<p><a href="viewHotel.html" class="btn btn-primary" role="button">View</a></p>' +
+                    '</div></div></div>');
             }
 
 

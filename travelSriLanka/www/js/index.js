@@ -17,6 +17,8 @@ window.onload = function() {
     document.getElementById("category").addEventListener("click", showDiv);
     document.getElementById("userMenuID").addEventListener("click", showButton);
     document.getElementById("messageMenu").addEventListener("click", showMessages);
+    
+    
 
 
 };
