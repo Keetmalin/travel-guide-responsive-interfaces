@@ -12,21 +12,31 @@ window.onload = function() {
 
         success: function (obj, textstatus) {
 
-            //at the beginning of the page, set the guide names from the database to the webpage
-            var divID = ["R11", "R12", "R13" , "R14", "R21", "R22" , "R23", "R24", "R31" , "R32", "R33", "R34"];
-            var headerID = ["R11H", "R12H", "R13H" , "R14H", "R21H", "R22H" , "R23H", "R24H", "R31H" , "R32H", "R33H", "R34H"];
-            var telephoneID = ["R11T", "R12T", "R13T" , "R14T", "R21T", "R22T" , "R23T", "R24T", "R31T" , "R32T", "R33T", "R34T"];
-            var addressID = ["R11A", "R12A", "R13A" , "R14A", "R21A", "R22A" , "R23A", "R24A", "R31A" , "R32A", "R33A", "R34A"];
-            var districtID = ["R11D", "R12D", "R13D" , "R14D", "R21D", "R22D" , "R23D", "R24D", "R31D" , "R32D", "R33D", "R34D"];
-
+            // //at the beginning of the page, set the guide names from the database to the webpage
+            // var divID = ["R11", "R12", "R13" , "R14", "R21", "R22" , "R23", "R24", "R31" , "R32", "R33", "R34"];
+            // var headerID = ["R11H", "R12H", "R13H" , "R14H", "R21H", "R22H" , "R23H", "R24H", "R31H" , "R32H", "R33H", "R34H"];
+            // var telephoneID = ["R11T", "R12T", "R13T" , "R14T", "R21T", "R22T" , "R23T", "R24T", "R31T" , "R32T", "R33T", "R34T"];
+            // var addressID = ["R11A", "R12A", "R13A" , "R14A", "R21A", "R22A" , "R23A", "R24A", "R31A" , "R32A", "R33A", "R34A"];
+            // var districtID = ["R11D", "R12D", "R13D" , "R14D", "R21D", "R22D" , "R23D", "R24D", "R31D" , "R32D", "R33D", "R34D"];
+            //
             for (i = 0; i < Object.keys(obj.result).length; i++) {
-                document.getElementById(divID[i]).style.display = "block";
-                document.getElementById(headerID[i]).innerText = obj.result[i].Name;
-                document.getElementById(telephoneID[i]).innerText = 'Phone: ' + obj.result[i].Telephone;
-                document.getElementById(addressID[i]).innerText = 'Address: ' + obj.result[i].Address;
-                document.getElementById(districtID[i]).innerText = 'District: ' + obj.result[i].District;
-            }
+                // document.getElementById(divID[i]).style.display = "block";
+                // document.getElementById(headerID[i]).innerText = obj.result[i].Name;
+                // document.getElementById(telephoneID[i]).innerText = 'Phone: ' + obj.result[i].Telephone;
+                // document.getElementById(addressID[i]).innerText = 'Address: ' + obj.result[i].Address;
+                // document.getElementById(districtID[i]).innerText = 'District: ' + obj.result[i].District;
 
+                $('#wrapper').append(
+
+                    '<div class="col-xs-6 col-md-3">'+ '<div class="thumbnail">'+ 
+                        '<img src="images/Guide/Guide1.jpg" alt="Guide">'+ '<div class="caption">' +
+                        '<h3> ' + obj.result[i].Name + '</h3>'+
+                        '<p>Phone: ' + obj.result[i].Telephone+ '</p>' +
+                        '<p>Address:' + obj.result[i].Address + '</p>' +
+                        '<p>District:' + obj.result[i].District + '</p>' +
+                        '<p><a href="viewGuide.html" class="btn btn-primary" role="button">View</a></p>' +
+                    '</div></div></div>');
+            }
 
         }
     });
