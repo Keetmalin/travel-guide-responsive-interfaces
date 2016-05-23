@@ -1,0 +1,705 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <title>Travel Sri Lanka</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!--this style is for the image carousal-->
+    <style>
+        .carousel-inner > .item > img,
+        .carousel-inner > .item > a > img {
+            width: 100%;
+            /*margin: auto;*/
+        }
+    </style>
+
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Travel Sri Lanka</a>
+    </div>
+    <!-- Top Menu Items -->
+    <ul class="nav navbar-right top-nav">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="messageMenu"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+            <ul class="dropdown-menu message-dropdown">
+                <li class="message-preview" id="message1" style="display: none;">
+                    <a href="#">
+                        <div class="media">
+                                        <span class="pull-left">
+                                            <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                        </span>
+                            <div class="media-body">
+                                <h5 class="media-heading">
+                                    <strong id="corporateAccountName1"></strong>
+                                </h5>
+                                <p class="small text-muted" id="timeAndDate1"><i class="fa fa-clock-o"></i> </p>
+                                <p id="messageDescription1"></p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="message-preview" id="message2" style="display: none;">
+                    <a href="#">
+                        <div class="media">
+                                        <span class="pull-left">
+                                            <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                        </span>
+                            <div class="media-body">
+                                <h5 class="media-heading">
+                                    <strong id="corporateAccountName2"></strong>
+                                </h5>
+                                <p class="small text-muted" id="timeAndDate2"><i class="fa fa-clock-o"></i></p>
+                                <p id="messageDescription2"></p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="message-preview" id="message3" style="display: none;">
+                    <a href="#">
+                        <div class="media">
+                                        <span class="pull-left">
+                                            <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                        </span>
+                            <div class="media-body">
+                                <h5 class="media-heading">
+                                    <strong id="corporateAccountName3"></strong>
+                                </h5>
+                                <p class="small text-muted" id="timeAndDate3"><i class="fa fa-clock-o"></i></p>
+                                <p id="messageDescription3"></p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="message-footer">
+                    <a href="#">Read All New Messages</a>
+                </li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+            <ul class="dropdown-menu alert-dropdown">
+                <li>
+                    <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                </li>
+                <li>
+                    <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                </li>
+                <li>
+                    <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                </li>
+                <li>
+                    <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                </li>
+                <li>
+                    <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                </li>
+                <li>
+                    <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#">View All</a>
+                </li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a id="userMenuID" class="dropdown-toggle" data-toggle="dropdown" ><i class="fa fa-user"></i> <b id="userNameSession"></b> <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="myProfile.html"><i class="fa fa-fw fa-user"></i> My Profile</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a id="logoutButton" style="display: none;"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                </li>
+                <li>
+                    <a data-target="#logIn" data-toggle="modal" id="loginButton" style="display: none;"><i class="glyphicon glyphicon-random"></i>  Log In</a>
+                </li>
+                <li>
+                    <a data-target="#selectCategory" data-toggle="modal"  id="registerButton" style="display: none;"><i class="glyphicon glyphicon-check" ></i>  Register</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav side-nav">
+            <li class="active">
+                <a data-target="#selectArea" data-toggle="modal"><i class="fa fa-fw fa-dashboard"></i> Create Tour </a>
+            </li>
+            <li>
+                <a href="hotels.html"><i class="fa fa-fw fa-bar-chart-o"></i> Hotels</a>
+            </li>
+            <li>
+                <a href="guides.html"><i class="fa fa-fw fa-table"></i> Guides </a>
+            </li>
+            <li>
+                <a href="rides.html"><i class="fa fa-fw fa-edit"></i> Rides </a>
+            </li>
+            <li>
+                <a href="photographers.html"><i class="fa fa-fw fa-desktop"></i> Photographers </a>
+            </li>
+            <li>
+                <a href="destinations.html"><i class="fa fa-fw fa-globe"></i> Destinations </a>
+            </li>
+            <li>
+                <a href="emergencyContacts.html"><i class="fa fa-fw fa-wrench"></i> Emergency Contacts </a>
+            </li>
+            <li>
+                <a href="random.html"><i class="fa fa-fw fa-wrench"></i> Admin Panel</a>
+            </li>
+
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+</nav>
+
+
+<div id="wrapper">
+
+    <div class="row">
+        <div class="col-xs-6 col-md-3" id="R11" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer1.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R11H"></h3>
+                    <p id="R11T"></p>
+                    <p id="R11A"></p>
+                    <p id="R11D"></p>
+                    <p><a href="viewPhotographer.html" id="R11B" class="btn btn-primary" role="button">View</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3" id="R12" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer2.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R12H" ></h3>
+                    <p id="R12T"></p>
+                    <p id="R12A"></p>
+                    <p id="R12D"></p>
+                    <p><a href="viewPhotographer.html" id="R12B" class="btn btn-primary" role="button">View</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3" id="R13" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer3.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R13H" ></h3>
+                    <p id="R13T"></p>
+                    <p id="R13A"></p>
+                    <p id="R13D"></p>
+                    <p><a href="viewPhotographer.html" id="R13B" class="btn btn-primary" role="button">View</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3" id="R14" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer4.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R14H"></h3>
+                    <p id="R14T"></p>
+                    <p id="R14A"></p>
+                    <p id="R14D"></p>
+                    <p><a href="viewPhotographer.html" id="R14B" class="btn btn-primary" role="button">View</a> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-md-3" id="R21" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer5.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R21H"></h3>
+                    <p id="R21T"></p>
+                    <p id="R21A"></p>
+                    <p id="R21D"></p>
+                    <p><a href="viewPhotographer.html" id="R21B" class="btn btn-primary" role="button">View</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3" id="R22" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer6.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R22H" ></h3>
+                    <p id="R22T"></p>
+                    <p id="R22A"></p>
+                    <p id="R22D"></p>
+                    <p><a href="viewPhotographer.html" id="R22B" class="btn btn-primary" role="button">View</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3" id="R23" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer7.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R23H" ></h3>
+                    <p id="R23T"></p>
+                    <p id="R23A"></p>
+                    <p id="R23D"></p>
+                    <p><a href="viewPhotographer.html" id="R23B" class="btn btn-primary" role="button">View</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3" id="R24" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer8.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R24H"></h3>
+                    <p id="R24T"></p>
+                    <p id="R24A"></p>
+                    <p id="R24D"></p>
+                    <p><a href="viewPhotographer.html" id="R24B" class="btn btn-primary" role="button">View</a> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-md-3" id="R31" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer9.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R31H"></h3>
+                    <p id="R31T"></p>
+                    <p id="R31A"></p>
+                    <p id="R31D"></p>
+                    <p><a href="viewPhotographer.html" id="R31B" class="btn btn-primary" role="button">View</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3" id="R32" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer10.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R32H" ></h3>
+                    <p id="R32T"></p>
+                    <p id="R32A"></p>
+                    <p id="R32D"></p>
+                    <p><a href="viewPhotographer.html" id="R32B" class="btn btn-primary" role="button">View</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3" id="R33" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer11.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R33H" ></h3>
+                    <p id="R33T"></p>
+                    <p id="R33A"></p>
+                    <p id="R33D"></p>
+                    <p><a href="viewPhotographer.html" id="R33B" class="btn btn-primary" role="button">View</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3" id="R34" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer12.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R34H"></h3>
+                    <p id="R34T"></p>
+                    <p id="R34A"></p>
+                    <p id="R34D"></p>
+                    <p><a href="viewPhotographer.html" id="R34B" class="btn btn-primary" role="button">View</a> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<!-- /#wrapper -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="logIn" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button  type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" align="center">Log In</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" name="logIn" method="post">
+                    <div class="form-group">
+                        <label for="userName">User Name:</label>
+                        <input type="text" class="form-control" id="userName">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password">
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox"> Remember me</label>
+                    </div>
+                    <button id="login-button" type="button" class="btn btn-primary">Log in</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="register" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" align="center">Traveller Registration</h4>
+            </div>
+
+            <!--for tourists and travellers-->
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="userNameR">User Name:</label>
+                        <input type="text" class="form-control" id="userNameR" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nameR">Name:</label>
+                        <input type="text" class="form-control" id="nameR" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="emailR">Email address:</label>
+                        <input type="email" class="form-control" id="emailR" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="passwordR">Password:</label>
+                        <input type="password" class="form-control" id="passwordR" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="repasswordR">Re Enter Password:</label>
+                        <input type="password" class="form-control" id="repasswordR" required>
+                    </div>
+
+                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                        <label for="userImage">Upload profile image:</label>
+                        <div>
+                            <span class="btn btn-file"><span class="fileupload-exists"></span><input id="userImage" type="file" name="image"/></span>
+
+                        </div>
+                    </div>
+                    <br>
+
+                    <button id="register-button"type="button" class="btn btn-primary">Register</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="selectArea" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" align="center">Select Location on Map</h4>
+                <!--<p>Or view Full Map </p>-->
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="row" align="center">
+                        <div class="col-sm-12 col-md-6">
+                            <h3>Select By Province</h3>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <h3>Select By District</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+
+                            <img class="img-responsive" src="images/sri-lanka-provincial-map.jpg" alt="Provincial Map of Sri Lanka" usemap="#provincialMap" style="align-content: center">
+                            <map name="provincialMap">
+                                <area shape="circle" coords="101,79,73" href="/" alt="Nothern_Province">
+                                <area shape="circle" coords="148,199,44" href="/" alt="North Central">
+                                <area shape="circle" coords="86,273,48" href="/" alt="North Western">
+                                <area shape="square" coords="140,279,190, 365" href="/" alt="Central">
+                                <area shape="circle" coords="230,395,50" href="/" alt="Uva">
+                                <area shape="square" coords="90,446,163, 492" href="/" alt="southern">
+                                <area shape="square" coords="51,327,94, 439" href="/" alt="western">
+                                <area shape="square" coords="99,326,134, 397" href="/" alt="sabaragamuwa1">
+                                <area shape="square" coords="100,402,177, 439" href="/" alt="sabaragamuwa2">
+                                <area shape="square" coords="192,118,276, 202" href="/" alt="eastern1">
+                                <area shape="square" coords="232,208,177, 439" href="/" alt="eastern2">
+                                <area shape="square" coords="276,315,310, 420" href="/" alt="eastern3">
+                            </map>
+                        </div>
+                        <br />
+                        <div class="col-sm-12 col-md-6">
+
+                            <img class="img-responsive" src="images/srilanka-district-map.jpg" alt="District Map of Sri Lanka" usemap="#districtMap" style="align-content: center">
+                            <map name="districtMap">
+                                <area shape="circle" coords="101,79,73" href="/" alt="Nothern_Province">
+                                <area shape="circle" coords="148,199,44" href="/" alt="North Central">
+                                <area shape="circle" coords="86,273,48" href="/" alt="North Western">
+                                <area shape="square" coords="140,279,190, 365" href="/" alt="Central">
+                            </map>
+                        </div>
+                    </div>
+                    <div >
+                        <a href="selectLocation.html" class="btn btn-primary" >View Fullscreen</a>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="selectCategory" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" align="center">Select User Category</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="btn-group-lg">
+                    <button id="traveller-button" type="button" data-toggle="modal" data-target="#register" data-dismiss="modal" class="btn btn-primary btn-lg btn-block">Traveller</button>
+                    <button type="button" data-toggle="modal" data-target="#registerCorporateAccount" data-dismiss="modal" class="btn btn-primary btn-lg btn-block   ">Corporate Account</button>
+
+                </div>
+                <br>
+                <div class="text-center">
+                    <button type="button" class="btn btn-default " data-dismiss="modal" >Close</button>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="registerCorporateAccount" role="dialog" background="absolute">
+    <div class="modal-dialog " >
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" align="center">Fill in Corporate Profile Details</h4>
+            </div>
+
+            <!--for Corporate Accounts-->
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="userNameC">User Name:</label>
+                        <input type="text" class="form-control" id="userNameC">
+                    </div>
+                    <div class="form-group">
+                        <label for="nameC">Name:</label>
+                        <input type="text" class="form-control" id="nameC">
+                    </div>
+                    <div class="form-group">
+                        <label for="emailC">Email address:</label>
+                        <input type="email" class="form-control" id="emailC">
+                    </div>
+                    <div class="form-group">
+                        <label for="passwordC">Password:</label>
+                        <input type="password" class="form-control" id="passwordC">
+                    </div>
+                    <div class="form-group">
+                        <label for="repasswordC">Re Enter Password:</label>
+                        <input type="password" class="form-control" id="repasswordC">
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone">Telephone No:</label>
+                        <input type="text" class="form-control" id="telephone">
+                    </div>
+                    <div class="form-group">
+                        <label for="Address">Address:</label>
+                        <input type="text" class="form-control" id="Address">
+                    </div>
+                    <div class="form-group">
+                        <label for="District">Select District:</label>
+                        <select class="form-control" id="District" name="District">
+                            <option value="Ampara">Ampara</option>
+                            <option value="Anuradhapura">Anuradhapura</option>
+                            <option value="Badulla" >Badulla</option>
+                            <option value="Batticaloa">Batticaloa</option>
+                            <option value="Colombo" selected>Colombo</option>
+                            <option value="Galle">Galle</option>
+                            <option value="Gampaha">Gampaha</option>
+                            <option value="Hambantota">Hambantota</option>
+                            <option value="Jaffna">Jaffna</option>
+                            <option value="Kaluthara" >Kaluthara</option>
+                            <option value="Kandy">Kandy</option>
+                            <option value="Kegalle">Kegalle</option>
+                            <option value="Kilinochchi">Kilinochchi</option>
+                            <option value="Kurunegala" >Kurunegala</option>
+                            <option value="Mannar">Mannar</option>
+                            <option value="Matale">Matale</option>
+                            <option value="Matara">Matara</option>
+                            <option value="Monaragala" >Monaragala</option>
+                            <option value="Mullaitivu">Mullaitivu</option>
+                            <option value="NuwaraEliya">NuwaraEliya</option>
+                            <option value="Polonnaruwa">Polonnaruwa</option>
+                            <option value="Puttalam" >Puttalam</option>
+                            <option value="Ratnapura">Ratnapura</option>
+                            <option value="Trincomalee">Trincomalee</option>
+                            <option value="Vavunia">Vavunia</option>
+
+
+                        </select>
+                        <br>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Enter Description:</label>
+                        <input type="text" class="form-control" id="description">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="account_id">Bank Account number:</label>
+                        <input type="text" class="form-control" id="account_id">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Select Corporate Category:</label>
+                        <select class="form-control" id="category" name="category">
+                            <option value="Hotel" selected >Hotel</option>
+                            <option value="Driver">Driver</option>
+                            <option value="Guide">Guide</option>
+                            <option value="Photographer" >Photographer</option>
+                        </select>
+                        <br>
+                    </div>
+
+                    <div id="vehicleDivision" style="display: none;">
+                        <div class="form-group">
+                            <label for="vehicle">Vehicle Type</label>
+                            <input type="text" class="form-control" id="vehicle" name="vehicle" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="capacity">Capacity</label>
+                            <input type="number" class="form-control" id="capacity" name="capacity" />
+                        </div>
+                    </div>
+                    <div id="hotelDivision" style="display: block;">
+                        <div class="form-group">
+                            <label for="lat">Latitude</label>
+                            <input type="text" class="form-control" id="lat" name="lat" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="long">Longitude</label>
+                            <input type="text" class="form-control" id="long" name="long" />
+                        </div>
+                    </div>
+
+
+                    <button id="registerCorporateAccount-button"type="button" class="btn btn-primary">Register</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="loginError" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" align="center">Log in Failed</h4>
+            </div>
+            <div class="modal-body" style="text-align: center">
+                <b align="center">Log in credentials incorrect</b>
+                <br>
+                <br>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="loginSuccessful" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" align="center">Log in Successful</h4>
+            </div>
+            <div class="modal-body" style="text-align: center">
+                <b align="center">Log in Successful</b>
+                <br>
+                <br>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Proceed</button>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!--import the final scripts at the end of the page-->
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/photographerPage.js"></script>
+</body>
+</html>
