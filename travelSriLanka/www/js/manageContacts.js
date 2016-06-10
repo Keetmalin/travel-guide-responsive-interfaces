@@ -28,7 +28,7 @@ window.onload = function() {
 
     jQuery.ajax({
         type: "GET",
-        url: 'http://localhost/travelSL/web/user/hotelPage',
+        url: 'http://localhost/travelSL/web/app_dev.php/user/loadContactPage',
         dataType: 'json',
 
         success: function (obj, textstatus) {
@@ -38,10 +38,10 @@ window.onload = function() {
                 $('.list-group').append(
                     '<div ><span>'+
                     '<a href="#" class="list-group-item">' +
-                    '<h4 class="list-group-item-heading">' +obj.result[i].Name + '</h4>' +
+                    '<h4 class="list-group-item-heading">' +obj.result[i].Name + ' - ' +
+                    obj.result[i].category +'</h4>' +
                     '<p class="list-group-item-text">Phone: ' + obj.result[i].Telephone +
-                    ' , Address: ' + obj.result[i].Address +
-                    ' , District: ' + obj.result[i].District +'</p>' +
+                    ' , Address: ' + obj.result[i].Address +'</p>' +
                     ''+
                     '<button type="button" class="btn btn-danger btn-sm">Delete Account</button></span>'+
                     '</a></div>');

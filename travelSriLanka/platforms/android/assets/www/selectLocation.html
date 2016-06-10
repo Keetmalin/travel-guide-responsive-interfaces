@@ -16,61 +16,84 @@
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <!--this style is for the image carousal-->
-    <style>
-        .carousel-inner > .item > img,
-        .carousel-inner > .item > a > img {
-            width: 100%;
-            /*margin: auto;*/
-        }
-    </style>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <script
+            src="http://maps.googleapis.com/maps/api/js">
+    </script>
 
-    <script src="http://maps.googleapis.com/maps/api/js"></script>
+
 
     <script>
+
+        var locations = new Array([]);
+
+        jQuery.ajax({
+            type: "GET",
+            url: 'http://localhost/travelSL/web/user/hotelPage',
+            dataType: 'json',
+
+            success: function (obj, textstatus) {
+
+
+
+                for (i = 0; i < Object.keys(obj.result).length; i++) {
+
+                    locations[i] = {
+                        0: obj.result[i].Name,
+                        1: obj.result[i].Lat,
+                        2: obj.result[i].long
+                    };
+
+                }
+
+
+
+
+            }
+
+        });
+
+
+
         var myCenter=new google.maps.LatLng(7.8675723 ,79.9305321);
+        function initialize() {
 
-        var locations = [
-            ['Galle Beach', 6.0559918, 80.1769774, 4],
-            ['Negombo Beach', 7.1896145, 79.7884591, 5],
-            ['Kandy', 7.2946291, 80.5907618, 3],
-            ['Matara Beach', 5.9520765, 80.5157284, 2],
-            ['Jaffna', 9.6700287, 80.0109171, 1],
-            ['Dambulla', 7.8815276, 80.5594717, 1],
-            ['Batticaloa', 7.7340837, 81.6434614, 1],
-            ['Anuradhapura', 8.3353156, 80.3329852, 1],
-            ['Yala', 6.2723844, 81.3871409, 1],
-            ['Trincomalee', 8.5832926, 81.1781971, 1],
-            ['Badulla', 6.9888338, 81.0415076, 1]
-        ];
-
-        function initialize()
-        {
             var mapProp = {
                 center:myCenter,
-                zoom:7,
+                zoom:5,
                 mapTypeId:google.maps.MapTypeId.ROADMAP
             };
 
-            var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+            var map=new google.maps.Map(document.getElementById("map"),mapProp);
 
-            var  i;
+            var marker, i;
+            var infowindow = new google.maps.InfoWindow();
 
             for (i = 0; i < locations.length; i++) {
                 marker = new google.maps.Marker({
                     position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                     map: map
-                });}
+                });
 
-            var marker=new google.maps.Marker({
-                position:myCenter,
-            });
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        infowindow.setContent(locations[i][0]);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+
+
+
+            }
+
 
             marker.setMap(map);
         }
-
         google.maps.event.addDomListener(window, 'load', initialize);
     </script>
+
+
 
 </head>
 <body>
@@ -230,10 +253,12 @@
     <!-- /.navbar-collapse -->
 </nav>
 
-
-<div id="googleMap" style="width:100%;height:500px;"></div>
-
 <div id="wrapper" style="color: whitesmoke">
+
+
+    <div id="map" style="width:100%;height:500px;"></div>
+
+
 
 
     <div class="container">
@@ -616,8 +641,7 @@
 </div>
 
 <!--import the final scripts at the end of the page-->
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
+
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="cordova.js"></script>

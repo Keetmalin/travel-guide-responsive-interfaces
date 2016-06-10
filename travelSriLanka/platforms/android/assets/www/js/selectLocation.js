@@ -26,103 +26,13 @@ window.onload = function() {
     document.getElementById("messageMenu").addEventListener("click", showMessages);
 
 //---------------------------------------------------------------------
+
     
-    // var myCenter=new google.maps.LatLng(7.8675723 ,79.9305321);
-    //
-    // var locations = [
-    //     ['Galle Beach', 6.0559918, 80.1769774, 4],
-    //     ['Negombo Beach', 7.1896145, 79.7884591, 5],
-    //     ['Kandy', 7.2946291, 80.5907618, 3],
-    //     ['Matara Beach', 5.9520765, 80.5157284, 2],
-    //     ['Jaffna', 9.6700287, 80.0109171, 1],
-    //     ['Dambulla', 7.8815276, 80.5594717, 1],
-    //     ['Batticaloa', 7.7340837, 81.6434614, 1],
-    //     ['Anuradhapura', 8.3353156, 80.3329852, 1],
-    //     ['Yala', 6.2723844, 81.3871409, 1],
-    //     ['Trincomalee', 8.5832926, 81.1781971, 1],
-    //     ['Badulla', 6.9888338, 81.0415076, 1]
-    // ];
-    //
-    // function initialize()
-    // {
-    //     var mapProp = {
-    //         center:myCenter,
-    //         zoom:7,
-    //         mapTypeId:google.maps.MapTypeId.ROADMAP
-    //     };
-    //
-    //     var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-    //
-    //     var marker, i;
-    //
-    //     for (i = 0; i < locations.length; i++) {
-    //         marker = new google.maps.Marker({
-    //             position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-    //             map: map
-    //         });}
-    //
-    //     var marker=new google.maps.Marker({
-    //         position:myCenter,
-    //     });
-    //
-    //     marker.setMap(map);
-    // }
-    //
-    // google.maps.event.addDomListener(window, 'load', initialize);
-
-// function loadMapHotels(){
-//
-//     if (document.getElementById("checkBoxHotels").checked){
-//         jQuery.ajax({
-//             type: "GET",
-//             url: 'http://localhost/travelSL/web/app_dev.php/user/loadMapHotels',
-//             dataType: 'json',
-//             success: function (obj, textstatus) {
-//
-//                 for (i = 0; i < Object.keys(obj.result).length; i++) {
-//
-//
-//                     // // var myCenter=new google.maps.LatLng(obj.result[i].Lat ,obj.result[i].long);
-//                     // var myCenter=new google.maps.LatLng(7.8675723 ,79.9305321);
-//                     // var marker=new google.maps.Marker({
-//                     //     position:myCenter
-//                     // });
-//                     // marker.setMap(map);
-//                     //
-//                     // var myCenter=new google.maps.LatLng(7.8675723 ,79.9305321);
-//                     //
-//                     // function initialize()
-//                     // {
-//                     //     var mapProp = {
-//                     //         center:myCenter,
-//                     //         zoom:5,
-//                     //         mapTypeId:google.maps.MapTypeId.ROADMAP
-//                     //     };
-//                     //
-//                     //     var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-//                     //
-//                     //     var marker=new google.maps.Marker({
-//                     //         position:myCenter,
-//                     //     });
-//                     //
-//                     //     marker.setMap(map);
-//                     // }
-//                     //
-//                     // google.maps.event.addDomListener(window, 'load', initialize);
-//
-//                 }
-//
-//
-//             }
-//         });
-//     }
-//     else{
-//
-//     }
-// }
 
 
-}
+};
+
+
 //---------------------------------------------------------------------
 //main functionalities used in the user bundle
 

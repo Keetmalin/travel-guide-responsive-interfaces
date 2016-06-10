@@ -1,9 +1,11 @@
 /**
- * Created by ASUS-PC on 5/23/2016.
+ * Created by ASUS-PC on 5/30/2016.
  */
 
 
 window.onload = function() {
+
+
 
 
 //add session of the current user in the syste,. If no user, add guest as the current user
@@ -22,38 +24,33 @@ window.onload = function() {
     document.getElementById("userMenuID").addEventListener("click", showButton);
     document.getElementById("messageMenu").addEventListener("click", showMessages);
 
+    //send ajax request
     jQuery.ajax({
         type: "GET",
-        url: 'http://localhost/travelSL/web/user/hotelPage',
+        url: 'http://localhost/travelSL/web/app_dev.php/user/loginDetails',
         dataType: 'json',
-
         success: function (obj, textstatus) {
 
             for (i = 0; i < Object.keys(obj.result).length; i++) {
-                
-              $('.list-group').append(
+
+                $('.list-group').append(
                     '<div ><span>'+
                     '<a href="#" class="list-group-item">' +
-                    '<h4 class="list-group-item-heading">' +obj.result[i].Name + '</h4>' +
-                    '<p class="list-group-item-text">Phone: ' + obj.result[i].Telephone +
-                        ' , Address: ' + obj.result[i].Address +
-                    ' , District: ' + obj.result[i].District +'</p>' +
+                    '<h4 class="list-group-item-heading">' +obj.result[i].User_Username + '</h4>' +
+                    '<p class="list-group-item-text">   category: ' + obj.result[i].category +
+                    ' , last log in: ' + obj.result[i].last_login +
+                    '</p>' +
                     ''+
-                        '<button type="button" class="btn btn-danger btn-sm" id="btnDelete">Delete Account</button></span>'+
-                        '</a></div>');
+                    '</span>'+
+                    '</a></div>');
 
-                $(document).ready(function() {
-                    $('#btnDelete').click(function() {
-                        alert("Keet");
-                    });
-                });
+
 
             }
-
         }
     });
 
-   // document.getElementById("btnDelete").addEventListener("click", deleteEntry);
+
 
 
 };

@@ -39,16 +39,26 @@ window.onload = function() {
                         ' , Address: ' + obj.result[i].Address +
                     ' , District: ' + obj.result[i].District +'</p>' +
                     ''+
-                        '<button type="button" class="btn btn-danger btn-sm">Delete Account</button></span>'+
+                        '<button type="button" class="btn btn-danger btn-sm" id="btnDelete">Delete Account</button></span>'+
                         '</a></div>');
+
+                $(document).ready(function() {
+                    $('#btnDelete').click(function() {
+                        alert("Keet");
+                    });
+                });
 
             }
 
         }
     });
 
+   // document.getElementById("btnDelete").addEventListener("click", deleteEntry);
+
 
 };
+
+
 
 //main functionalities used in the user bundle
 

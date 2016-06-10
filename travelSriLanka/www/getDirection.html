@@ -3,7 +3,7 @@
 <html>
 <head>
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -16,14 +16,48 @@
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <!--this style is for the image carousal-->
-    <style>
-        .carousel-inner > .item > img,
-        .carousel-inner > .item > a > img {
-            width: 100%;
-            /*margin: auto;*/
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHN3cW7So44C_uMP3-T7YNqHQVD1dj_4E&callback=initMap">
+    </script>
+
+
+
+    <script>
+        function initMap() {
+            var directionsService = new google.maps.DirectionsService;
+            var renderOptions = { draggable: true };
+            var directionsDisplay = new google.maps.DirectionsRenderer(renderOptions);
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 7,
+                center: {lat: 7.8784551, lng: 79.5789789}
+            });
+            directionsDisplay.setMap(map);
+
+            var start = {lat: 6.9216318, lng: 79.8212826};
+            var end = {lat: 6.0559918, lng: 80.1769775};
+
+            directionsService.route({
+                origin: start,
+                destination: end,
+                travelMode: google.maps.TravelMode.DRIVING
+            }, function(response, status) {
+                if (status === google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                } else {
+                    window.alert('Directions request failed due to ' + status);
+                }
+            });
+
+            // Resize stuff...
+            google.maps.event.addDomListener(window, "resize", function() {
+                var center = map.getCenter();
+                google.maps.event.trigger(map, "resize");
+                map.setCenter(center);
+            });
         }
-    </style>
+    </script>
+
+
 
 </head>
 <body>
@@ -183,18 +217,40 @@
     <!-- /.navbar-collapse -->
 </nav>
 
+<div id="wrapper" style="color: whitesmoke">
 
-<div id="wrapper">
+
+    <div id="map" style="width:100%;height:500px;"></div>
+
+
+
 
     <div class="container">
-        <h2 style="color: whitesmoke; text-align: center">Manage Rides</h2><br>
-        <div class="list-group">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Select What contents to display on Map</h2>
+            </div>
+            <div class="col-md-4">
+                <p><br>Please Mark the destinations you want to travel To. We will do all the mapping for you!!!</p>
+            </div>
 
         </div>
-    </div>
 
+
+        <form role="form">
+            <div class="checkbox">
+                <label><input type="checkbox" value="Hotels" id="checkBoxHotels">Hotels</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" value="Destinations" id="checkBoxDestinations" checked>Destinations</label>
+            </div>
+            <!--<div class="checkbox">-->
+            <!--<label><input type="checkbox" value="" disabled>Option 3</label>-->
+            <!--</div>-->
+        </form>
+    </div>
 </div>
-<!-- /#wrapper -->
+
 
 <!-- Modal -->
 <div class="modal fade" id="logIn" role="dialog">
@@ -554,6 +610,6 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="cordova.js"></script>
-<script type="text/javascript" src="js/manageRides.js"></script>
+<script type="text/javascript" src="js/getDirection.js"></script>
 </body>
 </html>

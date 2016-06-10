@@ -1,11 +1,18 @@
 /**
- * Created by ASUS-PC on 5/23/2016.
+ * Created by ASUS-PC on 6/3/2016.
  */
 
+/**
+ * Created by ASUS-PC on 4/30/2016.
+ */
 
 window.onload = function() {
 
+    // document.getElementById("checkBoxHotels").addEventListener("click", loadMapHotels);
+    // document.getElementById("checkBoxDestinations").addEventListener("click", loadMapDestinations);
 
+
+    //---------------------------------------------------------------------
 //add session of the current user in the syste,. If no user, add guest as the current user
     if((sessionStorage.getItem("userName")) == null ){
         document.getElementById("userNameSession").innerHTML = 'Guest';
@@ -22,44 +29,66 @@ window.onload = function() {
     document.getElementById("userMenuID").addEventListener("click", showButton);
     document.getElementById("messageMenu").addEventListener("click", showMessages);
 
-    jQuery.ajax({
-        type: "GET",
-        url: 'http://localhost/travelSL/web/user/hotelPage',
-        dataType: 'json',
-
-        success: function (obj, textstatus) {
-
-            for (i = 0; i < Object.keys(obj.result).length; i++) {
-                
-              $('.list-group').append(
-                    '<div ><span>'+
-                    '<a href="#" class="list-group-item">' +
-                    '<h4 class="list-group-item-heading">' +obj.result[i].Name + '</h4>' +
-                    '<p class="list-group-item-text">Phone: ' + obj.result[i].Telephone +
-                        ' , Address: ' + obj.result[i].Address +
-                    ' , District: ' + obj.result[i].District +'</p>' +
-                    ''+
-                        '<button type="button" class="btn btn-danger btn-sm" id="btnDelete">Delete Account</button></span>'+
-                        '</a></div>');
-
-                $(document).ready(function() {
-                    $('#btnDelete').click(function() {
-                        alert("Keet");
-                    });
-                });
-
-            }
-
-        }
-    });
-
-   // document.getElementById("btnDelete").addEventListener("click", deleteEntry);
-
-
-};
+//---------------------------------------------------------------------
 
 
 
+// function loadMapHotels(){
+//
+//     if (document.getElementById("checkBoxHotels").checked){
+//         jQuery.ajax({
+//             type: "GET",
+//             url: 'http://localhost/travelSL/web/app_dev.php/user/loadMapHotels',
+//             dataType: 'json',
+//             success: function (obj, textstatus) {
+//
+//                 for (i = 0; i < Object.keys(obj.result).length; i++) {
+//
+//
+//                     // // var myCenter=new google.maps.LatLng(obj.result[i].Lat ,obj.result[i].long);
+//                     // var myCenter=new google.maps.LatLng(7.8675723 ,79.9305321);
+//                     // var marker=new google.maps.Marker({
+//                     //     position:myCenter
+//                     // });
+//                     // marker.setMap(map);
+//                     //
+//                     // var myCenter=new google.maps.LatLng(7.8675723 ,79.9305321);
+//                     //
+//                     // function initialize()
+//                     // {
+//                     //     var mapProp = {
+//                     //         center:myCenter,
+//                     //         zoom:5,
+//                     //         mapTypeId:google.maps.MapTypeId.ROADMAP
+//                     //     };
+//                     //
+//                     //     var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+//                     //
+//                     //     var marker=new google.maps.Marker({
+//                     //         position:myCenter,
+//                     //     });
+//                     //
+//                     //     marker.setMap(map);
+//                     // }
+//                     //
+//                     // google.maps.event.addDomListener(window, 'load', initialize);
+//
+//                 }
+//
+//
+//             }
+//         });
+//     }
+//     else{
+//
+//     }
+// }
+
+
+}
+
+
+//---------------------------------------------------------------------
 //main functionalities used in the user bundle
 
 function signin() {
@@ -329,3 +358,5 @@ function showMessages(){
     }
 
 }
+
+//---------------------------------------------------------------------
