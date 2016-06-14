@@ -2,101 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bf40a8d-2f4c-4b39-88ed-11ce48f9e1da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/cancel-off.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/cancel-on.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/images/icons/airlineIcon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/images/icons/bankIcon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/images/icons/hospitalIcon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/images/icons/hotelIcon2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/images/icons/locationIcon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/images/icons/policeIcon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/images/icons/userLocationIcon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/images/logo-large.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/images/logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/images/star/cancel-off.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/images/star/cancel-on.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/images/star/star-half.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/images/star/star-off.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/images/star/star-on.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/star-half.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/star-off.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/star-on.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/star/fonts/raty.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/star/fonts/raty.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/star/fonts/raty.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/star/images/cancel-off.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/star/images/cancel-on.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/star/images/star-half.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/star/images/star-off.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/star/images/star-on.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/cancel-off.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/cancel-on.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/images/icons/airlineIcon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/images/icons/bankIcon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/images/icons/hospitalIcon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/images/icons/hotelIcon2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/images/icons/locationIcon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/images/icons/policeIcon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/images/icons/userLocationIcon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/images/logo-large.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/images/logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/images/star/cancel-off.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/images/star/cancel-on.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/images/star/star-half.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/images/star/star-off.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/images/star/star-on.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/star-half.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/star-off.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/star-on.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/star/fonts/raty.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/star/fonts/raty.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/star/fonts/raty.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/star/images/cancel-off.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/star/images/cancel-on.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/star/images/star-half.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/star/images/star-off.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/star/images/star-on.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/css/loading.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/inbox.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/inbox.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/jquery.raty.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/star/fonts/raty.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/star/jquery.raty.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/android/assets/www/star/jquery.raty.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/css/loading.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/inbox.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/inbox.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/jquery.raty.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/star/fonts/raty.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/star/jquery.raty.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/star/jquery.raty.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/empty.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/empty.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/contact_us.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/contact_us.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/guides.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/guides.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/hotels.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/hotels.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/index.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/destinationPage.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/destinationPage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/hotelPage.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/hotelPage.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/index.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/viewHotel.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/viewHotel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/random.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/random.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/selectLocation.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/selectLocation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/viewHotel.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/viewHotel.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/contact_us.html" afterPath="$PROJECT_DIR$/www/contact_us.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/guides.html" afterPath="$PROJECT_DIR$/www/guides.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/hotels.html" afterPath="$PROJECT_DIR$/www/hotels.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/destinationPage.js" afterPath="$PROJECT_DIR$/www/js/destinationPage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/hotelPage.js" afterPath="$PROJECT_DIR$/www/js/hotelPage.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/index.js" afterPath="$PROJECT_DIR$/www/js/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/viewHotel.js" afterPath="$PROJECT_DIR$/www/js/viewHotel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/random.html" afterPath="$PROJECT_DIR$/www/random.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/selectLocation.html" afterPath="$PROJECT_DIR$/www/selectLocation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/viewHotel.html" afterPath="$PROJECT_DIR$/www/viewHotel.html" />
     </list>
     <ignored path="travelSriLanka.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -128,41 +44,75 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="514" column="117" selection-start-line="514" selection-start-column="117" selection-end-line="514" selection-end-column="117" />
+            <state relative-caret-position="792">
+              <caret line="207" column="26" selection-start-line="207" selection-start-column="26" selection-end-line="207" selection-end-column="26" />
               <folding>
                 <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#li#5;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#li#6;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="103" column="20" selection-start-line="103" selection-start-column="20" selection-end-line="103" selection-end-column="20" />
+            <state relative-caret-position="572">
+              <caret line="140" column="36" selection-start-line="140" selection-start-column="36" selection-end-line="140" selection-end-column="36" />
               <folding>
-                <element signature="n#!!block;n#showLoadingOverlay#0" expanded="false" />
                 <element signature="n#!!block;n#hideLoadingOverlay#0" expanded="false" />
                 <element signature="n#!!block;n#logout#0" expanded="false" />
                 <element signature="n#!!block;n#register#0" expanded="false" />
+                <element signature="n#!!block;n#registerCorporateAccount#0" expanded="false" />
+                <element signature="n#!!block;n#showDiv#0" expanded="false" />
+                <element signature="n#!!block;n#showButton#0" expanded="false" />
+                <element signature="n#!!block;n#showMessages#0" expanded="false" />
+                <marker date="1465930356657" expanded="false" signature="1411:1618" ph="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="empty.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/empty.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!block;n#showLoadingOverlay#0" expanded="false" />
+                <element signature="n#!!block;n#hideLoadingOverlay#0" expanded="false" />
+                <element signature="n#!!block;n#signin#0" expanded="false" />
+                <element signature="n#!!block;n#logout#0" expanded="false" />
+                <element signature="n#!!block;n#register#0" expanded="false" />
+                <element signature="n#!!block;n#registerCorporateAccount#0" expanded="false" />
+                <element signature="n#!!block;n#showDiv#0" expanded="false" />
+                <element signature="n#!!block;n#showButton#0" expanded="false" />
+                <element signature="n#!!block;n#showMessages#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="empty.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/empty.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -172,8 +122,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -228,8 +178,10 @@
         <option value="$PROJECT_DIR$/www/guides.html" />
         <option value="$PROJECT_DIR$/www/js/hotelPage.js" />
         <option value="$PROJECT_DIR$/www/viewHotel.html" />
-        <option value="$PROJECT_DIR$/www/js/index.js" />
         <option value="$PROJECT_DIR$/www/index.html" />
+        <option value="$PROJECT_DIR$/www/empty.html" />
+        <option value="$PROJECT_DIR$/www/js/empty.js" />
+        <option value="$PROJECT_DIR$/www/js/index.js" />
       </list>
     </option>
   </component>
@@ -420,12 +372,12 @@
       <workItem from="1465580929723" duration="42015000" />
       <workItem from="1465748749641" duration="4033000" />
       <workItem from="1465783163432" duration="2681000" />
-      <workItem from="1465841555881" duration="23149000" />
+      <workItem from="1465841555881" duration="25826000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111913000" />
+    <option name="totallyTimeSpent" value="114590000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1924" height="1050" extended-state="0" />
@@ -463,25 +415,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1012">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/contactUs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/myProfile.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="748">
@@ -584,13 +522,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/random.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -862,14 +793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/hotelPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="47" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/css/loading.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -895,37 +818,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="103" column="20" selection-start-line="103" selection-start-column="20" selection-end-line="103" selection-end-column="20" />
-          <folding>
-            <element signature="n#!!block;n#showLoadingOverlay#0" expanded="false" />
-            <element signature="n#!!block;n#hideLoadingOverlay#0" expanded="false" />
-            <element signature="n#!!block;n#logout#0" expanded="false" />
-            <element signature="n#!!block;n#register#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="514" column="117" selection-start-line="514" selection-start-column="117" selection-end-line="514" selection-end-column="117" />
+        <state relative-caret-position="792">
+          <caret line="207" column="26" selection-start-line="207" selection-start-column="26" selection-end-line="207" selection-end-column="26" />
           <folding>
             <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#img#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#li#5;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#li#6;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/empty.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/random.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/hotelPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="47" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/empty.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#showLoadingOverlay#0" expanded="false" />
+            <element signature="n#!!block;n#hideLoadingOverlay#0" expanded="false" />
+            <element signature="n#!!block;n#signin#0" expanded="false" />
+            <element signature="n#!!block;n#logout#0" expanded="false" />
+            <element signature="n#!!block;n#register#0" expanded="false" />
+            <element signature="n#!!block;n#registerCorporateAccount#0" expanded="false" />
+            <element signature="n#!!block;n#showDiv#0" expanded="false" />
+            <element signature="n#!!block;n#showButton#0" expanded="false" />
+            <element signature="n#!!block;n#showMessages#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="140" column="36" selection-start-line="140" selection-start-column="36" selection-end-line="140" selection-end-column="36" />
+          <folding>
+            <element signature="n#!!block;n#hideLoadingOverlay#0" expanded="false" />
+            <element signature="n#!!block;n#logout#0" expanded="false" />
+            <element signature="n#!!block;n#register#0" expanded="false" />
+            <element signature="n#!!block;n#registerCorporateAccount#0" expanded="false" />
+            <element signature="n#!!block;n#showDiv#0" expanded="false" />
+            <element signature="n#!!block;n#showButton#0" expanded="false" />
+            <element signature="n#!!block;n#showMessages#0" expanded="false" />
+            <marker date="1465930356657" expanded="false" signature="1411:1618" ph="{...}" />
           </folding>
         </state>
       </provider>
