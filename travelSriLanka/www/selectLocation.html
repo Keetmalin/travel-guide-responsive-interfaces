@@ -18,79 +18,519 @@
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
+    <!--<script-->
+    <!--src="http://maps.googleapis.com/maps/api/js">-->
+    <!--</script>-->
+
     <script
-            src="http://maps.googleapis.com/maps/api/js">
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHN3cW7So44C_uMP3-T7YNqHQVD1dj_4E&callback=initialize">
     </script>
 
 
 
     <script>
 
+
+        //     showLocations();
+
+
+        var map;
         var locations = new Array([]);
+        var hotels = new Array([]);
+        var locationMarkers = [];
+        var hotelMarkers = [];
+        var police = new Array([]);
+        var policeMarkers = [];
+        var hospital = new Array([]);
+        var hospitalMarkers = [];
+        var airlines = new Array([]);
+        var airlinesMarkers = [];
+        var banks = new Array([]);
+        var banksMarkers = [];
+        var select = false;
+        var selectedLocations = new Array([]);
+        var directionsService = new google.maps.DirectionsService;
+        var renderOptions = { draggable: true };
+        var directionsDisplay = new google.maps.DirectionsRenderer(renderOptions);
+        var pos;
+        var waypts = [];
 
-        jQuery.ajax({
-            type: "GET",
-            url: 'http://localhost/travelSL/web/user/hotelPage',
-            dataType: 'json',
-
-            success: function (obj, textstatus) {
-
-
-
-                for (i = 0; i < Object.keys(obj.result).length; i++) {
-
-                    locations[i] = {
-                        0: obj.result[i].Name,
-                        1: obj.result[i].Lat,
-                        2: obj.result[i].long
-                    };
-
-                }
-
-
-
-
-            }
-
-        });
-
-
+        var infowindow = new google.maps.InfoWindow();
 
         var myCenter=new google.maps.LatLng(7.8675723 ,79.9305321);
+
         function initialize() {
 
             var mapProp = {
                 center:myCenter,
-                zoom:5,
+                zoom:7,
                 mapTypeId:google.maps.MapTypeId.ROADMAP
             };
+            //window.alert();
 
-            var map=new google.maps.Map(document.getElementById("map"),mapProp);
+            map=new google.maps.Map(document.getElementById("map"),mapProp);
 
-            var marker, i;
-            var infowindow = new google.maps.InfoWindow();
+            // Resize stuff...
+            google.maps.event.addDomListener(window, "resize", function() {
+                var center = map.getCenter();
+                google.maps.event.trigger(map, "resize");
+                map.setCenter(center);
+            });
 
-            for (i = 0; i < locations.length; i++) {
-                marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                    map: map
+            getMyLocation();
+            filter();
+            createRoute();
+
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+        function getMyLocation(){
+            if (navigator.geolocation) {
+
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    var marker = new google.maps.Marker({
+                        position: pos,
+                        map: map,
+                        icon:'images/icons/userLocationIcon.png'
+                    });
+                    marker.setMap(map);
+
+                    marker.info = new google.maps.InfoWindow({
+                        content: 'my location'
+                    });
+                    google.maps.event.addListener(marker, 'click', function() {
+                        marker.info.open(map, marker);
+                    });
+
+
+                }, function() {
+                    handleLocationError(true, infowindow, map.getCenter());
                 });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infowindow, map.getCenter());
+            }
+        }
 
-                google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                    return function() {
-                        infowindow.setContent(locations[i][0]);
-                        infowindow.open(map, marker);
+        function filter(){
+
+
+
+            jQuery.ajax({
+                type: "GET",
+                url: 'http://localhost/travelSL/web/user/hotelPage',
+                dataType: 'json',
+
+                success: function (obj, textstatus) {
+
+                    for (i = 0; i < Object.keys(obj.result).length; i++) {
+
+                        hotels[i] = {
+                            0: obj.result[i].Name,
+                            1: obj.result[i].Lat,
+                            2: obj.result[i].Long
+                        };
+
                     }
-                })(marker, i));
+
+                    for (i = 0; i < hotels.length; i++) {
+
+                        var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(hotels[i][1], hotels[i][2]),
+                            map: map,
+                            icon:'images/icons/hotelIcon2.png'
+                        });
+                        hotelMarkers.push(marker);
+
+                        google.maps.event.addListener(hotelMarkers[i], 'click', (function(marker, i) {
+                            return function() {
+                                infowindow.setContent(hotels[i][0]);
+                                infowindow.open(map, marker);
+                            }
+                        })(hotelMarkers[i], i));
 
 
+
+                    }
+                    if (document.getElementById("checkBoxHotels").checked){
+                        for (var i = 0; i < hotelMarkers.length; i++) {
+                            hotelMarkers[i].setMap(map);
+                        }
+                    }
+                    if (!document.getElementById("checkBoxHotels").checked){
+                        for (var i = 0; i < hotelMarkers.length; i++) {
+                            hotelMarkers[i].setMap(null);
+                        }
+                    }
+                }
+
+            });
+
+            if (document.getElementById("checkBoxDestinations").checked){
+                jQuery.ajax({
+                    type: "GET",
+                    url: 'http://localhost/travelSL/web/user/destinationPage',
+                    dataType: 'json',
+
+                    success: function (obj, textstatus) {
+
+                        for (i = 0; i < Object.keys(obj.result).length; i++) {
+
+                            locations[i] = {
+                                0: obj.result[i].Name,
+                                1: obj.result[i].Lat,
+                                2: obj.result[i].Long
+                            };
+
+                        }
+
+                        for (i = 0; i < locations.length; i++) {
+
+                            var marker = new google.maps.Marker({
+                                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                                map: map,
+                                icon:'images/icons/locationIcon.png'
+                            });
+                            locationMarkers.push(marker);
+
+                            google.maps.event.addListener(locationMarkers[i], 'click', (function(marker, i) {
+                                return function() {
+                                    infowindow.setContent(locations[i][0]);
+                                    infowindow.open(map, marker);
+                                    if (select){
+                                        var myNode = document.getElementById("locationList");
+                                        myNode.innerHTML = '';
+                                        selectedLocations[selectedLocations.length] = {
+                                            0: obj.result[i].Name,
+                                            1: obj.result[i].Lat,
+                                            2: obj.result[i].Long,
+                                        };
+                                        makeUL(selectedLocations);
+                                        waypts.push({
+                                            location: new google.maps.LatLng(obj.result[i].Lat,obj.result[i].Long),
+                                            stopover: true
+                                        });
+
+                                    }
+                                }
+                            })(locationMarkers[i], i));
+                        }
+                        for (var i = 0; i < locationMarkers.length; i++) {
+                            locationMarkers[i].setMap(map);
+                        }
+
+
+                    }
+
+                });
+            }
+            if (!document.getElementById("checkBoxDestinations").checked){
+                for (var i = 0; i < locationMarkers.length; i++) {
+                    locationMarkers[i].setMap(null);
+                }
+            }
+            jQuery.ajax({
+                type: "GET",
+                url: 'http://localhost/travelSL/web/user/loadPolice',
+                dataType: 'json',
+
+                success: function (obj, textstatus) {
+
+                    for (i = 0; i < Object.keys(obj.result).length; i++) {
+
+                        police[i] = {
+                            0: obj.result[i].Name,
+                            1: obj.result[i].Lat,
+                            2: obj.result[i].Long
+                        };
+
+                    }
+
+                    for (i = 0; i < police.length; i++) {
+
+                        var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(police[i][1], police[i][2]),
+                            map: map,
+                            icon:'images/icons/policeIcon.png'
+                        });
+                        policeMarkers.push(marker);
+
+                        google.maps.event.addListener(policeMarkers[i], 'click', (function(marker, i) {
+                            return function() {
+                                infowindow.setContent(police[i][0]);
+                                infowindow.open(map, marker);
+                            }
+                        })(policeMarkers[i], i));
+
+
+
+                    }
+                    if (document.getElementById("checkBoxPolice").checked){
+                        for (var i = 0; i < policeMarkers.length; i++) {
+                            policeMarkers[i].setMap(map);
+                        }
+                    }
+                    if (!document.getElementById("checkBoxPolice").checked){
+                        for (var i = 0; i < policeMarkers.length; i++) {
+                            policeMarkers[i].setMap(null);
+                        }
+                    }
+                }
+
+            });
+            jQuery.ajax({
+                type: "GET",
+                url: 'http://localhost/travelSL/web/user/loadHospital',
+                dataType: 'json',
+
+                success: function (obj, textstatus) {
+
+                    for (i = 0; i < Object.keys(obj.result).length; i++) {
+
+                        hospital[i] = {
+                            0: obj.result[i].Name,
+                            1: obj.result[i].Lat,
+                            2: obj.result[i].Long
+                        };
+
+                    }
+
+                    for (i = 0; i < hospital.length; i++) {
+
+                        var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(hospital[i][1], hospital[i][2]),
+                            map: map,
+                            icon:'images/icons/hospitalIcon.png'
+                        });
+                        hospitalMarkers.push(marker);
+
+                        google.maps.event.addListener(hospitalMarkers[i], 'click', (function(marker, i) {
+                            return function() {
+                                infowindow.setContent(hospital[i][0]);
+                                infowindow.open(map, marker);
+                            }
+                        })(hospitalMarkers[i], i));
+
+
+
+                    }
+                    if (document.getElementById("checkBoxHospital").checked){
+                        for (var i = 0; i < hospitalMarkers.length; i++) {
+                            hospitalMarkers[i].setMap(map);
+                        }
+                    }
+                    if (!document.getElementById("checkBoxHospital").checked){
+                        for (var i = 0; i < hospitalMarkers.length; i++) {
+                            hospitalMarkers[i].setMap(null);
+                        }
+                    }
+                }
+
+            });
+            jQuery.ajax({
+                type: "GET",
+                url: 'http://localhost/travelSL/web/user/loadAirLine',
+                dataType: 'json',
+
+                success: function (obj, textstatus) {
+
+                    for (i = 0; i < Object.keys(obj.result).length; i++) {
+
+                        airlines[i] = {
+                            0: obj.result[i].Name,
+                            1: obj.result[i].Lat,
+                            2: obj.result[i].Long
+                        };
+
+                    }
+
+                    for (i = 0; i < airlines.length; i++) {
+
+                        var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(airlines[i][1], airlines[i][2]),
+                            map: map,
+                            icon:'images/icons/airlineIcon.png'
+                        });
+                        airlinesMarkers.push(marker);
+
+                        google.maps.event.addListener(airlinesMarkers[i], 'click', (function(marker, i) {
+                            return function() {
+                                infowindow.setContent(airlines[i][0]);
+                                infowindow.open(map, marker);
+                            }
+                        })(airlinesMarkers[i], i));
+
+
+
+                    }
+                    if (document.getElementById("checkBoxAirline").checked){
+                        for (var i = 0; i < airlinesMarkers.length; i++) {
+                            airlinesMarkers[i].setMap(map);
+                        }
+                    }
+                    if (!document.getElementById("checkBoxAirline").checked){
+                        for (var i = 0; i < airlinesMarkers.length; i++) {
+                            airlinesMarkers[i].setMap(null);
+                        }
+                    }
+                }
+
+            });
+            jQuery.ajax({
+                type: "GET",
+                url: 'http://localhost/travelSL/web/user/loadBank',
+                dataType: 'json',
+
+                success: function (obj, textstatus) {
+
+                    for (i = 0; i < Object.keys(obj.result).length; i++) {
+
+                        banks[i] = {
+                            0: obj.result[i].Name,
+                            1: obj.result[i].Lat,
+                            2: obj.result[i].Long
+                        };
+
+                    }
+
+                    for (i = 0; i < banks.length; i++) {
+
+                        var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(banks[i][1], banks[i][2]),
+                            map: map,
+                            icon:'images/icons/bankIcon.png'
+                        });
+                        banksMarkers.push(marker);
+
+                        google.maps.event.addListener(banksMarkers[i], 'click', (function(marker, i) {
+                            return function() {
+                                infowindow.setContent(banks[i][0]);
+                                infowindow.open(map, marker);
+                            }
+                        })(banksMarkers[i], i));
+
+
+
+                    }
+                    if (document.getElementById("checkBoxBank").checked){
+                        for (var i = 0; i < banksMarkers.length; i++) {
+                            banksMarkers[i].setMap(map);
+                        }
+                    }
+                    if (!document.getElementById("checkBoxBank").checked){
+                        for (var i = 0; i < banksMarkers.length; i++) {
+                            banksMarkers[i].setMap(null);
+                        }
+                    }
+                }
+
+            });
+        }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                    'Error: The Geolocation service failed.' :
+                    'Error: Your browser doesn\'t support geolocation.');
+        }
+
+        function changeSelectButton(){
+
+            var elem = document.getElementById("selectButton");
+            if (elem.value=="Select Locations"){
+                elem.value = "Done Selecting";
+                select = true;
+            }
+            else{
+                elem.value = "Select Locations";
+                select = false;
+            }
+        }
+
+        function makeUL(array) {
+            // Create the list element:
+            var list = document.createElement('ul');
+
+            for(var i = 1; i < array.length; i++) {
+                // Create the list item:
+                var item = document.createElement('li');
+
+                // Set its contents:
+                item.appendChild(document.createTextNode(array[i][0]));
+
+                // Add it to the list:
+                list.appendChild(item);
+            }
+
+            // Finally, return the constructed list:
+            document.getElementById('locationList').appendChild(list);
+        }
+
+        function createRoute(){
+
+            if (selectedLocations.length >1 ){
+                directionsDisplay.setMap(map);
+                //window.alert(selectedLocations[selectedLocations.length-1][1]);
+                var start = pos;
+                var end = new google.maps.LatLng(selectedLocations[selectedLocations.length-1][1],selectedLocations[selectedLocations.length-1][2]);
+
+                directionsService.route({
+                    origin: start,
+                    destination: end,
+                    waypoints: waypts,
+                    optimizeWaypoints: true,
+                    travelMode: google.maps.TravelMode.DRIVING
+                }, function(response, status) {
+                    if (status === google.maps.DirectionsStatus.OK) {
+                        directionsDisplay.setDirections(response);
+                    } else {
+                        directionsService.route({
+                            origin: start,
+                            destination: end,
+                            waypoints: waypts,
+                            optimizeWaypoints: true,
+                            travelMode: google.maps.TravelMode.WALKING
+                        }, function(response, status) {
+                            if (status === google.maps.DirectionsStatus.OK) {
+                                directionsDisplay.setDirections(response);
+                                var route = response.routes[0];
+                                var summaryPanel = document.getElementById('directions-panel');
+                                summaryPanel.innerHTML = route.legs[0].start_address + ' to ' +selectedLocations[selectedLocations.length-1][0] + '<br>';
+                                // For each route, display summary information.
+                                var distance = 0;
+                                var duration = 0;
+                                for (var i = 0; i < route.legs.length; i++) {
+
+                                    distance += route.legs[i].distance.value;
+                                    duration += route.legs[i].duration.value;
+                                }
+                                summaryPanel.innerHTML += distance/1000 + ' km <br>';
+                                summaryPanel.innerHTML += Math.round(duration/3600 * 100) / 100 + ' hours <br>';
+
+                            } else {
+                                window.alert('Directions request failed due to ' + status);
+                            }
+                        });
+                    }
+                });
 
             }
 
 
-            marker.setMap(map);
         }
-        google.maps.event.addDomListener(window, 'load', initialize);
+
+        function filterDistrict(){
+            filter();
+        }
+        function clearFilters(){
+            window.location.href = "selectLocation.html";
+        }
+
+
     </script>
 
 
@@ -253,37 +693,96 @@
     <!-- /.navbar-collapse -->
 </nav>
 
-<div id="wrapper" style="color: whitesmoke">
-
+<div id="wrapper" >
 
     <div id="map" style="width:100%;height:500px;"></div>
 
-
-
-
-    <div class="container">
+    <div class="container" style="color: whitesmoke">
         <div class="row">
-            <div class="col-md-8">
-                <h2>Select What contents to display on Map</h2>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="District">Select District:</label>
+                    <select class="form-control" id="districtFilter" name="District" onchange="filterDistrict()">
+                        <option value="any" selected>Any District</option>
+                        <option value="Ampara">Ampara</option>
+                        <option value="Anuradhapura">Anuradhapura</option>
+                        <option value="Badulla" >Badulla</option>
+                        <option value="Batticaloa">Batticaloa</option>
+                        <option value="Colombo" >Colombo</option>
+                        <option value="Galle">Galle</option>
+                        <option value="Gampaha">Gampaha</option>
+                        <option value="Hambantota">Hambantota</option>
+                        <option value="Jaffna">Jaffna</option>
+                        <option value="Kaluthara" >Kaluthara</option>
+                        <option value="Kandy">Kandy</option>
+                        <option value="Kegalle">Kegalle</option>
+                        <option value="Kilinochchi">Kilinochchi</option>
+                        <option value="Kurunegala" >Kurunegala</option>
+                        <option value="Mannar">Mannar</option>
+                        <option value="Matale">Matale</option>
+                        <option value="Matara">Matara</option>
+                        <option value="Monaragala" >Monaragala</option>
+                        <option value="Mullaitivu">Mullaitivu</option>
+                        <option value="NuwaraEliya">NuwaraEliya</option>
+                        <option value="Polonnaruwa">Polonnaruwa</option>
+                        <option value="Puttalam" >Puttalam</option>
+                        <option value="Ratnapura">Ratnapura</option>
+                        <option value="Trincomalee">Trincomalee</option>
+                        <option value="Vavunia">Vavunia</option>
+
+
+                    </select>
+
+                </div>
+                <form role="form">
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="Hotels" id="checkBoxHotels">Hotels</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="Destinations" id="checkBoxDestinations" checked>Destinations</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="Destinations" id="checkBoxPolice" >Police Stations</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="Destinations" id="checkBoxHospital" >Hospitals</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="Destinations" id="checkBoxAirline" >Air Lines</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="Destinations" id="checkBoxBank" >Banks</label>
+                    </div>
+                    <!--<div class="checkbox">-->
+                    <!--<label><input type="checkbox" value="" disabled>Option 3</label>-->
+                    <!--</div>-->
+                </form>
+                <div style="color: black">
+                    <button  class="btn-primary" onclick="filter()">Filter</button>
+                    <button  class="btn-primary" onclick="clearFilters()">Clear Filters</button>
+                </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <p><br>Please Mark the destinations you want to travel To. We will do all the mapping for you!!!</p>
+
+
+
+                <input class="btn-primary" style="color: black" onclick="changeSelectButton()" type="button" value="Select Locations" id="selectButton">
+
+                <div id="locationList">
+
+                </div>
+                <br>
+                <div id="directions-panel"></div>
+                <input class="btn-primary" style="color: black" onclick="createRoute()" type="button" value="Create Route" >
+                <input class="btn-primary" style="color: black" onclick="clearFilters()" type="button" value="Reset" >
+
             </div>
 
         </div>
 
 
-        <form role="form">
-            <div class="checkbox">
-                <label><input type="checkbox" value="Hotels" id="checkBoxHotels">Hotels</label>
-            </div>
-            <div class="checkbox">
-                <label><input type="checkbox" value="Destinations" id="checkBoxDestinations" checked>Destinations</label>
-            </div>
-            <!--<div class="checkbox">-->
-            <!--<label><input type="checkbox" value="" disabled>Option 3</label>-->
-            <!--</div>-->
-        </form>
+
     </div>
 </div>
 
@@ -641,6 +1140,10 @@
 </div>
 
 <!--import the final scripts at the end of the page-->
+
+<script>
+
+</script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>

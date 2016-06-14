@@ -1,8 +1,7 @@
 
 window.onload = function() {
 
-
-//add session of the current user in the syste,. If no user, add guest as the current user
+    //add session of the current user in the syste,. If no user, add guest as the current user
     if((sessionStorage.getItem("userName")) == null ){
         document.getElementById("userNameSession").innerHTML = 'Guest';
     }
@@ -25,17 +24,33 @@ window.onload = function() {
 
 //main functionalities used in the user bundle
 
+function showLoadingOverlay() {
+    var loadingContainer = document.getElementById('loading-container');
+    loadingContainer.style.display = 'block';
+    var clock = document.getElementById('clock');
+    clock.style.display = 'block';
+}
+
+function hideLoadingOverlay() {
+    var loadingContainer = document.getElementById('loading-container');
+    loadingContainer.style.display = 'none';
+    var clock = document.getElementById('clock');
+    clock.style.display = 'none';
+}
+
 function signin() {
 
+    showLoadingOverlay();
     var userName = document.getElementById("userName").value;
     var password = document.getElementById("password").value;
+
     jQuery.ajax({
         type: "GET",
-        url: 'http://localhost/travelSL/web/user/login',
-        dataType: 'json',
+        url: 'http://travelsl.herokuapp.com/user/login',
+        dataType: 'jsonp',
         data: { userName: userName , password: password },
         success: function (obj, textstatus) {
-
+            //window.alert(obj.keet);
             if ( obj.value == 0 ){
 
                 //show the error modal
@@ -48,13 +63,20 @@ function signin() {
             else{
                 //hide log in window
                 $("#logIn").modal("hide");
+
                 if (typeof(Storage) !== "undefined") {
                     // Store values as cookies in the sessions in the browser
                     sessionStorage.setItem("userName", obj.result[0].User_Username);
                     sessionStorage.setItem("category" , obj.result[0].category);
+                    //alert();
+                    if((sessionStorage.getItem("category")) == "Admin" ){
+
+                        document.getElementById("adminPanelButton").style.display = "block";
+                    }
                     //set the userName display area as current logged in user
                     document.getElementById("userNameSession").innerHTML = sessionStorage.getItem("userName");
 
+                    hideLoadingOverlay();
                     //display log in successful window
                     $("#loginSuccessful").modal("show");
                 } else {
@@ -76,7 +98,7 @@ function logout() {
     sessionStorage.removeItem("category");
     //set the name display area as guest
     document.getElementById("userNameSession").innerHTML = sessionStorage.getItem("userName");
-
+    window.location.href = "index.html";
 }
 
 function register() {
@@ -98,6 +120,7 @@ function register() {
         success: function (obj, textstatus) {
 
             //on success, display success msgs, hide current register modal
+            $("#selectCategory").modal("hide");
             $("#register").modal("hide");
             $("#loginSuccessful").modal("show");
             sessionStorage.setItem("userName", userNameR);
@@ -135,7 +158,9 @@ function registerCorporateAccount() {
         data: { userNameR: userNameR, nameR:nameR , emailR:emailR , passwordR:passwordR , repasswordR:repasswordR , category:category },
         success: function (obj, textstatus) {
 
+            $("#selectCategory").modal("hide");
             $("#registerCorporateAccount").modal("hide");
+
 
             jQuery.ajax({
                 type: "GET",
@@ -248,11 +273,16 @@ function showButton(){
         document.getElementById('loginButton').style.display = "block";
         document.getElementById('registerButton').style.display = "block";
         document.getElementById('logoutButton').style.display = "none";
+        document.getElementById('myProfileButton').style.display = "none";
+        document.getElementById('inboxButton').style.display = "none";
+
     }
     else{
         document.getElementById('loginButton').style.display = "none";
         document.getElementById('registerButton').style.display = "none";
         document.getElementById('logoutButton').style.display = "block";
+        document.getElementById('myProfileButton').style.display = "block";
+        document.getElementById('inboxButton').style.display = "block";
     }
 
 }

@@ -9,7 +9,7 @@ window.onload = function() {
     jQuery.ajax({
         type: "GET",
         url: 'http://localhost/travelSL/web/user/destinationPage',
-        dataType: 'json',
+        dataType: 'jsonp',
 
         success: function (obj, textstatus) {
 
@@ -54,6 +54,61 @@ window.onload = function() {
 
 
 };
+
+//pass index of unit, to the next page
+function loadModalOne() {
+    sessionStorage.setItem("locationIndex", 0);
+}
+function loadModalTwo() {
+    sessionStorage.setItem("locationIndex", 1);
+}
+function loadModalThree() {
+    sessionStorage.setItem("locationIndex", 2);
+}
+function loadModalFour() {
+    sessionStorage.setItem("locationIndex", 3);
+}
+function loadModalFive() {
+    sessionStorage.setItem("locationIndex", 4);
+}
+function loadModalSix() {
+    sessionStorage.setItem("locationIndex", 5);
+}
+function loadModalSeven() {
+    sessionStorage.setItem("locationIndex", 6);
+}
+function loadModalEight() {
+    sessionStorage.setItem("locationIndex", 7);
+}
+function loadModalNine() {
+    sessionStorage.setItem("locationIndex", 8);
+}
+function loadModalTen() {
+    sessionStorage.setItem("locationIndex", 9);
+}
+function loadModalEleven() {
+    sessionStorage.setItem("locationIndex", 10);
+}
+function loadModalTwelve() {
+    sessionStorage.setItem("locationIndex", 11);
+}
+
+
+//set listeerns to all the view buttons
+
+document.getElementById("R11B").addEventListener("click", loadModalOne);
+document.getElementById("R12B").addEventListener("click", loadModalTwo);
+document.getElementById("R13B").addEventListener("click", loadModalThree);
+document.getElementById("R14B").addEventListener("click", loadModalFour);
+document.getElementById("R21B").addEventListener("click", loadModalFive);
+document.getElementById("R22B").addEventListener("click", loadModalSix);
+document.getElementById("R23B").addEventListener("click", loadModalSeven);
+document.getElementById("R24B").addEventListener("click", loadModalEight);
+document.getElementById("R31B").addEventListener("click", loadModalNine);
+document.getElementById("R32B").addEventListener("click", loadModalTen);
+document.getElementById("R33B").addEventListener("click", loadModalEleven);
+document.getElementById("R34B").addEventListener("click", loadModalTwelve);
+
 //connects to the database and add new locations
 function addNewDestination() {
 

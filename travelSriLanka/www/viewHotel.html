@@ -11,19 +11,14 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="star/jquery.raty.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <!--this style is for the image carousal-->
-    <style>
-        .carousel-inner > .item > img,
-        .carousel-inner > .item > a > img {
-            width: 100%;
-            /*margin: auto;*/
-        }
-    </style>
+
 
 </head>
 <body>
@@ -240,7 +235,7 @@
 
     <div class="row" align="left" style="color: white">
         <div class="col-xs-12 col-md-8" >
-            <h4>Description</h4>
+            <h3 id="heading"></h3><div id="star"></div>
             <p id="modalDescription"></p>
 
         </div>
@@ -301,8 +296,23 @@
                 <div class="modal-body">
 
                     <div class="form-group">
+                        <label for="cmName">Name</label>
+                        <input type="text" class="form-control" id="cmName">
+                    </div>
+                    <div class="form-group">
+                        <select id="booking">
+                            <option value="fullBoard" selected>Full Board</option>
+                            <option value="halfBoard">Half Board</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label for="numberOfDays">Number Of days:</label>
                         <input type="number" class="form-control" id="numberOfDays">
+                    </div>
+                    <div class="form-group">
+                        <label for="numberOfRooms">Number Of rooms:</label>
+                        <input type="number" class="form-control" id="numberOfRooms">
                     </div>
                     <div class="form-group">
                         <label for="cardNumber">Card Number:</label>
@@ -442,110 +452,18 @@
     </div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="selectArea" role="dialog">
-    <div class="modal-dialog modal-lg">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" align="center">Select Location on Map</h4>
-                <!--<p>Or view Full Map </p>-->
-            </div>
-            <div class="modal-body">
-                <form role="form">
-                    <div class="row" align="center">
-                        <div class="col-sm-12 col-md-6">
-                            <h3>Select By Province</h3>
-                        </div>
-                        <div class="col-sm-12 col-md-6">
-                            <h3>Select By District</h3>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12 col-md-6">
-
-                            <img class="img-responsive" src="images/sri-lanka-provincial-map.jpg" alt="Provincial Map of Sri Lanka" usemap="#provincialMap" style="align-content: center">
-                            <map name="provincialMap">
-                                <area shape="circle" coords="101,79,73" href="/" alt="Nothern_Province">
-                                <area shape="circle" coords="148,199,44" href="/" alt="North Central">
-                                <area shape="circle" coords="86,273,48" href="/" alt="North Western">
-                                <area shape="square" coords="140,279,190, 365" href="/" alt="Central">
-                                <area shape="circle" coords="230,395,50" href="/" alt="Uva">
-                                <area shape="square" coords="90,446,163, 492" href="/" alt="southern">
-                                <area shape="square" coords="51,327,94, 439" href="/" alt="western">
-                                <area shape="square" coords="99,326,134, 397" href="/" alt="sabaragamuwa1">
-                                <area shape="square" coords="100,402,177, 439" href="/" alt="sabaragamuwa2">
-                                <area shape="square" coords="192,118,276, 202" href="/" alt="eastern1">
-                                <area shape="square" coords="232,208,177, 439" href="/" alt="eastern2">
-                                <area shape="square" coords="276,315,310, 420" href="/" alt="eastern3">
-                            </map>
-                        </div>
-                        <br />
-                        <div class="col-sm-12 col-md-6">
-
-                            <img class="img-responsive" src="images/srilanka-district-map.jpg" alt="District Map of Sri Lanka" usemap="#districtMap" style="align-content: center">
-                            <map name="districtMap">
-                                <area shape="circle" coords="101,79,73" href="/" alt="Nothern_Province">
-                                <area shape="circle" coords="148,199,44" href="/" alt="North Central">
-                                <area shape="circle" coords="86,273,48" href="/" alt="North Western">
-                                <area shape="square" coords="140,279,190, 365" href="/" alt="Central">
-                            </map>
-                        </div>
-                    </div>
-                    <div >
-                        <a href="selectLocation.html" class="btn btn-primary" >View Fullscreen</a>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </form>
-            </div>
-
-        </div>
-
-    </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="selectCategory" role="dialog">
+<div class="modal fade" id="registerCorporateAccount" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" align="center">Select User Category</h4>
-            </div>
-            <div class="modal-body">
-
-                <div class="btn-group-lg">
-                    <button id="traveller-button" type="button" data-toggle="modal" data-target="#register" data-dismiss="modal" class="btn btn-primary btn-lg btn-block">Traveller</button>
-                    <button type="button" data-toggle="modal" data-target="#registerCorporateAccount" data-dismiss="modal" class="btn btn-primary btn-lg btn-block   ">Corporate Account</button>
-
-                </div>
-                <br>
-                <div class="text-center">
-                    <button type="button" class="btn btn-default " data-dismiss="modal" >Close</button>
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="registerCorporateAccount" role="dialog" background="absolute">
-    <div class="modal-dialog " >
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title" align="center">Fill in Corporate Profile Details</h4>
-            </div>
 
-            <!--for Corporate Accounts-->
+            </div>
             <div class="modal-body">
+
                 <form role="form">
                     <div class="form-group">
                         <label for="userNameC">User Name:</label>
@@ -664,6 +582,165 @@
     </div>
 </div>
 <!-- Modal -->
+<div class="modal fade" id="selectCategory" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" align="center">Select User Category</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="btn-group-lg">
+                    <button id="traveller-button" type="button" data-toggle="modal" data-target="#register" data-dismiss="modal" class="btn btn-primary btn-lg btn-block">Traveller</button>
+                    <button type="button" data-toggle="modal" data-target="#registerCorporateAccount" data-dismiss="modal" class="btn btn-primary btn-lg btn-block   ">Corporate Account</button>
+
+                </div>
+                <br>
+                <div class="text-center">
+                    <button type="button" class="btn btn-default " data-dismiss="modal" >Close</button>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- Modal -->
+<!--<div class="modal fade" id="registerCorporateAccount" role="dialog" background="absolute">-->
+    <!--<div class="modal-dialog " >-->
+
+        <!--&lt;!&ndash; Modal content&ndash;&gt;-->
+        <!--<div class="modal-content">-->
+            <!--<div class="modal-header">-->
+                <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <!--<h4 class="modal-title" align="center">Fill in Corporate Profile Details</h4>-->
+            <!--</div>-->
+
+            <!--&lt;!&ndash;for Corporate Accounts&ndash;&gt;-->
+            <!--<div class="modal-body">-->
+                <!--<form role="form">-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="userNameC">User Name:</label>-->
+                        <!--<input type="text" class="form-control" id="userNameC">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="nameC">Name:</label>-->
+                        <!--<input type="text" class="form-control" id="nameC">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="emailC">Email address:</label>-->
+                        <!--<input type="email" class="form-control" id="emailC">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="passwordC">Password:</label>-->
+                        <!--<input type="password" class="form-control" id="passwordC">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="repasswordC">Re Enter Password:</label>-->
+                        <!--<input type="password" class="form-control" id="repasswordC">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="telephone">Telephone No:</label>-->
+                        <!--<input type="text" class="form-control" id="telephone">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="Address">Address:</label>-->
+                        <!--<input type="text" class="form-control" id="Address">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="District">Select District:</label>-->
+                        <!--<select class="form-control" id="District" name="District">-->
+                            <!--<option value="Ampara">Ampara</option>-->
+                            <!--<option value="Anuradhapura">Anuradhapura</option>-->
+                            <!--<option value="Badulla" >Badulla</option>-->
+                            <!--<option value="Batticaloa">Batticaloa</option>-->
+                            <!--<option value="Colombo" selected>Colombo</option>-->
+                            <!--<option value="Galle">Galle</option>-->
+                            <!--<option value="Gampaha">Gampaha</option>-->
+                            <!--<option value="Hambantota">Hambantota</option>-->
+                            <!--<option value="Jaffna">Jaffna</option>-->
+                            <!--<option value="Kaluthara" >Kaluthara</option>-->
+                            <!--<option value="Kandy">Kandy</option>-->
+                            <!--<option value="Kegalle">Kegalle</option>-->
+                            <!--<option value="Kilinochchi">Kilinochchi</option>-->
+                            <!--<option value="Kurunegala" >Kurunegala</option>-->
+                            <!--<option value="Mannar">Mannar</option>-->
+                            <!--<option value="Matale">Matale</option>-->
+                            <!--<option value="Matara">Matara</option>-->
+                            <!--<option value="Monaragala" >Monaragala</option>-->
+                            <!--<option value="Mullaitivu">Mullaitivu</option>-->
+                            <!--<option value="NuwaraEliya">NuwaraEliya</option>-->
+                            <!--<option value="Polonnaruwa">Polonnaruwa</option>-->
+                            <!--<option value="Puttalam" >Puttalam</option>-->
+                            <!--<option value="Ratnapura">Ratnapura</option>-->
+                            <!--<option value="Trincomalee">Trincomalee</option>-->
+                            <!--<option value="Vavunia">Vavunia</option>-->
+
+
+                        <!--</select>-->
+                        <!--<br>-->
+                    <!--</div>-->
+
+                    <!--<div class="form-group">-->
+                        <!--<label for="description">Enter Description:</label>-->
+                        <!--<input type="text" class="form-control" id="description">-->
+                    <!--</div>-->
+
+                    <!--<div class="form-group">-->
+                        <!--<label for="account_id">Bank Account number:</label>-->
+                        <!--<input type="text" class="form-control" id="account_id">-->
+                    <!--</div>-->
+
+                    <!--<div class="form-group">-->
+                        <!--<label for="category">Select Corporate Category:</label>-->
+                        <!--<select class="form-control" id="category" name="category">-->
+                            <!--<option value="Hotel" selected >Hotel</option>-->
+                            <!--<option value="Driver">Driver</option>-->
+                            <!--<option value="Guide">Guide</option>-->
+                            <!--<option value="Photographer" >Photographer</option>-->
+                        <!--</select>-->
+                        <!--<br>-->
+                    <!--</div>-->
+
+                    <!--<div id="vehicleDivision" style="display: none;">-->
+                        <!--<div class="form-group">-->
+                            <!--<label for="vehicle">Vehicle Type</label>-->
+                            <!--<input type="text" class="form-control" id="vehicle" name="vehicle" />-->
+                        <!--</div>-->
+
+                        <!--<div class="form-group">-->
+                            <!--<label for="capacity">Capacity</label>-->
+                            <!--<input type="number" class="form-control" id="capacity" name="capacity" />-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div id="hotelDivision" style="display: block;">-->
+                        <!--<div class="form-group">-->
+                            <!--<label for="lat">Latitude</label>-->
+                            <!--<input type="text" class="form-control" id="lat" name="lat" />-->
+                        <!--</div>-->
+
+                        <!--<div class="form-group">-->
+                            <!--<label for="long">Longitude</label>-->
+                            <!--<input type="text" class="form-control" id="long" name="long" />-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+
+                    <!--<button id="registerCorporateAccount-button"type="button" class="btn btn-primary">Register</button>-->
+                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                <!--</form>-->
+            <!--</div>-->
+
+        <!--</div>-->
+
+    <!--</div>-->
+<!--</div>-->
+<!-- Modal -->
 <div class="modal fade" id="loginError" role="dialog">
     <div class="modal-dialog modal-sm">
 
@@ -711,6 +788,7 @@
 <!--import the final scripts at the end of the page-->
 <!-- jQuery -->
 <script src="js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="star/jquery.raty.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="cordova.js"></script>

@@ -4,7 +4,76 @@
 
 var index;
 window.onload = function() {
+
     index = sessionStorage.getItem("hotelIndex");
+    var score = 1;
+
+    jQuery.ajax({
+        type: "GET",
+        url: 'http://localhost/travelSL/web/user/hotelPage',
+        dataType: 'json',
+        success: function (obj, textstatus) {
+
+            var account_id = obj.result[index].account_id;
+
+            jQuery.ajax({
+                type: "GET",
+                url: 'http://localhost/travelSL/web/user/getReview',
+                dataType: 'json',
+                data: { account_id:account_id},
+                //load details from the database
+                success: function (obj, textstatus) {
+
+                    if (obj.count >0){
+                        score = obj.result[0].review;
+                    }
+                    else{
+                        score =1;
+                    }
+
+
+                    $('#star').raty({
+
+                        score : score
+                        //readOnly: true
+
+                    });
+                }
+            });
+        }
+    });
+    //alert();
+
+    $("#star>img").click(function(){
+        var score = $(this).attr("alt");                             //record clicked
+        alert(score);
+        //var userName = sessionStorage.getItem("userName");
+        jQuery.ajax({
+            type: "GET",
+            url: 'http://localhost/travelSL/web/user/hotelPage',
+            dataType: 'json',
+            success: function (obj, textstatus) {
+
+                var account_id = obj.result[index].account_id;
+
+                jQuery.ajax({
+                    type: "GET",
+                    url: 'http://localhost/travelSL/web/user/addReview',
+                    dataType: 'json',
+                    data: { account_id:account_id, score:score },
+                    //load details from the database
+                    success: function (obj, textstatus) {
+
+
+                    }
+                });
+            }
+        });
+
+
+    });
+
+
     document.getElementById("makePayment").addEventListener("click", makePayment);
 
     jQuery.ajax({
@@ -13,7 +82,7 @@ window.onload = function() {
         dataType: 'json',
         //load details from the database
         success: function (obj, textstatus) {
-
+            document.getElementById('heading').innerText = obj.result[index].Name;
             document.getElementById('modalDescription').innerText = obj.result[index].description;
 
             document.getElementById('modalTelephone').innerText = 'Phone: ' + obj.result[index].Telephone;
@@ -32,6 +101,8 @@ window.onload = function() {
     else{
         document.getElementById("userNameSession").innerHTML = sessionStorage.getItem("userName");
     }
+    document.getElementById("cmName").value = sessionStorage.getItem("userName");
+
     //add listeners to the various buttons in the html page (respective)
     document.getElementById("login-button").addEventListener("click", signin);
     document.getElementById("logoutButton").addEventListener("click", logout);
@@ -48,13 +119,17 @@ window.onload = function() {
 function makePayment(){
 
         var numberOfDays = document.getElementById("numberOfDays").value;
+        var numberOfRooms = document.getElementById("numberOfRooms").value;
         var cardNumber = document.getElementById("cardNumber").value;
         var amount = document.getElementById("amount").value;
+        var booking = document.getElementById("booking").value;
         var userName = sessionStorage.getItem("userName");
+
+        numberOfDays += ',' + numberOfRooms +','+booking;
 
         jQuery.ajax({
             type: "GET",
-            url: 'http://localhost/travelSL/web/app_dev.php/user/hotelPage',
+            url: 'http://localhost/travelSL/web/user/hotelPage',
             dataType: 'json',
             success: function (obj, textstatus) {
 
@@ -62,12 +137,12 @@ function makePayment(){
 
                 jQuery.ajax({
                     type: "GET",
-                    url: 'http://localhost/travelSL/web/app_dev.php/user/makePayment',
+                    url: 'http://localhost/travelSL/web/user/makePayment',
                     dataType: 'json',
                     data: { account_id:account_id, userName:userName , amount:amount , numberOfDays:numberOfDays},
                     success: function (obj, textstatus) {
 
-                        
+
                          $("#reservationModal").modal("hide");
                          $("#paymentSuccessful").modal("show");
 
@@ -97,7 +172,7 @@ function signin() {
 
                 //show the error modal
                 $("#loginError").modal("show");
-                //hide the log in window 
+                //hide the log in window
                 $("#logIn").modal("hide");
 
             }
