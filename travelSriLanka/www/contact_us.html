@@ -3,7 +3,9 @@
 <html>
 <head>
 
-    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
+
+    <!--###########################################################################################################-->
+
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -15,15 +17,55 @@
     <link href="css/sb-admin.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/loading.css" rel="stylesheet" type="text/css">
 
-    <!--this style is for the image carousal-->
-    <style>
-        .carousel-inner > .item > img,
-        .carousel-inner > .item > a > img {
+    <style type="text/css">
+        :focus {
+            outline:none;
+        }
+
+        #loading-container {
+            text-align: center;
+            background-color: black;
+            position: fixed;
+            opacity: 0.7;
+            left: 0;
+            top: 0;
+            z-index: 9999;
+            height: 100%;
             width: 100%;
-            /*margin: auto;*/
+            margin: 0;
+            padding: 0;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+        }
+
+        #clock {
+            text-align: center;
+            z-index: 9999;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+        }
+
+        #loading-text {
+            left: 50%;
+            font-family: 'quicksandlight', Helvetica, Arial;
+            color: white;
         }
     </style>
+
+    <script>
+        function closeModal(){
+            $('#selectCategory').modal('hide');
+        }
+    </script>
+
+    <!--###########################################################################################################-->
 
     <script>
         function sendEmail(){
@@ -33,6 +75,9 @@
 
 </head>
 <body>
+
+
+<!--###########################################################################################################-->
 
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -121,7 +166,7 @@
                     <a data-target="#logIn" data-toggle="modal" id="loginButton" style="display: none;"><i class="glyphicon glyphicon-random"></i>  Log In</a>
                 </li>
                 <li>
-                    <a data-target="#selectCategory" data-toggle="modal"  id="registerButton" style="display: none;"><i class="glyphicon glyphicon-check" ></i>  Register</a>
+                    <a data-target="#selectCategory" data-toggle="modal"  id="registerButton" style="display: none;"><i class="glyphicon glyphicon-check" ></i>Register</a>
                 </li>
             </ul>
         </li>
@@ -151,15 +196,26 @@
                 <a href="emergencyContacts.html"><i class="fa fa-fw fa-wrench"></i> Emergency Contacts </a>
             </li>
             <li>
-                <a href="adminPanel.html"><i class="fa fa-fw fa-key"></i> Admin Panel</a>
+                <a style="display: none" href="adminPanel.html" id="adminPanelButton"><i class="fa fa-fw fa-key"></i> Admin Panel</a>
             </li>
 
         </ul>
     </div>
     <!-- /.navbar-collapse -->
 </nav>
+<div align="center">
+    <div id="loading-container" style="display: none;"></div>
+    <div id="clock" class="spinner clock" style="display: none;">
+        <div class="shadow"></div>
+        <div class="dial">
+            <div class="hour hand"></div>
+            <div class="minute hand"></div>
+        </div>
+        <span id="loading-text">Loading</span>
+    </div>
+</div>
 
-
+<!--###########################################################################################################-->
 
 <div id="wrapper">
 
@@ -196,7 +252,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <img src="images/logo.png" alt="TravelSL-logo" style="width:500px;height:500px;">
+                <img src="images/logo.png" alt="TravelSL-logo" style="width:320px;height:500px;">
             </div>
 
 
@@ -206,10 +262,10 @@
 
     </div>
 
-
-
 </div>
 <!-- /#wrapper -->
+
+<!--###########################################################################################################-->
 
 <!-- Modal -->
 <div class="modal fade" id="logIn" role="dialog">
@@ -244,14 +300,44 @@
     </div>
 </div>
 <!-- Modal -->
+<div class="modal fade" id="selectCategory" role="dialog">
+    <div class="modal-dialog  modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" align="center">Select User Category</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="btn-group">
+                    <button type="button" data-toggle="modal" data-target="#register" class="btn btn-primary btn-lg btn-block">Traveler</button>
+                    <button type="button" data-toggle="modal" data-target="#registerCorporateAccount" class="btn btn-primary btn-lg btn-block   ">Corporate Account</button>
+
+                </div>
+                <br>
+                <br>
+                <div class="text-center">
+                    <button type="button" class="btn btn-default " data-dismiss="modal" >Close</button>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- Modal -->
 <div class="modal fade" id="register" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" align="center">Traveller Registration</h4>
+                <button type="button" class="close" data-dismiss="modal" onclick="closeModal()">&times;</button>
+                <h4 class="modal-title" align="center">Traveler Registration</h4>
             </div>
 
             <!--for tourists and travellers-->
@@ -289,7 +375,7 @@
                     <br>
 
                     <button id="register-button"type="button" class="btn btn-primary">Register</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeModal()">Close</button>
                 </form>
             </div>
 
@@ -298,47 +384,18 @@
     </div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="selectCategory" role="dialog">
+<div class="modal fade" id="registerCorporateAccount" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" align="center">Select User Category</h4>
-            </div>
-            <div class="modal-body">
-
-                <div class="btn-group-lg">
-                    <button id="traveller-button" type="button" data-toggle="modal" data-target="#register" data-dismiss="modal" class="btn btn-primary btn-lg btn-block">Traveller</button>
-                    <button type="button" data-toggle="modal" data-target="#registerCorporateAccount" data-dismiss="modal" class="btn btn-primary btn-lg btn-block   ">Corporate Account</button>
-
-                </div>
-                <br>
-                <div class="text-center">
-                    <button type="button" class="btn btn-default " data-dismiss="modal" >Close</button>
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="registerCorporateAccount" role="dialog" background="absolute">
-    <div class="modal-dialog " >
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button type="button" class="close" data-dismiss="modal" onclick="closeModal()">&times;</button>
                 <h4 class="modal-title" align="center">Fill in Corporate Profile Details</h4>
-            </div>
 
-            <!--for Corporate Accounts-->
+            </div>
             <div class="modal-body">
+
                 <form role="form">
                     <div class="form-group">
                         <label for="userNameC">User Name:</label>
@@ -448,7 +505,7 @@
 
 
                     <button id="registerCorporateAccount-button"type="button" class="btn btn-primary">Register</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeModal()">Close</button>
                 </form>
             </div>
 
@@ -501,12 +558,18 @@
     </div>
 </div>
 
-<!--import the final scripts at the end of the page-->
-<!-- jQuery -->
 <script src="js/jquery.js"></script>
-<!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
-<!--<script type="text/javascript" src="cordova.js"></script>-->
+<script type='text/javascript'>
+    //            alert(sessionStorage.getItem("category"));
+    if((sessionStorage.getItem("category")) == "Admin" ){
+//                alert();
+        document.getElementById("adminPanelButton").style.display = "block";
+    }
+</script>
+
+<!--###########################################################################################################-->
+
 <script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>

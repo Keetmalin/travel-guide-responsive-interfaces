@@ -3,7 +3,9 @@
 <html>
 <head>
 
-    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
+
+    <!--###########################################################################################################-->
+
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -15,73 +17,61 @@
     <link href="css/sb-admin.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/loading.css" rel="stylesheet" type="text/css">
 
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHN3cW7So44C_uMP3-T7YNqHQVD1dj_4E&callback=initMap">
-    </script>
-
-
-
-    <script>
-        function initMap() {
-            var directionsService = new google.maps.DirectionsService;
-            var renderOptions = { draggable: true };
-            var directionsDisplay = new google.maps.DirectionsRenderer(renderOptions);
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 7,
-                center: {lat: 7.8784551, lng: 79.5789789}
-            });
-            directionsDisplay.setMap(map);
-
-            var start = {lat: 6.9216318, lng: 79.8212826};
-            var end = {lat: 6.0559918, lng: 80.1769775};
-
-            var waypts = [];
-            waypts.push({
-                location: new google.maps.LatLng(6.902071, 79.919377),
-                stopover: true
-            })
-
-            directionsService.route({
-                origin: start,
-                destination: end,
-                waypoints: waypts,
-                optimizeWaypoints: true,
-                travelMode: google.maps.TravelMode.DRIVING
-            }, function(response, status) {
-                if (status === google.maps.DirectionsStatus.OK) {
-                    directionsDisplay.setDirections(response);
-                    var route = response.routes[0];
-                    var summaryPanel = document.getElementById('directions-panel');
-                    summaryPanel.innerHTML = '';
-                    // For each route, display summary information.
-                    for (var i = 0; i < route.legs.length; i++) {
-                        var routeSegment = i + 1;
-                        summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
-                                '</b><br>';
-                        summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
-                        summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
-                        summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
-                    }
-                } else {
-                    window.alert('Directions request failed due to ' + status);
-                }
-            });
-
-            // Resize stuff...
-            google.maps.event.addDomListener(window, "resize", function() {
-                var center = map.getCenter();
-                google.maps.event.trigger(map, "resize");
-                map.setCenter(center);
-            });
+    <style type="text/css">
+        :focus {
+            outline:none;
         }
 
+        #loading-container {
+            text-align: center;
+            background-color: black;
+            position: fixed;
+            opacity: 0.7;
+            left: 0;
+            top: 0;
+            z-index: 9999;
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+        }
+
+        #clock {
+            text-align: center;
+            z-index: 9999;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+        }
+
+        #loading-text {
+            left: 50%;
+            font-family: 'quicksandlight', Helvetica, Arial;
+            color: white;
+        }
+    </style>
+
+    <script>
+        function closeModal(){
+            $('#selectCategory').modal('hide');
+        }
     </script>
 
-
+    <!--###########################################################################################################-->
 
 </head>
 <body>
+
+
+<!--###########################################################################################################-->
 
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -93,19 +83,19 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
+
+        <img src="images/logo.png" alt="TravelSL-logo" style="width:100px;height:50px;">
         <a class="navbar-brand" href="index.html">Travel Sri Lanka</a>
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="messageMenu"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="messageMenu"><i class="fa fa-envelope"></i> <b>Msgs</b> <b class="caret"></b></a>
             <ul class="dropdown-menu message-dropdown">
                 <li class="message-preview" id="message1" style="display: none;">
                     <a href="#">
                         <div class="media">
-                                        <span class="pull-left">
-                                            <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                        </span>
+
                             <div class="media-body">
                                 <h5 class="media-heading">
                                     <strong id="corporateAccountName1"></strong>
@@ -119,9 +109,7 @@
                 <li class="message-preview" id="message2" style="display: none;">
                     <a href="#">
                         <div class="media">
-                                        <span class="pull-left">
-                                            <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                        </span>
+
                             <div class="media-body">
                                 <h5 class="media-heading">
                                     <strong id="corporateAccountName2"></strong>
@@ -135,9 +123,7 @@
                 <li class="message-preview" id="message3" style="display: none;">
                     <a href="#">
                         <div class="media">
-                                        <span class="pull-left">
-                                            <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                        </span>
+
                             <div class="media-body">
                                 <h5 class="media-heading">
                                     <strong id="corporateAccountName3"></strong>
@@ -149,48 +135,22 @@
                     </a>
                 </li>
                 <li class="message-footer">
-                    <a href="#">Read All New Messages</a>
+                    <a href="inbox.html">Read All Messages</a>
                 </li>
             </ul>
         </li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-            <ul class="dropdown-menu alert-dropdown">
-                <li>
-                    <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
-                </li>
-                <li>
-                    <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-                </li>
-                <li>
-                    <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-                </li>
-                <li>
-                    <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-                </li>
-                <li>
-                    <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-                </li>
-                <li>
-                    <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#">View All</a>
-                </li>
-            </ul>
-        </li>
+
         <li class="dropdown">
             <a id="userMenuID" class="dropdown-toggle" data-toggle="dropdown" ><i class="fa fa-user"></i> <b id="userNameSession"></b> <b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li>
-                    <a href="myProfile.html"><i class="fa fa-fw fa-user"></i> My Profile</a>
+                    <a href="myProfile.html" id="myProfileButton" style="display: none;"><i class="fa fa-fw fa-user" ></i> My Profile</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                    <a href="#" id="inboxButton" style="display: none;"><i class="fa fa-fw fa-envelope"></i></i> Inbox</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                    <a href="contact_us.html"><i class="fa fa-fw fa-gear"></i> About </a>
                 </li>
                 <li class="divider"></li>
                 <li>
@@ -200,7 +160,7 @@
                     <a data-target="#logIn" data-toggle="modal" id="loginButton" style="display: none;"><i class="glyphicon glyphicon-random"></i>  Log In</a>
                 </li>
                 <li>
-                    <a data-target="#selectCategory" data-toggle="modal"  id="registerButton" style="display: none;"><i class="glyphicon glyphicon-check" ></i>  Register</a>
+                    <a data-target="#selectCategory" data-toggle="modal"  id="registerButton" style="display: none;"><i class="glyphicon glyphicon-check" ></i>Register</a>
                 </li>
             </ul>
         </li>
@@ -208,8 +168,8 @@
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
-            <li class="active">
-                <a data-target="#selectArea" data-toggle="modal"><i class="fa fa-fw fa-dashboard"></i> Create Tour </a>
+            <li>
+                <a href="selectLocation.html"><i class="fa fa-fw fa-dashboard"></i> Create Tour </a>
             </li>
             <li>
                 <a href="hotels.html"><i class="fa fa-fw fa-bar-chart-o"></i> Hotels</a>
@@ -230,48 +190,185 @@
                 <a href="emergencyContacts.html"><i class="fa fa-fw fa-wrench"></i> Emergency Contacts </a>
             </li>
             <li>
-                <a href="random.html"><i class="fa fa-fw fa-wrench"></i> Admin Panel</a>
+                <a style="display: none" href="adminPanel.html" id="adminPanelButton"><i class="fa fa-fw fa-key"></i> Admin Panel</a>
             </li>
 
         </ul>
     </div>
     <!-- /.navbar-collapse -->
 </nav>
-
-<div id="wrapper" style="color: whitesmoke">
-
-
-    <div id="map" style="width:100%;height:500px;"></div>
-
-
-
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <h2>Select What contents to display on Map</h2>
-            </div>
-            <div class="col-md-4">
-                <p><br>Please Mark the destinations you want to travel To. We will do all the mapping for you!!!</p>
-            </div>
-
+<div align="center">
+    <div id="loading-container" style="display: none;"></div>
+    <div id="clock" class="spinner clock" style="display: none;">
+        <div class="shadow"></div>
+        <div class="dial">
+            <div class="hour hand"></div>
+            <div class="minute hand"></div>
         </div>
-
-
-        <form role="form">
-            <div class="checkbox">
-                <label><input type="checkbox" value="Hotels" id="checkBoxHotels">Hotels</label>
-            </div>
-            <div class="checkbox">
-                <label><input type="checkbox" value="Destinations" id="checkBoxDestinations" checked>Destinations</label>
-            </div>
-            <!--<div class="checkbox">-->
-            <!--<label><input type="checkbox" value="" disabled>Option 3</label>-->
-            <!--</div>-->
-        </form>
+        <span id="loading-text">Loading</span>
     </div>
 </div>
 
+<!--###########################################################################################################-->
+
+<div id="wrapper">
+
+    <div class="row">
+        <div class="col-xs-6 col-md-3" id="R11" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer1.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R11H"></h3>
+                    <p id="R11T"></p>
+                    <p id="R11A"></p>
+                    <p id="R11D"></p>
+                    <p><a href="viewPhotographer.html" id="R11B" class="btn btn-primary" role="button">View</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3" id="R12" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer2.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R12H" ></h3>
+                    <p id="R12T"></p>
+                    <p id="R12A"></p>
+                    <p id="R12D"></p>
+                    <p><a href="viewPhotographer.html" id="R12B" class="btn btn-primary" role="button">View</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3" id="R13" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer3.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R13H" ></h3>
+                    <p id="R13T"></p>
+                    <p id="R13A"></p>
+                    <p id="R13D"></p>
+                    <p><a href="viewPhotographer.html" id="R13B" class="btn btn-primary" role="button">View</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3" id="R14" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer4.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R14H"></h3>
+                    <p id="R14T"></p>
+                    <p id="R14A"></p>
+                    <p id="R14D"></p>
+                    <p><a href="viewPhotographer.html" id="R14B" class="btn btn-primary" role="button">View</a> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-md-3" id="R21" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer5.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R21H"></h3>
+                    <p id="R21T"></p>
+                    <p id="R21A"></p>
+                    <p id="R21D"></p>
+                    <p><a href="viewPhotographer.html" id="R21B" class="btn btn-primary" role="button">View</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3" id="R22" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer6.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R22H" ></h3>
+                    <p id="R22T"></p>
+                    <p id="R22A"></p>
+                    <p id="R22D"></p>
+                    <p><a href="viewPhotographer.html" id="R22B" class="btn btn-primary" role="button">View</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3" id="R23" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer7.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R23H" ></h3>
+                    <p id="R23T"></p>
+                    <p id="R23A"></p>
+                    <p id="R23D"></p>
+                    <p><a href="viewPhotographer.html" id="R23B" class="btn btn-primary" role="button">View</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3" id="R24" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer8.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R24H"></h3>
+                    <p id="R24T"></p>
+                    <p id="R24A"></p>
+                    <p id="R24D"></p>
+                    <p><a href="viewPhotographer.html" id="R24B" class="btn btn-primary" role="button">View</a> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-md-3" id="R31" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer9.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R31H"></h3>
+                    <p id="R31T"></p>
+                    <p id="R31A"></p>
+                    <p id="R31D"></p>
+                    <p><a href="viewPhotographer.html" id="R31B" class="btn btn-primary" role="button">View</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3" id="R32" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer10.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R32H" ></h3>
+                    <p id="R32T"></p>
+                    <p id="R32A"></p>
+                    <p id="R32D"></p>
+                    <p><a href="viewPhotographer.html" id="R32B" class="btn btn-primary" role="button">View</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3" id="R33" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer11.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R33H" ></h3>
+                    <p id="R33T"></p>
+                    <p id="R33A"></p>
+                    <p id="R33D"></p>
+                    <p><a href="viewPhotographer.html" id="R33B" class="btn btn-primary" role="button">View</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3" id="R34" style="display: none;">
+            <div class="thumbnail">
+                <img src="images/Photographer/Photographer12.jpg" alt="Photographer">
+                <div class="caption">
+                    <h3 id="R34H"></h3>
+                    <p id="R34T"></p>
+                    <p id="R34A"></p>
+                    <p id="R34D"></p>
+                    <p><a href="viewPhotographer.html" id="R34B" class="btn btn-primary" role="button">View</a> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<!-- /#wrapper -->
+
+<!--###########################################################################################################-->
 
 <!-- Modal -->
 <div class="modal fade" id="logIn" role="dialog">
@@ -306,14 +403,44 @@
     </div>
 </div>
 <!-- Modal -->
+<div class="modal fade" id="selectCategory" role="dialog">
+    <div class="modal-dialog  modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" align="center">Select User Category</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="btn-group">
+                    <button type="button" data-toggle="modal" data-target="#register" class="btn btn-primary btn-lg btn-block">Traveler</button>
+                    <button type="button" data-toggle="modal" data-target="#registerCorporateAccount" class="btn btn-primary btn-lg btn-block   ">Corporate Account</button>
+
+                </div>
+                <br>
+                <br>
+                <div class="text-center">
+                    <button type="button" class="btn btn-default " data-dismiss="modal" >Close</button>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- Modal -->
 <div class="modal fade" id="register" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" align="center">Traveller Registration</h4>
+                <button type="button" class="close" data-dismiss="modal" onclick="closeModal()">&times;</button>
+                <h4 class="modal-title" align="center">Traveler Registration</h4>
             </div>
 
             <!--for tourists and travellers-->
@@ -347,10 +474,11 @@
 
                         </div>
                     </div>
+                    <img src="images/hero-recaptcha-demo.gif" width="300px" height="60px">
                     <br>
 
                     <button id="register-button"type="button" class="btn btn-primary">Register</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeModal()">Close</button>
                 </form>
             </div>
 
@@ -359,110 +487,18 @@
     </div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="selectArea" role="dialog">
-    <div class="modal-dialog modal-lg">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" align="center">Select Location on Map</h4>
-                <!--<p>Or view Full Map </p>-->
-            </div>
-            <div class="modal-body">
-                <form role="form">
-                    <div class="row" align="center">
-                        <div class="col-sm-12 col-md-6">
-                            <h3>Select By Province</h3>
-                        </div>
-                        <div class="col-sm-12 col-md-6">
-                            <h3>Select By District</h3>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12 col-md-6">
-
-                            <img class="img-responsive" src="images/sri-lanka-provincial-map.jpg" alt="Provincial Map of Sri Lanka" usemap="#provincialMap" style="align-content: center">
-                            <map name="provincialMap">
-                                <area shape="circle" coords="101,79,73" href="/" alt="Nothern_Province">
-                                <area shape="circle" coords="148,199,44" href="/" alt="North Central">
-                                <area shape="circle" coords="86,273,48" href="/" alt="North Western">
-                                <area shape="square" coords="140,279,190, 365" href="/" alt="Central">
-                                <area shape="circle" coords="230,395,50" href="/" alt="Uva">
-                                <area shape="square" coords="90,446,163, 492" href="/" alt="southern">
-                                <area shape="square" coords="51,327,94, 439" href="/" alt="western">
-                                <area shape="square" coords="99,326,134, 397" href="/" alt="sabaragamuwa1">
-                                <area shape="square" coords="100,402,177, 439" href="/" alt="sabaragamuwa2">
-                                <area shape="square" coords="192,118,276, 202" href="/" alt="eastern1">
-                                <area shape="square" coords="232,208,177, 439" href="/" alt="eastern2">
-                                <area shape="square" coords="276,315,310, 420" href="/" alt="eastern3">
-                            </map>
-                        </div>
-                        <br />
-                        <div class="col-sm-12 col-md-6">
-
-                            <img class="img-responsive" src="images/srilanka-district-map.jpg" alt="District Map of Sri Lanka" usemap="#districtMap" style="align-content: center">
-                            <map name="districtMap">
-                                <area shape="circle" coords="101,79,73" href="/" alt="Nothern_Province">
-                                <area shape="circle" coords="148,199,44" href="/" alt="North Central">
-                                <area shape="circle" coords="86,273,48" href="/" alt="North Western">
-                                <area shape="square" coords="140,279,190, 365" href="/" alt="Central">
-                            </map>
-                        </div>
-                    </div>
-                    <div >
-                        <a href="selectLocation.html" class="btn btn-primary" >View Fullscreen</a>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </form>
-            </div>
-
-        </div>
-
-    </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="selectCategory" role="dialog">
+<div class="modal fade" id="registerCorporateAccount" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" align="center">Select User Category</h4>
-            </div>
-            <div class="modal-body">
-
-                <div class="btn-group-lg">
-                    <button id="traveller-button" type="button" data-toggle="modal" data-target="#register" data-dismiss="modal" class="btn btn-primary btn-lg btn-block">Traveller</button>
-                    <button type="button" data-toggle="modal" data-target="#registerCorporateAccount" data-dismiss="modal" class="btn btn-primary btn-lg btn-block   ">Corporate Account</button>
-
-                </div>
-                <br>
-                <div class="text-center">
-                    <button type="button" class="btn btn-default " data-dismiss="modal" >Close</button>
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="registerCorporateAccount" role="dialog" background="absolute">
-    <div class="modal-dialog " >
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button type="button" class="close" data-dismiss="modal" onclick="closeModal()">&times;</button>
                 <h4 class="modal-title" align="center">Fill in Corporate Profile Details</h4>
-            </div>
 
-            <!--for Corporate Accounts-->
+            </div>
             <div class="modal-body">
+
                 <form role="form">
                     <div class="form-group">
                         <label for="userNameC">User Name:</label>
@@ -572,7 +608,7 @@
 
 
                     <button id="registerCorporateAccount-button"type="button" class="btn btn-primary">Register</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeModal()">Close</button>
                 </form>
             </div>
 
@@ -625,12 +661,18 @@
     </div>
 </div>
 
-<!--import the final scripts at the end of the page-->
-<!-- jQuery -->
 <script src="js/jquery.js"></script>
-<!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="cordova.js"></script>
-<script type="text/javascript" src="js/getDirection.js"></script>
+<script type='text/javascript'>
+    //            alert(sessionStorage.getItem("category"));
+    if((sessionStorage.getItem("category")) == "Admin" ){
+//                alert();
+        document.getElementById("adminPanelButton").style.display = "block";
+    }
+</script>
+
+<!--###########################################################################################################-->
+
+<script type="text/javascript" src="js/photographerPage.js"></script>
 </body>
 </html>

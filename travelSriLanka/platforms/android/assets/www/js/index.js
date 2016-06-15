@@ -55,6 +55,7 @@ function signin() {
             //window.alert(obj.keet);
             if ( obj.value == 0 ){
 
+                hideLoadingOverlay();
                 //show the error modal
                 $("#loginError").modal("show");
                 //hide the log in window
@@ -105,6 +106,8 @@ function logout() {
 
 function register() {
 
+    showLoadingOverlay();
+
     //get necessary details from the input forms
     var userNameR = document.getElementById("userNameR").value;
     var nameR = document.getElementById("nameR").value;
@@ -121,19 +124,23 @@ function register() {
         data: { userNameR:userNameR, nameR:nameR , emailR:emailR , passwordR:passwordR , repasswordR:repasswordR , category:category},
         success: function (obj, textstatus) {
 
-            //on success, display success msgs, hide current register modal
-            $("#selectCategory").modal("hide");
-            $("#register").modal("hide");
-            $("#loginSuccessful").modal("show");
             sessionStorage.setItem("userName", userNameR);
             sessionStorage.setItem("category" , category);
             //set current user of the system
             document.getElementById("userNameSession").innerHTML = sessionStorage.getItem("userName");
+
+            //on success, display success msgs, hide current register modal
+            $("#selectCategory").modal("hide");
+            $("#register").modal("hide");
+            hideLoadingOverlay();
+            $("#loginSuccessful").modal("show");
         }
     });
 }
 
 function registerCorporateAccount() {
+
+    showLoadingOverlay();
 
     //get elements from html elements
     var userNameR = document.getElementById("userNameC").value;
@@ -240,6 +247,7 @@ function registerCorporateAccount() {
                             }
                         });
                     }
+                    hideLoadingOverlay();
                 }
             });
 
