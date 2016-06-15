@@ -79,16 +79,41 @@
             var email = document.getElementById("emailP").value;
 
             var userName = sessionStorage.getItem('userName');
+            var category = sessionStorage.getItem('category');
             var elem = document.getElementById("editButton");
+
             if (elem.innerHTML=="Edit Profile"){
                 elem.innerHTML = "Done Editing";
+
+
                 document.getElementById("nameP").disabled = false;
                 document.getElementById("emailP").disabled = false;
+                document.getElementById("telephoneP").disabled = false;
+                document.getElementById("AddressP").disabled = false;
+                document.getElementById("DistrictP").disabled = false;
+                document.getElementById("descriptionP").disabled = false;
+                document.getElementById("latP").disabled = false;
+                document.getElementById("longP").disabled = false;
+                document.getElementById("vehicleP").disabled = false;
+                document.getElementById("capacityP").disabled = false;
             }
             else{
+
+                document.getElementById("nameP").disabled = true;
+                document.getElementById("emailP").disabled = true;
+                document.getElementById("telephoneP").disabled = true;
+                document.getElementById("AddressP").disabled = true;
+                document.getElementById("DistrictP").disabled = true;
+                document.getElementById("descriptionP").disabled = true;
+                document.getElementById("vehicleP").disabled = true;
+                document.getElementById("capacityP").disabled = true;
+                document.getElementById("latP").disabled = true;
+                document.getElementById("longP").disabled = true;
+
                 elem.innerHTML = "Edit Profile";
 
                 showLoadingOverlay();
+
                 jQuery.ajax({
                     type: "GET",
                     url: 'http://travelsl.herokuapp.com/user/updateTraveler',
@@ -96,13 +121,89 @@
                     data: {userName: userName , name: name , email: email},
                     success: function (obj, textstatus) {
 
-                        document.getElementById("nameP").disabled = true;
-                        document.getElementById("emailP").disabled = true;
+
                         hideLoadingOverlay();
-                        window.location.href = "myProfile.html";
+                        if (sessionStorage.getItem('category') == 'Traveler' || sessionStorage.getItem('category') == 'Admin'){
+                            window.location.href = "myProfile.html";
+                        }
+
 
                     }
                 });
+
+                if (sessionStorage.getItem('category') != 'Traveler' || sessionStorage.getItem('category') != 'Admin'){
+                    var telephone = document.getElementById("telephoneP").value;
+                    var address = document.getElementById("AddressP").value;
+                    var district = document.getElementById("DistrictP").value;
+                    var description = document.getElementById("descriptionP").value;
+                    var lat = document.getElementById("latP").value;
+                    var long = document.getElementById("longP").value;
+                    var account_id = document.getElementById("account_idP").value;
+                    var vehicle;
+                    var capacity;
+                    showLoadingOverlay();
+
+                    jQuery.ajax({
+                        type: "GET",
+                        url: 'http://travelsl.herokuapp.com/user/updateCorporate',
+                        dataType: 'jsonp',
+                        data: { userNameR: userName, telephone:telephone , Address:address , District:district , description:description},
+                        success: function (obj, textstatus) {
+
+                            if (category == "Driver"){
+                                vehicle = document.getElementById("vehicleP").value;
+                                capacity = document.getElementById("capacityP").value;
+
+                                jQuery.ajax({
+                                    type: "GET",
+                                    url: 'http://travelsl.herokuapp.com/user/updateDriver',
+                                    dataType: 'jsonp',
+                                    data: { vehicle: vehicle, capacity:capacity , account_id:account_id },
+                                    success: function (obj, textstatus) {
+
+
+                                        hideLoadingOverlay();
+                                        window.location.href = "myProfile.html";
+
+                                    }
+                                });
+
+                            }
+                            //if the registration is for a hotel
+                            else if (category == "Hotel"){
+                                lat = document.getElementById("latP").value;
+                                long = document.getElementById("longP").value;
+                                jQuery.ajax({
+                                    type: "GET",
+                                    url: 'http://travelsl.herokuapp.com/user/updateHotel',
+                                    dataType: 'jsonp',
+                                    data: { lat:lat, long:long , account_id:account_id },
+                                    success: function (obj, textstatus) {
+
+                                        hideLoadingOverlay();
+                                        window.location.href = "myProfile.html";
+
+                                    }
+                                });
+                            }
+                            else if (category == "Photographer"){
+
+                                hideLoadingOverlay();
+                                window.location.href = "myProfile.html";
+                            }
+                            else if (category == "Guide"){
+
+                                hideLoadingOverlay();
+                                window.location.href = "myProfile.html";
+                            }
+
+
+
+                        }
+                    });
+                }
+
+
             }
         }
 
@@ -208,7 +309,7 @@
                     <a href="myProfile.html" id="myProfileButton" style="display: none;"><i class="fa fa-fw fa-user" ></i> My Profile</a>
                 </li>
                 <li>
-                    <a href="#" id="inboxButton" style="display: none;"><i class="fa fa-fw fa-envelope"></i></i> Inbox</a>
+                    <a href="inbox.html" id="inboxButton" style="display: none;"><i class="fa fa-fw fa-envelope"></i></i> Inbox</a>
                 </li>
                 <li>
                     <a href="contact_us.html"><i class="fa fa-fw fa-gear"></i> About </a>
@@ -341,15 +442,15 @@
                     <input type="text" class="form-control" id="account_idP" disabled >
                 </div>
 
-                <div id="vehicleDivisionP" style="display: none;" disabled>
+                <div id="vehicleDivisionP" style="display: none;">
                     <div class="form-group">
                         <label for="vehicleP">Vehicle Type</label>
-                        <input type="text" class="form-control" id="vehicleP" name="vehicle" />
+                        <input type="text" class="form-control" id="vehicleP" name="vehicle"  disabled />
                     </div>
 
                     <div class="form-group">
                         <label for="capacityP">Capacity</label>
-                        <input type="number" class="form-control" id="capacityP" name="capacity" />
+                        <input type="number" class="form-control" id="capacityP" name="capacity"  disabled/>
                     </div>
                 </div>
                 <div id="hotelDivisionP" style="display: block;" disabled>

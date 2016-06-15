@@ -19,91 +19,54 @@ window.onload = function() {
     document.getElementById("messageMenu").addEventListener("click", showMessages);
     //-------------------------------------------------------------------------------------
 
-    showLoadingOverlay();
-    jQuery.ajax({
-        type: "GET",
-        url: 'http://travelsl.herokuapp.com/user/hotelPage',
-        dataType: 'jsonp',
+    if((sessionStorage.getItem("userName")) == null || sessionStorage.getItem("userName") == 'Guest'){
 
-        success: function (obj, textstatus) {
-            // at the beginning, load the details from the database
-            var divID = ["R11", "R12", "R13" , "R14", "R21", "R22" , "R23", "R24", "R31" , "R32", "R33", "R34"];
-            var headerID = ["R11H", "R12H", "R13H" , "R14H", "R21H", "R22H" , "R23H", "R24H", "R31H" , "R32H", "R33H", "R34H"];
-            var telephoneID = ["R11T", "R12T", "R13T" , "R14T", "R21T", "R22T" , "R23T", "R24T", "R31T" , "R32T", "R33T", "R34T"];
-            var addressID = ["R11A", "R12A", "R13A" , "R14A", "R21A", "R22A" , "R23A", "R24A", "R31A" , "R32A", "R33A", "R34A"];
-            var districtID = ["R11D", "R12D", "R13D" , "R14D", "R21D", "R22D" , "R23D", "R24D", "R31D" , "R32D", "R33D", "R34D"];
-            for (i = 0; i < Object.keys(obj.result).length; i++) {
-                document.getElementById(divID[i]).style.display = "block";
-                document.getElementById(headerID[i]).innerText = obj.result[i].Name;
-                document.getElementById(telephoneID[i]).innerText = 'Phone: ' + obj.result[i].Telephone;
-                document.getElementById(addressID[i]).innerText = 'Address: ' + obj.result[i].Address;
-                document.getElementById(districtID[i]).innerText = 'District: ' + obj.result[i].District;
+    }
+    else{
+        var userName = sessionStorage.getItem("userName");
+        jQuery.ajax({
+            type: "GET",
+            url: 'http://travelsl.herokuapp.com/user/getMessages',
+            dataType: 'jsonp',
+            data: { userName:userName},
+            success: function (obj, textstatus) {
 
+                for (i = 0; i < Object.keys(obj.result).length; i++) {
+
+                    $('.list-group').append(
+                        '<div ><span>'+
+                        '<a href="#" class="list-group-item">' +
+                        '<h4 class="list-group-item-heading">' +obj.result[i].User_Username + '</h4>' +
+                        '<p class="list-group-item-text">' + obj.result[i].Time + ' & ' + obj.result[i].Date +
+                        'Payment Made for: ' + obj.result[i].Amount + ' & Number of days on reservation: ' + obj.result[i].Description +'</p>' +
+                        ''+
+                        '<button type="button" class="btn btn-danger btn-sm" id="btnDelete">Delete Message</button></span>'+
+                        '</a></div>');
+
+
+                }
+
+                // var divID = ["message1", "message2", "message3" , "R14", "R21", "R22" , "R23", "R24", "R31" , "R32", "R33", "R34"];
+                // var account = ["corporateAccountName1", "corporateAccountName2", "corporateAccountName3" , "R14H", "R21H", "R22H" , "R23H", "R24H", "R31H" , "R32H", "R33H", "R34H"];
+                // var timeAndDate = ["timeAndDate1", "timeAndDate2", "timeAndDate3" , "R14T", "R21T", "R22T" , "R23T", "R24T", "R31T" , "R32T", "R33T", "R34T"];
+                // var message = ["messageDescription1", "messageDescription2", "messageDescription3" , "R14A", "R21A", "R22A" , "R23A", "R24A", "R31A" , "R32A", "R33A", "R34A"];
+                // var districtID = ["R11D", "R12D", "R13D" , "R14D", "R21D", "R22D" , "R23D", "R24D", "R31D" , "R32D", "R33D", "R34D"];
+                //
+                // for (i = 0; i < 3; i++) {
+                //
+                //     document.getElementById(divID[i]).style.display = "block";
+                //     document.getElementById(account[i]).innerText = obj.result[i].User_Username;
+                //     document.getElementById(timeAndDate[i]).innerText = obj.result[i].Time + ' & ' + obj.result[i].Date;
+                //     document.getElementById(message[i]).innerText = 'Payment Made for: ' + obj.result[i].Amount + ' & Number of days on reservation: ' + obj.result[i].Description;
+                //     //document.getElementById(districtID[i]).innerText = 'District: ' + obj.result[i].District;
+                // }
 
             }
-            hideLoadingOverlay();
-
-
-
-        }
-    });
+        });
+    }
 
 
 };
-
-//pass index of unit, to the next page
-function loadModalOne() {
-    sessionStorage.setItem("hotelIndex", 0);
-}
-function loadModalTwo() {
-    sessionStorage.setItem("hotelIndex", 1);
-}
-function loadModalThree() {
-    sessionStorage.setItem("hotelIndex", 2);
-}
-function loadModalFour() {
-    sessionStorage.setItem("hotelIndex", 3);
-}
-function loadModalFive() {
-    sessionStorage.setItem("hotelIndex", 4);
-}
-function loadModalSix() {
-    sessionStorage.setItem("hotelIndex", 5);
-}
-function loadModalSeven() {
-    sessionStorage.setItem("hotelIndex", 6);
-}
-function loadModalEight() {
-    sessionStorage.setItem("hotelIndex", 7);
-}
-function loadModalNine() {
-    sessionStorage.setItem("hotelIndex", 8);
-}
-function loadModalTen() {
-    sessionStorage.setItem("hotelIndex", 9);
-}
-function loadModalEleven() {
-    sessionStorage.setItem("hotelIndex", 10);
-}
-function loadModalTwelve() {
-    sessionStorage.setItem("hotelIndex", 11);
-}
-
-//set listeerns to all the view buttons
-
-document.getElementById("R11B").addEventListener("click", loadModalOne);
-document.getElementById("R12B").addEventListener("click", loadModalTwo);
-document.getElementById("R13B").addEventListener("click", loadModalThree);
-document.getElementById("R14B").addEventListener("click", loadModalFour);
-document.getElementById("R21B").addEventListener("click", loadModalFive);
-document.getElementById("R22B").addEventListener("click", loadModalSix);
-document.getElementById("R23B").addEventListener("click", loadModalSeven);
-document.getElementById("R24B").addEventListener("click", loadModalEight);
-document.getElementById("R31B").addEventListener("click", loadModalNine);
-document.getElementById("R32B").addEventListener("click", loadModalTen);
-document.getElementById("R33B").addEventListener("click", loadModalEleven);
-document.getElementById("R34B").addEventListener("click", loadModalTwelve);
-
 //-------------------------------------------------------------------------------------
 //main functionalities used in the user bundle
 
