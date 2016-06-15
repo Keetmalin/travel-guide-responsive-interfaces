@@ -2,55 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bf40a8d-2f4c-4b39-88ed-11ce48f9e1da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/css/application.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/jquery.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/jquery.raty.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/adminPanel.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/adminPanel.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/guides.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/guides.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/inbox.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/inbox.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/guidePage.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/guidePage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/inbox.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/inbox.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/manageContacts.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/manageContacts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/manageDestinations.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/manageDestinations.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/manageGuides.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/manageGuides.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/manageHotels.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/manageHotels.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/managePhotographers.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/managePhotographers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/manageRides.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/manageRides.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/navigationPanel.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/navigationPanel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/photographerPage.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/photographerPage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/ridePage.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/ridePage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/manageContacts.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/manageContacts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/manageDestinations.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/manageDestinations.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/manageGuides.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/manageGuides.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/manageHotels.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/manageHotels.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/managePhotographers.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/managePhotographers.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/manageRides.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/manageRides.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/navigationPanel.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/navigationPanel.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/photographers.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/photographers.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/rides.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/rides.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/adminPanel.html" afterPath="$PROJECT_DIR$/www/adminPanel.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/contact_us.html" afterPath="$PROJECT_DIR$/www/contact_us.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/destinations.html" afterPath="$PROJECT_DIR$/www/destinations.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/emergencyContacts.html" afterPath="$PROJECT_DIR$/www/emergencyContacts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/empty.html" afterPath="$PROJECT_DIR$/www/empty.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/guides.html" afterPath="$PROJECT_DIR$/www/guides.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/hotels.html" afterPath="$PROJECT_DIR$/www/hotels.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/inbox.html" afterPath="$PROJECT_DIR$/www/inbox.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/myProfile.js" afterPath="$PROJECT_DIR$/www/js/myProfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/manageContacts.html" afterPath="$PROJECT_DIR$/www/manageContacts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/manageDestinations.html" afterPath="$PROJECT_DIR$/www/manageDestinations.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/manageGuides.html" afterPath="$PROJECT_DIR$/www/manageGuides.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/manageHotels.html" afterPath="$PROJECT_DIR$/www/manageHotels.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/managePhotographers.html" afterPath="$PROJECT_DIR$/www/managePhotographers.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/manageRides.html" afterPath="$PROJECT_DIR$/www/manageRides.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/myProfile.html" afterPath="$PROJECT_DIR$/www/myProfile.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/hotelPage.js" afterPath="$PROJECT_DIR$/www/js/hotelPage.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/navigationPanel.js" afterPath="$PROJECT_DIR$/www/js/navigationPanel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/viewGuide.js" afterPath="$PROJECT_DIR$/www/js/viewGuide.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/viewHotel.js" afterPath="$PROJECT_DIR$/www/js/viewHotel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/viewPhotographer.js" afterPath="$PROJECT_DIR$/www/js/viewPhotographer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/viewRide.js" afterPath="$PROJECT_DIR$/www/js/viewRide.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/navigationPanel.html" afterPath="$PROJECT_DIR$/www/navigationPanel.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/photographers.html" afterPath="$PROJECT_DIR$/www/photographers.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/rides.html" afterPath="$PROJECT_DIR$/www/rides.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/selectLocation.html" afterPath="$PROJECT_DIR$/www/selectLocation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/viewGuide.html" afterPath="$PROJECT_DIR$/www/viewGuide.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/viewHotel.html" afterPath="$PROJECT_DIR$/www/viewHotel.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/viewPhotographer.html" afterPath="$PROJECT_DIR$/www/viewPhotographer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/viewRide.html" afterPath="$PROJECT_DIR$/www/viewRide.html" />
     </list>
     <ignored path="travelSriLanka.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,11 +38,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="myProfile.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/myProfile.js">
+      <file leaf-file-name="empty.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/empty.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2896">
-              <caret line="264" column="36" selection-start-line="264" selection-start-column="36" selection-end-line="264" selection-end-column="36" />
+            <state relative-caret-position="594">
+              <caret line="27" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="342" selection-end-column="87" />
               <folding>
                 <element signature="n#!!block;n#showLoadingOverlay#0" expanded="false" />
                 <element signature="n#!!block;n#hideLoadingOverlay#0" expanded="false" />
@@ -92,25 +58,176 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myProfile.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/www/myProfile.html">
+      <file leaf-file-name="navigationPanel.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/navigationPanel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1976">
-              <caret line="194" column="0" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
+            <state relative-caret-position="375">
+              <caret line="115" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="496" selection-end-column="87" />
+              <folding>
+                <element signature="n#!!block;n#getScore#0" expanded="false" />
+                <element signature="n#!!block;n#setScore#0" expanded="false" />
+                <element signature="n#!!block;n#makePayment#0" expanded="false" />
+                <element signature="n#!!block;n#showLoadingOverlay#0" expanded="false" />
+                <element signature="n#!!block;n#hideLoadingOverlay#0" expanded="false" />
+                <element signature="n#!!block;n#signin#0" expanded="false" />
+                <element signature="n#!!block;n#logout#0" expanded="false" />
+                <element signature="n#!!block;n#register#0" expanded="false" />
+                <element signature="n#!!block;n#registerCorporateAccount#0" expanded="false" />
+                <element signature="n#!!block;n#showDiv#0" expanded="false" />
+                <element signature="n#!!block;n#showButton#0" expanded="false" />
+                <element signature="n#!!block;n#showMessages#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="empty.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/empty.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="770">
+              <caret line="209" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="528" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#script#1;n#head#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#script#0;n#head#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#5;n#div#2;n#form#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#script#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navigationPanel.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/navigationPanel.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="639">
+              <caret line="706" column="55" selection-start-line="0" selection-start-column="0" selection-end-line="709" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#script#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#script#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#9;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#script#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="viewGuide.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/viewGuide.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1508">
+              <caret line="121" column="54" selection-start-line="121" selection-start-column="54" selection-end-line="121" selection-end-column="54" />
+              <folding>
+                <element signature="n#!!block;n#makePayment#0" expanded="false" />
+                <element signature="n#!!block;n#showLoadingOverlay#0" expanded="false" />
+                <element signature="n#!!block;n#hideLoadingOverlay#0" expanded="false" />
+                <element signature="n#!!block;n#signin#0" expanded="false" />
+                <element signature="n#!!block;n#logout#0" expanded="false" />
+                <element signature="n#!!block;n#register#0" expanded="false" />
+                <element signature="n#!!block;n#registerCorporateAccount#0" expanded="false" />
+                <element signature="n#!!block;n#showDiv#0" expanded="false" />
+                <element signature="n#!!block;n#showButton#0" expanded="false" />
+                <element signature="n#!!block;n#showMessages#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="viewGuide.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/viewGuide.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2112">
+              <caret line="706" column="51" selection-start-line="706" selection-start-column="51" selection-end-line="706" selection-end-column="51" />
+              <folding>
+                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#script#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#9;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#script#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="viewPhotographer.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/viewPhotographer.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="793">
+              <caret line="709" column="0" selection-start-line="709" selection-start-column="0" selection-end-line="709" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#script#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#9;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#script#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="viewPhotographer.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/js/viewPhotographer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1540">
+              <caret line="496" column="87" selection-start-line="496" selection-start-column="87" selection-end-line="496" selection-end-column="87" />
+              <folding>
+                <element signature="n#!!block;n#getScore#0" expanded="false" />
+                <element signature="n#!!block;n#setScore#0" expanded="false" />
+                <element signature="n#!!block;n#makePayment#0" expanded="false" />
+                <element signature="n#!!block;n#showLoadingOverlay#0" expanded="false" />
+                <element signature="n#!!block;n#hideLoadingOverlay#0" expanded="false" />
+                <element signature="n#!!block;n#signin#0" expanded="false" />
+                <element signature="n#!!block;n#logout#0" expanded="false" />
+                <element signature="n#!!block;n#register#0" expanded="false" />
+                <element signature="n#!!block;n#registerCorporateAccount#0" expanded="false" />
+                <element signature="n#!!block;n#showDiv#0" expanded="false" />
+                <element signature="n#!!block;n#showButton#0" expanded="false" />
+                <element signature="n#!!block;n#showMessages#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -121,8 +238,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -132,27 +250,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/www/js/contactUs.js" />
-        <option value="$PROJECT_DIR$/www/viewGuide.html" />
-        <option value="$PROJECT_DIR$/www/viewPhotographer.html" />
-        <option value="$PROJECT_DIR$/www/viewRide.html" />
-        <option value="$PROJECT_DIR$/www/js/manageContacts.html" />
-        <option value="$PROJECT_DIR$/www/js/adminPanel.js" />
-        <option value="$PROJECT_DIR$/www/js/loginDetails.js" />
-        <option value="$PROJECT_DIR$/www/loginDetails.html" />
-        <option value="$PROJECT_DIR$/www/js/getDirection.js" />
         <option value="$PROJECT_DIR$/www/getDirection.html" />
         <option value="$PROJECT_DIR$/www/random.html" />
-        <option value="$PROJECT_DIR$/www/js/viewHotel.js" />
-        <option value="$PROJECT_DIR$/www/viewHotel.html" />
         <option value="$PROJECT_DIR$/www/js/index.js" />
         <option value="$PROJECT_DIR$/www/js/emergencyContactsPage.js" />
         <option value="$PROJECT_DIR$/www/js/empty.js" />
         <option value="$PROJECT_DIR$/www/js/destinationPage.js" />
         <option value="$PROJECT_DIR$/www/js/selectLocation.js" />
         <option value="$PROJECT_DIR$/www/selectLocation.html" />
-        <option value="$PROJECT_DIR$/www/js/hotelPage.js" />
-        <option value="$PROJECT_DIR$/www/hotels.html" />
         <option value="$PROJECT_DIR$/www/guides.html" />
         <option value="$PROJECT_DIR$/www/js/guidePage.js" />
         <option value="$PROJECT_DIR$/www/rides.html" />
@@ -171,9 +276,7 @@
         <option value="$PROJECT_DIR$/www/manageDestinations.html" />
         <option value="$PROJECT_DIR$/www/manageContacts.html" />
         <option value="$PROJECT_DIR$/www/js/manageContacts.js" />
-        <option value="$PROJECT_DIR$/www/navigationPanel.html" />
         <option value="$PROJECT_DIR$/www/inbox.html" />
-        <option value="$PROJECT_DIR$/www/js/navigationPanel.js" />
         <option value="$PROJECT_DIR$/www/js/inbox.js" />
         <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/www/adminPanel.html" />
@@ -183,6 +286,21 @@
         <option value="$PROJECT_DIR$/www/empty.html" />
         <option value="$PROJECT_DIR$/www/js/myProfile.js" />
         <option value="$PROJECT_DIR$/www/myProfile.html" />
+        <option value="$PROJECT_DIR$/www/css/application.css" />
+        <option value="$PROJECT_DIR$/www/js/jquery.min.js" />
+        <option value="$PROJECT_DIR$/www/js/jquery.raty.min.js" />
+        <option value="$PROJECT_DIR$/www/viewHotel.html" />
+        <option value="$PROJECT_DIR$/www/js/hotelPage.js" />
+        <option value="$PROJECT_DIR$/www/hotels.html" />
+        <option value="$PROJECT_DIR$/www/viewGuide.html" />
+        <option value="$PROJECT_DIR$/www/js/viewHotel.js" />
+        <option value="$PROJECT_DIR$/www/js/viewGuide.js" />
+        <option value="$PROJECT_DIR$/www/viewRide.html" />
+        <option value="$PROJECT_DIR$/www/js/viewRide.js" />
+        <option value="$PROJECT_DIR$/www/navigationPanel.html" />
+        <option value="$PROJECT_DIR$/www/viewPhotographer.html" />
+        <option value="$PROJECT_DIR$/www/js/navigationPanel.js" />
+        <option value="$PROJECT_DIR$/www/js/viewPhotographer.js" />
       </list>
     </option>
   </component>
@@ -306,6 +424,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -374,12 +493,12 @@
       <workItem from="1465580929723" duration="42015000" />
       <workItem from="1465748749641" duration="4033000" />
       <workItem from="1465783163432" duration="2681000" />
-      <workItem from="1465841555881" duration="52060000" />
+      <workItem from="1465841555881" duration="64768000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140824000" />
+    <option name="totallyTimeSpent" value="153532000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
@@ -422,98 +541,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/viewRide.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1034">
-          <caret line="708" column="0" selection-start-line="708" selection-start-column="0" selection-end-line="708" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/viewRide.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/loginDetails.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1449">
-          <caret line="556" column="54" selection-start-line="556" selection-start-column="54" selection-end-line="556" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/getDirection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="842">
-          <caret line="361" column="71" selection-start-line="361" selection-start-column="71" selection-end-line="361" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/getDirection.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="946">
-          <caret line="43" column="50" selection-start-line="33" selection-start-column="12" selection-end-line="55" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/viewHotel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/random.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="56" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/viewGuide.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/loading.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/viewHotel.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="454" column="0" selection-start-line="454" selection-start-column="0" selection-end-line="582" selection-end-column="6" />
-          <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <marker date="1465925998375" expanded="false" signature="32687:32701" ph="..." />
-            <marker date="1465925998375" expanded="false" signature="33352:33367" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/random.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/contactUs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -607,50 +634,6 @@
             <element signature="n#div#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#script#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/hotelPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="881">
-          <caret line="423" column="87" selection-start-line="423" selection-start-column="87" selection-end-line="423" selection-end-column="87" />
-          <folding>
-            <element signature="n#!!block;n#showLoadingOverlay#0" expanded="false" />
-            <element signature="n#!!block;n#signin#0" expanded="false" />
-            <element signature="n#!!block;n#logout#0" expanded="false" />
-            <element signature="n#!!block;n#register#0" expanded="false" />
-            <element signature="n#!!block;n#registerCorporateAccount#0" expanded="false" />
-            <element signature="n#!!block;n#showDiv#0" expanded="false" />
-            <element signature="n#!!block;n#showButton#0" expanded="false" />
-            <element signature="n#!!block;n#showMessages#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/hotels.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1584">
-          <caret line="677" column="0" selection-start-line="677" selection-start-column="0" selection-end-line="677" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#script#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#li#5;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#li#6;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#script#2;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -768,32 +751,6 @@
             <element signature="n#!!block;n#showDiv#0" expanded="false" />
             <element signature="n#!!block;n#showButton#0" expanded="false" />
             <element signature="n#!!block;n#showMessages#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/photographers.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1409">
-          <caret line="678" column="0" selection-start-line="678" selection-start-column="0" selection-end-line="678" selection-end-column="0" />
-          <folding>
-            <element signature="n#script#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#li#5;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#li#6;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#script#2;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1029,41 +986,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/empty.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="27" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="342" selection-end-column="87" />
-          <folding>
-            <element signature="n#!!block;n#hideLoadingOverlay#0" expanded="false" />
-            <element signature="n#!!block;n#signin#0" expanded="false" />
-            <element signature="n#!!block;n#register#0" expanded="false" />
-            <element signature="n#!!block;n#registerCorporateAccount#0" expanded="false" />
-            <element signature="n#!!block;n#showDiv#0" expanded="false" />
-            <element signature="n#!!block;n#showButton#0" expanded="false" />
-            <element signature="n#!!block;n#showMessages#0" expanded="false" />
-            <marker date="1465979428818" expanded="false" signature="1403:1610" ph="{...}" />
-            <marker date="1465979428818" expanded="false" signature="3800:4225" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/navigationPanel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="48" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="386" selection-end-column="87" />
-          <folding>
-            <element signature="n#!!block;n#showLoadingOverlay#0" expanded="false" />
-            <element signature="n#!!block;n#hideLoadingOverlay#0" expanded="false" />
-            <element signature="n#!!block;n#logout#0" expanded="false" />
-            <element signature="n#!!block;n#register#0" expanded="false" />
-            <element signature="n#!!block;n#registerCorporateAccount#0" expanded="false" />
-            <element signature="n#!!block;n#showDiv#0" expanded="false" />
-            <element signature="n#!!block;n#showButton#0" expanded="false" />
-            <element signature="n#!!block;n#showMessages#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/inbox.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
@@ -1078,19 +1000,6 @@
             <element signature="n#!!block;n#showDiv#0" expanded="false" />
             <element signature="n#!!block;n#showButton#0" expanded="false" />
             <element signature="n#!!block;n#showMessages#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/navigationPanel.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="639">
-          <caret line="535" column="47" selection-start-line="0" selection-start-column="0" selection-end-line="538" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#script#1;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1228,24 +1137,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/empty.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="149" column="20" selection-start-line="149" selection-start-column="20" selection-end-line="149" selection-end-column="20" />
-          <folding>
-            <element signature="n#script#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#script#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/emergencyContacts.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1675">
@@ -1288,7 +1179,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/myProfile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1976">
+        <state relative-caret-position="-180">
           <caret line="194" column="0" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
@@ -1304,6 +1195,363 @@
             <element signature="n#div#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#script#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/css/application.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1254">
+          <caret line="57" column="96" selection-start-line="57" selection-start-column="96" selection-end-line="57" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/jquery.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/jquery.raty.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/hotelPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#showLoadingOverlay#0" expanded="false" />
+            <element signature="n#!!block;n#signin#0" expanded="false" />
+            <element signature="n#!!block;n#logout#0" expanded="false" />
+            <element signature="n#!!block;n#register#0" expanded="false" />
+            <element signature="n#!!block;n#registerCorporateAccount#0" expanded="false" />
+            <element signature="n#!!block;n#showDiv#0" expanded="false" />
+            <element signature="n#!!block;n#showButton#0" expanded="false" />
+            <element signature="n#!!block;n#showMessages#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/hotels.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3013">
+          <caret line="224" column="104" selection-start-line="224" selection-start-column="104" selection-end-line="224" selection-end-column="104" />
+          <folding>
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#script#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#script#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/empty.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="27" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="342" selection-end-column="87" />
+          <folding>
+            <element signature="n#!!block;n#showLoadingOverlay#0" expanded="false" />
+            <element signature="n#!!block;n#hideLoadingOverlay#0" expanded="false" />
+            <element signature="n#!!block;n#signin#0" expanded="false" />
+            <element signature="n#!!block;n#logout#0" expanded="false" />
+            <element signature="n#!!block;n#register#0" expanded="false" />
+            <element signature="n#!!block;n#registerCorporateAccount#0" expanded="false" />
+            <element signature="n#!!block;n#showDiv#0" expanded="false" />
+            <element signature="n#!!block;n#showButton#0" expanded="false" />
+            <element signature="n#!!block;n#showMessages#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/empty.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="770">
+          <caret line="209" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="528" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#script#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#script#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/viewHotel.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="277" column="34" selection-start-line="277" selection-start-column="34" selection-end-line="277" selection-end-column="74" />
+          <folding>
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#script#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#9;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#script#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/viewHotel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="13" column="69" selection-start-line="13" selection-start-column="69" selection-end-line="13" selection-end-column="69" />
+          <folding>
+            <element signature="n#!!block;n#setScore#0" expanded="false" />
+            <element signature="n#!!block;n#showLoadingOverlay#0" expanded="false" />
+            <element signature="n#!!block;n#hideLoadingOverlay#0" expanded="false" />
+            <element signature="n#!!block;n#logout#0" expanded="false" />
+            <element signature="n#!!block;n#register#0" expanded="false" />
+            <element signature="n#!!block;n#registerCorporateAccount#0" expanded="false" />
+            <element signature="n#!!block;n#showDiv#0" expanded="false" />
+            <element signature="n#!!block;n#showButton#0" expanded="false" />
+            <element signature="n#!!block;n#showMessages#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/viewGuide.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1508">
+          <caret line="121" column="54" selection-start-line="121" selection-start-column="54" selection-end-line="121" selection-end-column="54" />
+          <folding>
+            <element signature="n#!!block;n#makePayment#0" expanded="false" />
+            <element signature="n#!!block;n#showLoadingOverlay#0" expanded="false" />
+            <element signature="n#!!block;n#hideLoadingOverlay#0" expanded="false" />
+            <element signature="n#!!block;n#signin#0" expanded="false" />
+            <element signature="n#!!block;n#logout#0" expanded="false" />
+            <element signature="n#!!block;n#register#0" expanded="false" />
+            <element signature="n#!!block;n#registerCorporateAccount#0" expanded="false" />
+            <element signature="n#!!block;n#showDiv#0" expanded="false" />
+            <element signature="n#!!block;n#showButton#0" expanded="false" />
+            <element signature="n#!!block;n#showMessages#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/viewRide.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1562">
+          <caret line="709" column="0" selection-start-line="709" selection-start-column="0" selection-end-line="709" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#script#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#a#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#a#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#9;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#script#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/viewRide.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1562">
+          <caret line="497" column="87" selection-start-line="497" selection-start-column="87" selection-end-line="497" selection-end-column="87" />
+          <folding>
+            <element signature="n#!!block;n#getScore#0" expanded="false" />
+            <element signature="n#!!block;n#setScore#0" expanded="false" />
+            <element signature="n#!!block;n#makePayment#0" expanded="false" />
+            <element signature="n#!!block;n#showLoadingOverlay#0" expanded="false" />
+            <element signature="n#!!block;n#hideLoadingOverlay#0" expanded="false" />
+            <element signature="n#!!block;n#signin#0" expanded="false" />
+            <element signature="n#!!block;n#logout#0" expanded="false" />
+            <element signature="n#!!block;n#register#0" expanded="false" />
+            <element signature="n#!!block;n#registerCorporateAccount#0" expanded="false" />
+            <element signature="n#!!block;n#showDiv#0" expanded="false" />
+            <element signature="n#!!block;n#showButton#0" expanded="false" />
+            <element signature="n#!!block;n#showMessages#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/photographers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="824">
+          <caret line="678" column="0" selection-start-line="678" selection-start-column="0" selection-end-line="678" selection-end-column="0" />
+          <folding>
+            <element signature="n#script#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#script#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/navigationPanel.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="639">
+          <caret line="706" column="55" selection-start-line="0" selection-start-column="0" selection-end-line="709" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#script#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#9;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#script#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/viewGuide.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2112">
+          <caret line="706" column="51" selection-start-line="706" selection-start-column="51" selection-end-line="706" selection-end-column="51" />
+          <folding>
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#script#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#9;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#script#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/viewPhotographer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="793">
+          <caret line="709" column="0" selection-start-line="709" selection-start-column="0" selection-end-line="709" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#script#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#9;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#script#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/navigationPanel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="115" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="496" selection-end-column="87" />
+          <folding>
+            <element signature="n#!!block;n#getScore#0" expanded="false" />
+            <element signature="n#!!block;n#setScore#0" expanded="false" />
+            <element signature="n#!!block;n#makePayment#0" expanded="false" />
+            <element signature="n#!!block;n#showLoadingOverlay#0" expanded="false" />
+            <element signature="n#!!block;n#hideLoadingOverlay#0" expanded="false" />
+            <element signature="n#!!block;n#signin#0" expanded="false" />
+            <element signature="n#!!block;n#logout#0" expanded="false" />
+            <element signature="n#!!block;n#register#0" expanded="false" />
+            <element signature="n#!!block;n#registerCorporateAccount#0" expanded="false" />
+            <element signature="n#!!block;n#showDiv#0" expanded="false" />
+            <element signature="n#!!block;n#showButton#0" expanded="false" />
+            <element signature="n#!!block;n#showMessages#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/viewPhotographer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1540">
+          <caret line="496" column="87" selection-start-line="496" selection-start-column="87" selection-end-line="496" selection-end-column="87" />
+          <folding>
+            <element signature="n#!!block;n#getScore#0" expanded="false" />
+            <element signature="n#!!block;n#setScore#0" expanded="false" />
+            <element signature="n#!!block;n#makePayment#0" expanded="false" />
+            <element signature="n#!!block;n#showLoadingOverlay#0" expanded="false" />
+            <element signature="n#!!block;n#hideLoadingOverlay#0" expanded="false" />
+            <element signature="n#!!block;n#signin#0" expanded="false" />
+            <element signature="n#!!block;n#logout#0" expanded="false" />
+            <element signature="n#!!block;n#register#0" expanded="false" />
+            <element signature="n#!!block;n#registerCorporateAccount#0" expanded="false" />
+            <element signature="n#!!block;n#showDiv#0" expanded="false" />
+            <element signature="n#!!block;n#showButton#0" expanded="false" />
+            <element signature="n#!!block;n#showMessages#0" expanded="false" />
           </folding>
         </state>
       </provider>

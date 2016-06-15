@@ -39,7 +39,6 @@ window.onload = function() {
                 document.getElementById(addressID[i]).innerText = 'Address: ' + obj.result[i].Address;
                 document.getElementById(districtID[i]).innerText = 'District: ' + obj.result[i].District;
 
-
             }
             hideLoadingOverlay();
 
