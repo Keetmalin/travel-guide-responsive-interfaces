@@ -22,6 +22,7 @@ window.onload = function() {
     showLoadingOverlay();
     var userName = sessionStorage.getItem('userName');
     //at the beginnig,add the user details, depending on the categoy. to the web page
+    
     if (sessionStorage.getItem('category') == 'Traveler' || sessionStorage.getItem('category') == 'Admin') {
         document.getElementById('corporateSection').style.display = "none";
         jQuery.ajax({
@@ -58,7 +59,7 @@ window.onload = function() {
                 document.getElementById("descriptionP").value = obj.result[0].description;
                 document.getElementById("DistrictP").value = obj.result[0].District;
                 document.getElementById("account_idP").value = obj.result[0].account_id;
-                document.getElementById("longP").value = obj.result[0].long;
+                document.getElementById("longP").value = obj.result[0].Long;
                 document.getElementById("latP").value = obj.result[0].Lat;
                 hideLoadingOverlay();
             }

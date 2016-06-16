@@ -12,6 +12,9 @@
         },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.example.travelSriLanka"
+        },
+        "mx.ferreyra.callnumber": {
+            "PACKAGE_NAME": "com.example.travelSriLanka"
         }
     },
     "dependent_plugins": {}

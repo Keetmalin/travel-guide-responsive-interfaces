@@ -3,7 +3,9 @@
 <html>
 <head>
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+
+    <!--###########################################################################################################-->
+
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -11,17 +13,75 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Core CSS -->
-    <link href="star/jquery.raty.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/loading.css" rel="stylesheet" type="text/css">
 
+    <style type="text/css">
+        :focus {
+            outline:none;
+        }
+
+        #loading-container {
+            text-align: center;
+            background-color: black;
+            position: fixed;
+            opacity: 0.7;
+            left: 0;
+            top: 0;
+            z-index: 9999;
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+        }
+
+        #clock {
+            text-align: center;
+            z-index: 9999;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+        }
+
+        #loading-text {
+            left: 50%;
+            font-family: 'quicksandlight', Helvetica, Arial;
+            color: white;
+        }
+    </style>
+
+    <script>
+        function closeModal(){
+            $('#selectCategory').modal('hide');
+        }
+    </script>
+
+    <!--###########################################################################################################-->
+
+    <script src="js/jquery.js"></script>
+
+    <!--<link type="text/css" rel="stylesheet" href="css/application.css">-->
+
+    <!--Adding jQuery library -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!--Adding jQuery rating plug-in-->
+    <script type="text/javascript" src="js/jquery.raty.min.js"></script>
 
 
 </head>
 <body>
+
+
+<!--###########################################################################################################-->
 
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -33,19 +93,19 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
+
+        <img src="images/logo.png" alt="TravelSL-logo" style="width:100px;height:50px;">
         <a class="navbar-brand" href="index.html">Travel Sri Lanka</a>
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="messageMenu"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="messageMenu"><i class="fa fa-envelope"></i> <b>Msgs</b> <b class="caret"></b></a>
             <ul class="dropdown-menu message-dropdown">
                 <li class="message-preview" id="message1" style="display: none;">
                     <a href="#">
                         <div class="media">
-                                        <span class="pull-left">
-                                            <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                        </span>
+
                             <div class="media-body">
                                 <h5 class="media-heading">
                                     <strong id="corporateAccountName1"></strong>
@@ -59,9 +119,7 @@
                 <li class="message-preview" id="message2" style="display: none;">
                     <a href="#">
                         <div class="media">
-                                        <span class="pull-left">
-                                            <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                        </span>
+
                             <div class="media-body">
                                 <h5 class="media-heading">
                                     <strong id="corporateAccountName2"></strong>
@@ -75,9 +133,7 @@
                 <li class="message-preview" id="message3" style="display: none;">
                     <a href="#">
                         <div class="media">
-                                        <span class="pull-left">
-                                            <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                        </span>
+
                             <div class="media-body">
                                 <h5 class="media-heading">
                                     <strong id="corporateAccountName3"></strong>
@@ -89,48 +145,22 @@
                     </a>
                 </li>
                 <li class="message-footer">
-                    <a href="#">Read All New Messages</a>
+                    <a href="inbox.html">Read All Messages</a>
                 </li>
             </ul>
         </li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-            <ul class="dropdown-menu alert-dropdown">
-                <li>
-                    <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
-                </li>
-                <li>
-                    <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-                </li>
-                <li>
-                    <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-                </li>
-                <li>
-                    <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-                </li>
-                <li>
-                    <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-                </li>
-                <li>
-                    <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#">View All</a>
-                </li>
-            </ul>
-        </li>
+
         <li class="dropdown">
             <a id="userMenuID" class="dropdown-toggle" data-toggle="dropdown" ><i class="fa fa-user"></i> <b id="userNameSession"></b> <b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li>
-                    <a href="myProfile.html"><i class="fa fa-fw fa-user"></i> My Profile</a>
+                    <a href="myProfile.html" id="myProfileButton" style="display: none;"><i class="fa fa-fw fa-user" ></i> My Profile</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                    <a href="inbox.html" id="inboxButton" style="display: none;"><i class="fa fa-fw fa-envelope"></i></i> Inbox</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                    <a href="contact_us.html"><i class="fa fa-fw fa-gear"></i> About </a>
                 </li>
                 <li class="divider"></li>
                 <li>
@@ -140,7 +170,7 @@
                     <a data-target="#logIn" data-toggle="modal" id="loginButton" style="display: none;"><i class="glyphicon glyphicon-random"></i>  Log In</a>
                 </li>
                 <li>
-                    <a data-target="#selectCategory" data-toggle="modal"  id="registerButton" style="display: none;"><i class="glyphicon glyphicon-check" ></i>  Register</a>
+                    <a data-target="#selectCategory" data-toggle="modal"  id="registerButton" style="display: none;"><i class="glyphicon glyphicon-check" ></i>Register</a>
                 </li>
             </ul>
         </li>
@@ -148,8 +178,8 @@
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
-            <li class="active">
-                <a data-target="#selectArea" data-toggle="modal"><i class="fa fa-fw fa-dashboard"></i> Create Tour </a>
+            <li>
+                <a href="selectLocation.html"><i class="fa fa-fw fa-dashboard"></i> Create Tour </a>
             </li>
             <li>
                 <a href="hotels.html"><i class="fa fa-fw fa-bar-chart-o"></i> Hotels</a>
@@ -170,15 +200,26 @@
                 <a href="emergencyContacts.html"><i class="fa fa-fw fa-wrench"></i> Emergency Contacts </a>
             </li>
             <li>
-                <a href="random.html"><i class="fa fa-fw fa-wrench"></i> Admin Panel</a>
+                <a style="display: none" href="adminPanel.html" id="adminPanelButton"><i class="fa fa-fw fa-key"></i> Admin Panel</a>
             </li>
 
         </ul>
     </div>
     <!-- /.navbar-collapse -->
 </nav>
+<div align="center">
+    <div id="loading-container" style="display: none;"></div>
+    <div id="clock" class="spinner clock" style="display: none;">
+        <div class="shadow"></div>
+        <div class="dial">
+            <div class="hour hand"></div>
+            <div class="minute hand"></div>
+        </div>
+        <span id="loading-text">Loading</span>
+    </div>
+</div>
 
-
+<!--###########################################################################################################-->
 
 <div id="wrapper">
 
@@ -231,11 +272,10 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-    <br>
 
     <div class="row" align="left" style="color: white">
         <div class="col-xs-12 col-md-8" >
-            <h3 id="heading"></h3><div id="star"></div>
+            <h3 id="heading"></h3><div id="star"></div><p id="rating"></p>
             <p id="modalDescription"></p>
 
         </div>
@@ -281,90 +321,89 @@
     </div>
 
 
-
-    <div class="modal fade" id="reservationModal" role="dialog" background="absolute">
-        <div class="modal-dialog" >
-
-            <!-- Modal content-->
-            <div class="modal-content modal-sm">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title" align="center">Reservation Details</h4>
-                </div>
-
-
-                <div class="modal-body">
-
-                    <div class="form-group">
-                        <label for="cmName">Name</label>
-                        <input type="text" class="form-control" id="cmName">
-                    </div>
-                    <div class="form-group">
-                        <select id="booking">
-                            <option value="fullBoard" selected>Full Board</option>
-                            <option value="halfBoard">Half Board</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="numberOfDays">Number Of days:</label>
-                        <input type="number" class="form-control" id="numberOfDays">
-                    </div>
-                    <div class="form-group">
-                        <label for="numberOfRooms">Number Of rooms:</label>
-                        <input type="number" class="form-control" id="numberOfRooms">
-                    </div>
-                    <div class="form-group">
-                        <label for="cardNumber">Card Number:</label>
-                        <input type="text" class="form-control" id="cardNumber">
-                    </div>
-                    <div class="form-group">
-                        <label for="amount">Amount:</label>
-                        <input type="text" class="form-control" id="amount">
-                    </div>
-
-
-                    <button id="makePayment" type="button" class="btn btn-primary">Make Payment</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-
-
-
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="paymentSuccessful" role="dialog">
-        <div class="modal-dialog modal-sm">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title" align="center">Payment Successful</h4>
-                </div>
-                <div class="modal-body" style="text-align: center">
-                    <b align="center">Payment Successful</b>
-                    <br>
-                    <br>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Proceed</button>
-
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-
-
-
 </div>
 <!-- /#wrapper -->
 
+<!-- Modal -->
+<div class="modal fade" id="reservationModal" role="dialog" background="absolute">
+    <div class="modal-dialog" >
+
+        <!-- Modal content-->
+        <div class="modal-content modal-sm">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" align="center">Reservation Details</h4>
+            </div>
+
+
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label for="cmName">Name</label>
+                    <input type="text" class="form-control" id="cmName">
+                </div>
+                <div class="form-group">
+                    <select id="booking">
+                        <option value="fullBoard" selected>Full Board</option>
+                        <option value="halfBoard">Half Board</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="numberOfDays">Number Of days:</label>
+                    <input type="number" class="form-control" id="numberOfDays">
+                </div>
+                <div class="form-group">
+                    <label for="numberOfRooms">Number Of rooms:</label>
+                    <input type="number" class="form-control" id="numberOfRooms">
+                </div>
+                <div class="form-group">
+                    <label for="cardNumber">Card Number:</label>
+                    <input type="text" class="form-control" id="cardNumber">
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount:</label>
+                    <input type="text" class="form-control" id="amount">
+                </div>
+
+
+                <button id="makePayment" type="button" class="btn btn-primary">Make Payment</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="paymentSuccessful" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" align="center">Payment Successful</h4>
+            </div>
+            <div class="modal-body" style="text-align: center">
+                <b align="center">Payment Successful</b>
+                <br>
+                <br>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Proceed</button>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<!--###########################################################################################################-->
 
 <!-- Modal -->
 <div class="modal fade" id="logIn" role="dialog">
@@ -399,14 +438,44 @@
     </div>
 </div>
 <!-- Modal -->
+<div class="modal fade" id="selectCategory" role="dialog">
+    <div class="modal-dialog  modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" align="center">Select User Category</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="btn-group">
+                    <button type="button" data-toggle="modal" data-target="#register" class="btn btn-primary btn-lg btn-block">Traveler</button>
+                    <button type="button" data-toggle="modal" data-target="#registerCorporateAccount" class="btn btn-primary btn-lg btn-block   ">Corporate Account</button>
+
+                </div>
+                <br>
+                <br>
+                <div class="text-center">
+                    <button type="button" class="btn btn-default " data-dismiss="modal" >Close</button>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- Modal -->
 <div class="modal fade" id="register" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" align="center">Traveller Registration</h4>
+                <button type="button" class="close" data-dismiss="modal" onclick="closeModal()">&times;</button>
+                <h4 class="modal-title" align="center">Traveler Registration</h4>
             </div>
 
             <!--for tourists and travellers-->
@@ -440,10 +509,11 @@
 
                         </div>
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6LcyuyITAAAAAJTonyQ7wBBMo_bZBozRaqy11wLS"></div>
                     <br>
 
                     <button id="register-button"type="button" class="btn btn-primary">Register</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeModal()">Close</button>
                 </form>
             </div>
 
@@ -458,7 +528,7 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button type="button" class="close" data-dismiss="modal" onclick="closeModal()">&times;</button>
                 <h4 class="modal-title" align="center">Fill in Corporate Profile Details</h4>
 
             </div>
@@ -573,7 +643,7 @@
 
 
                     <button id="registerCorporateAccount-button"type="button" class="btn btn-primary">Register</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeModal()">Close</button>
                 </form>
             </div>
 
@@ -581,165 +651,6 @@
 
     </div>
 </div>
-<!-- Modal -->
-<div class="modal fade" id="selectCategory" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" align="center">Select User Category</h4>
-            </div>
-            <div class="modal-body">
-
-                <div class="btn-group-lg">
-                    <button id="traveller-button" type="button" data-toggle="modal" data-target="#register" data-dismiss="modal" class="btn btn-primary btn-lg btn-block">Traveller</button>
-                    <button type="button" data-toggle="modal" data-target="#registerCorporateAccount" data-dismiss="modal" class="btn btn-primary btn-lg btn-block   ">Corporate Account</button>
-
-                </div>
-                <br>
-                <div class="text-center">
-                    <button type="button" class="btn btn-default " data-dismiss="modal" >Close</button>
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </div>
-</div>
-<!-- Modal -->
-<!--<div class="modal fade" id="registerCorporateAccount" role="dialog" background="absolute">-->
-    <!--<div class="modal-dialog " >-->
-
-        <!--&lt;!&ndash; Modal content&ndash;&gt;-->
-        <!--<div class="modal-content">-->
-            <!--<div class="modal-header">-->
-                <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
-                <!--<h4 class="modal-title" align="center">Fill in Corporate Profile Details</h4>-->
-            <!--</div>-->
-
-            <!--&lt;!&ndash;for Corporate Accounts&ndash;&gt;-->
-            <!--<div class="modal-body">-->
-                <!--<form role="form">-->
-                    <!--<div class="form-group">-->
-                        <!--<label for="userNameC">User Name:</label>-->
-                        <!--<input type="text" class="form-control" id="userNameC">-->
-                    <!--</div>-->
-                    <!--<div class="form-group">-->
-                        <!--<label for="nameC">Name:</label>-->
-                        <!--<input type="text" class="form-control" id="nameC">-->
-                    <!--</div>-->
-                    <!--<div class="form-group">-->
-                        <!--<label for="emailC">Email address:</label>-->
-                        <!--<input type="email" class="form-control" id="emailC">-->
-                    <!--</div>-->
-                    <!--<div class="form-group">-->
-                        <!--<label for="passwordC">Password:</label>-->
-                        <!--<input type="password" class="form-control" id="passwordC">-->
-                    <!--</div>-->
-                    <!--<div class="form-group">-->
-                        <!--<label for="repasswordC">Re Enter Password:</label>-->
-                        <!--<input type="password" class="form-control" id="repasswordC">-->
-                    <!--</div>-->
-                    <!--<div class="form-group">-->
-                        <!--<label for="telephone">Telephone No:</label>-->
-                        <!--<input type="text" class="form-control" id="telephone">-->
-                    <!--</div>-->
-                    <!--<div class="form-group">-->
-                        <!--<label for="Address">Address:</label>-->
-                        <!--<input type="text" class="form-control" id="Address">-->
-                    <!--</div>-->
-                    <!--<div class="form-group">-->
-                        <!--<label for="District">Select District:</label>-->
-                        <!--<select class="form-control" id="District" name="District">-->
-                            <!--<option value="Ampara">Ampara</option>-->
-                            <!--<option value="Anuradhapura">Anuradhapura</option>-->
-                            <!--<option value="Badulla" >Badulla</option>-->
-                            <!--<option value="Batticaloa">Batticaloa</option>-->
-                            <!--<option value="Colombo" selected>Colombo</option>-->
-                            <!--<option value="Galle">Galle</option>-->
-                            <!--<option value="Gampaha">Gampaha</option>-->
-                            <!--<option value="Hambantota">Hambantota</option>-->
-                            <!--<option value="Jaffna">Jaffna</option>-->
-                            <!--<option value="Kaluthara" >Kaluthara</option>-->
-                            <!--<option value="Kandy">Kandy</option>-->
-                            <!--<option value="Kegalle">Kegalle</option>-->
-                            <!--<option value="Kilinochchi">Kilinochchi</option>-->
-                            <!--<option value="Kurunegala" >Kurunegala</option>-->
-                            <!--<option value="Mannar">Mannar</option>-->
-                            <!--<option value="Matale">Matale</option>-->
-                            <!--<option value="Matara">Matara</option>-->
-                            <!--<option value="Monaragala" >Monaragala</option>-->
-                            <!--<option value="Mullaitivu">Mullaitivu</option>-->
-                            <!--<option value="NuwaraEliya">NuwaraEliya</option>-->
-                            <!--<option value="Polonnaruwa">Polonnaruwa</option>-->
-                            <!--<option value="Puttalam" >Puttalam</option>-->
-                            <!--<option value="Ratnapura">Ratnapura</option>-->
-                            <!--<option value="Trincomalee">Trincomalee</option>-->
-                            <!--<option value="Vavunia">Vavunia</option>-->
-
-
-                        <!--</select>-->
-                        <!--<br>-->
-                    <!--</div>-->
-
-                    <!--<div class="form-group">-->
-                        <!--<label for="description">Enter Description:</label>-->
-                        <!--<input type="text" class="form-control" id="description">-->
-                    <!--</div>-->
-
-                    <!--<div class="form-group">-->
-                        <!--<label for="account_id">Bank Account number:</label>-->
-                        <!--<input type="text" class="form-control" id="account_id">-->
-                    <!--</div>-->
-
-                    <!--<div class="form-group">-->
-                        <!--<label for="category">Select Corporate Category:</label>-->
-                        <!--<select class="form-control" id="category" name="category">-->
-                            <!--<option value="Hotel" selected >Hotel</option>-->
-                            <!--<option value="Driver">Driver</option>-->
-                            <!--<option value="Guide">Guide</option>-->
-                            <!--<option value="Photographer" >Photographer</option>-->
-                        <!--</select>-->
-                        <!--<br>-->
-                    <!--</div>-->
-
-                    <!--<div id="vehicleDivision" style="display: none;">-->
-                        <!--<div class="form-group">-->
-                            <!--<label for="vehicle">Vehicle Type</label>-->
-                            <!--<input type="text" class="form-control" id="vehicle" name="vehicle" />-->
-                        <!--</div>-->
-
-                        <!--<div class="form-group">-->
-                            <!--<label for="capacity">Capacity</label>-->
-                            <!--<input type="number" class="form-control" id="capacity" name="capacity" />-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--<div id="hotelDivision" style="display: block;">-->
-                        <!--<div class="form-group">-->
-                            <!--<label for="lat">Latitude</label>-->
-                            <!--<input type="text" class="form-control" id="lat" name="lat" />-->
-                        <!--</div>-->
-
-                        <!--<div class="form-group">-->
-                            <!--<label for="long">Longitude</label>-->
-                            <!--<input type="text" class="form-control" id="long" name="long" />-->
-                        <!--</div>-->
-                    <!--</div>-->
-
-
-                    <!--<button id="registerCorporateAccount-button"type="button" class="btn btn-primary">Register</button>-->
-                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
-                <!--</form>-->
-            <!--</div>-->
-
-        <!--</div>-->
-
-    <!--</div>-->
-<!--</div>-->
 <!-- Modal -->
 <div class="modal fade" id="loginError" role="dialog">
     <div class="modal-dialog modal-sm">
@@ -785,13 +696,17 @@
     </div>
 </div>
 
-<!--import the final scripts at the end of the page-->
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="star/jquery.raty.js"></script>
-<!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="cordova.js"></script>
+<script type='text/javascript'>
+    //            alert(sessionStorage.getItem("category"));
+    if((sessionStorage.getItem("category")) == "Admin" ){
+//                alert();
+        document.getElementById("adminPanelButton").style.display = "block";
+    }
+</script>
+
+<!--###########################################################################################################-->
+
 <script type="text/javascript" src="js/viewHotel.js"></script>
-</body>
+<script src='https://www.google.com/recaptcha/api.js'></script> </body>
 </html>

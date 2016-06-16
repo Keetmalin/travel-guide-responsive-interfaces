@@ -1,35 +1,8 @@
-/**
- * Created by ASUS-PC on 5/1/2016.
- */
 
-
-
-var index;
 window.onload = function() {
-    index = sessionStorage.getItem("guideIndex");
-    document.getElementById("makePayment").addEventListener("click", makePayment);
 
-    jQuery.ajax({
-        type: "GET",
-        url: 'http://localhost/travelSL/web/user/guidePage',
-        dataType: 'json',
-
-        //view details loaded from the databsae of each unit
-        success: function (obj, textstatus) {
-
-            document.getElementById('modalDescription').innerText = obj.result[index].description;
-
-            document.getElementById('modalTelephone').innerText = 'Phone: ' + obj.result[index].Telephone;
-            document.getElementById('modalAddress').innerText = 'Address: ' + obj.result[index].Address;
-            document.getElementById('modalDistrict').innerText = 'District: ' + obj.result[index].District;
-
-
-
-        }
-    });
-
-    //--------------------------------------------------------------------------------
-//add session of the current user in the syste,. If no user, add guest as the current user
+    //-------------------------------------------------------------------------------------
+    //add session of the current user in the syste,. If no user, add guest as the current user
     if((sessionStorage.getItem("userName")) == null ){
         document.getElementById("userNameSession").innerHTML = 'Guest';
     }
@@ -44,31 +17,153 @@ window.onload = function() {
     document.getElementById("category").addEventListener("click", showDiv);
     document.getElementById("userMenuID").addEventListener("click", showButton);
     document.getElementById("messageMenu").addEventListener("click", showMessages);
-//--------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------
+
+    getScore(false);
+    index = sessionStorage.getItem("guideIndex");
+    document.getElementById("makePayment").addEventListener("click", makePayment);
+    showLoadingOverlay();
+    jQuery.ajax({
+        type: "GET",
+        url: 'http://travelsl.herokuapp.com/user/guidePage',
+        dataType: 'jsonp',
+
+        //view details loaded from the databsae of each unit
+        success: function (obj, textstatus) {
+
+            document.getElementById('modalDescription').innerText = obj.result[index].description;
+
+            document.getElementById('modalTelephone').innerText = 'Phone: ' + obj.result[index].Telephone;
+            document.getElementById('modalAddress').innerText = 'Address: ' + obj.result[index].Address;
+            document.getElementById('modalDistrict').innerText = 'District: ' + obj.result[index].District;
+
+            hideLoadingOverlay();
+
+        }
+    });
+
+
 };
-
-
-
-//make payment fronction which will store payment details in the website
-function makePayment(){
-
-    var numberOfDays = document.getElementById("numberOfDays").value;
-    var cardNumber = document.getElementById("cardNumber").value;
-    var amount = document.getElementById("amount").value;
-    var userName = sessionStorage.getItem("userName");
+function getScore(status){
+    showLoadingOverlay();
+    index = sessionStorage.getItem("guideIndex");
+    var score = 1;
 
     jQuery.ajax({
         type: "GET",
-        url: 'http://localhost/travelSL/web/app_dev.php/user/guidePage',
-        dataType: 'json',
+        url: 'http://travelsl.herokuapp.com/user/guidePage',
+        dataType: 'jsonp',
+        success: function (obj, textstatus) {
+
+
+            var account_id = obj.result[index].account_id;
+
+            jQuery.ajax({
+                type: "GET",
+                url: 'http://travelsl.herokuapp.com/user/getReview',
+                dataType: 'jsonp',
+                data: { account_id:account_id},
+                //load details from the database
+                success: function (obj, textstatus) {
+
+
+
+                    var sum=0;
+                    for (i = 0; i < Object.keys(obj.result).length; i++) {
+
+                        sum= sum+ Number(obj.result[i].review);
+                    }
+
+
+                    if (Object.keys(obj.result).length == 0){
+                        score = 1;
+                    }
+                    else{
+                        score = sum/Object.keys(obj.result).length;
+                    }
+                    score = Math.round(score * 100) / 100
+
+                    if (status){
+                        $('#star').raty({
+                            score    : score,
+                            readOnly : true,
+                            path: 'lib/img',
+                            half: true,
+                            number: 5,
+                            click: function(score, evt) {
+                                setScore(score);
+                            }
+                        });
+                    }else{
+                        $('#star').raty({
+                            score    : score,
+                            path: 'lib/img',
+                            half: true,
+                            number: 5,
+                            click: function(score, evt) {
+                                setScore(score);
+                            }
+                        });
+                    }
+
+                    document.getElementById("rating").innerText='Rating: ' + score + ' (' + Object.keys(obj.result).length + ')' ;
+                }
+            });
+
+            hideLoadingOverlay();
+        }
+    });
+}
+
+function setScore(score){
+    showLoadingOverlay();
+    jQuery.ajax({
+        type: "GET",
+        url: 'http://travelsl.herokuapp.com/user/guidePage',
+        dataType: 'jsonp',
         success: function (obj, textstatus) {
 
             var account_id = obj.result[index].account_id;
 
             jQuery.ajax({
                 type: "GET",
-                url: 'http://localhost/travelSL/web/app_dev.php/user/makePayment',
-                dataType: 'json',
+                url: 'http://travelsl.herokuapp.com/user/addReview',
+                dataType: 'jsonp',
+                data: { account_id:account_id, score:score },
+                //load details from the database
+                success: function (obj, textstatus) {
+
+                    getScore(true);
+                }
+            });
+            hideLoadingOverlay();
+        }
+    });
+}
+
+function makePayment(){
+
+    var numberOfDays = document.getElementById("numberOfDays").value;
+    var numberOfRooms = document.getElementById("numberOfRooms").value;
+    var cardNumber = document.getElementById("cardNumber").value;
+    var amount = document.getElementById("amount").value;
+    var booking = document.getElementById("booking").value;
+    var userName = sessionStorage.getItem("userName");
+
+    numberOfDays += ',' + numberOfRooms +','+booking;
+    showLoadingOverlay();
+    jQuery.ajax({
+        type: "GET",
+        url: 'http://travelsl.herokuapp.com/user/hotelPage',
+        dataType: 'jsonp',
+        success: function (obj, textstatus) {
+
+            var account_id = obj.result[index].account_id;
+
+            jQuery.ajax({
+                type: "GET",
+                url: 'http://travelsl.herokuapp.com/user/makePayment',
+                dataType: 'jsonp',
                 data: { account_id:account_id, userName:userName , amount:amount , numberOfDays:numberOfDays},
                 success: function (obj, textstatus) {
 
@@ -78,31 +173,48 @@ function makePayment(){
 
                 }
             });
+            hideLoadingOverlay();
         }
     });
 
 
 }
-
-//--------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------
 //main functionalities used in the user bundle
+
+function showLoadingOverlay() {
+    var loadingContainer = document.getElementById('loading-container');
+    loadingContainer.style.display = 'block';
+    var clock = document.getElementById('clock');
+    clock.style.display = 'block';
+}
+
+function hideLoadingOverlay() {
+    var loadingContainer = document.getElementById('loading-container');
+    loadingContainer.style.display = 'none';
+    var clock = document.getElementById('clock');
+    clock.style.display = 'none';
+}
 
 function signin() {
 
+    showLoadingOverlay();
     var userName = document.getElementById("userName").value;
     var password = document.getElementById("password").value;
+
     jQuery.ajax({
         type: "GET",
-        url: 'http://localhost/travelSL/web/user/login',
-        dataType: 'json',
+        url: 'http://travelsl.herokuapp.com/user/login',
+        dataType: 'jsonp',
         data: { userName: userName , password: password },
         success: function (obj, textstatus) {
-
+            //window.alert(obj.keet);
             if ( obj.value == 0 ){
 
+                hideLoadingOverlay();
                 //show the error modal
                 $("#loginError").modal("show");
-                //hide the log in window 
+                //hide the log in window
                 $("#logIn").modal("hide");
 
             }
@@ -110,13 +222,20 @@ function signin() {
             else{
                 //hide log in window
                 $("#logIn").modal("hide");
+
                 if (typeof(Storage) !== "undefined") {
                     // Store values as cookies in the sessions in the browser
                     sessionStorage.setItem("userName", obj.result[0].User_Username);
                     sessionStorage.setItem("category" , obj.result[0].category);
+                    //alert();
+                    if((sessionStorage.getItem("category")) == "Admin" ){
+
+                        document.getElementById("adminPanelButton").style.display = "block";
+                    }
                     //set the userName display area as current logged in user
                     document.getElementById("userNameSession").innerHTML = sessionStorage.getItem("userName");
 
+                    hideLoadingOverlay();
                     //display log in successful window
                     $("#loginSuccessful").modal("show");
                 } else {
@@ -138,10 +257,12 @@ function logout() {
     sessionStorage.removeItem("category");
     //set the name display area as guest
     document.getElementById("userNameSession").innerHTML = sessionStorage.getItem("userName");
-
+    window.location.href = "index.html";
 }
 
 function register() {
+
+    showLoadingOverlay();
 
     //get necessary details from the input forms
     var userNameR = document.getElementById("userNameR").value;
@@ -154,23 +275,28 @@ function register() {
     //send ajax request
     jQuery.ajax({
         type: "GET",
-        url: 'http://localhost/travelSL/web/user/register',
-        dataType: 'json',
+        url: 'http://travelsl.herokuapp.com/user/register',
+        dataType: 'jsonp',
         data: { userNameR:userNameR, nameR:nameR , emailR:emailR , passwordR:passwordR , repasswordR:repasswordR , category:category},
         success: function (obj, textstatus) {
 
-            //on success, display success msgs, hide current register modal
-            $("#register").modal("hide");
-            $("#loginSuccessful").modal("show");
             sessionStorage.setItem("userName", userNameR);
             sessionStorage.setItem("category" , category);
             //set current user of the system
             document.getElementById("userNameSession").innerHTML = sessionStorage.getItem("userName");
+
+            //on success, display success msgs, hide current register modal
+            $("#selectCategory").modal("hide");
+            $("#register").modal("hide");
+            hideLoadingOverlay();
+            $("#loginSuccessful").modal("show");
         }
     });
 }
 
 function registerCorporateAccount() {
+
+    showLoadingOverlay();
 
     //get elements from html elements
     var userNameR = document.getElementById("userNameC").value;
@@ -192,17 +318,19 @@ function registerCorporateAccount() {
 
     jQuery.ajax({
         type: "GET",
-        url: 'http://localhost/travelSL/web/user/register',
-        dataType: 'json',
+        url: 'http://travelsl.herokuapp.com/user/register',
+        dataType: 'jsonp',
         data: { userNameR: userNameR, nameR:nameR , emailR:emailR , passwordR:passwordR , repasswordR:repasswordR , category:category },
         success: function (obj, textstatus) {
 
+            $("#selectCategory").modal("hide");
             $("#registerCorporateAccount").modal("hide");
+
 
             jQuery.ajax({
                 type: "GET",
-                url: 'http://localhost/travelSL/web/user/registerCorporate',
-                dataType: 'json',
+                url: 'http://travelsl.herokuapp.com/user/registerCorporate',
+                dataType: 'jsonp',
                 data: { userNameR: userNameR, telephone:telephone , Address:Address , District:District , account_id:account_id  , description:description},
                 success: function (obj, textstatus) {
 
@@ -213,8 +341,8 @@ function registerCorporateAccount() {
 
                         jQuery.ajax({
                             type: "GET",
-                            url: 'http://localhost/travelSL/web/user/registerDriver',
-                            dataType: 'json',
+                            url: 'http://travelsl.herokuapp.com/user/registerDriver',
+                            dataType: 'jsonp',
                             data: { vehicle: vehicle, capacity:capacity , account_id:account_id },
                             success: function (obj, textstatus) {
 
@@ -232,8 +360,8 @@ function registerCorporateAccount() {
 
                         jQuery.ajax({
                             type: "GET",
-                            url: 'http://localhost/travelSL/web/user/registerHotel',
-                            dataType: 'json',
+                            url: 'http://travelsl.herokuapp.com/user/registerHotel',
+                            dataType: 'jsonp',
                             data: { lat:lat, long:long , account_id:account_id },
                             success: function (obj, textstatus) {
 
@@ -248,8 +376,8 @@ function registerCorporateAccount() {
 
                         jQuery.ajax({
                             type: "GET",
-                            url: 'http://localhost/travelSL/web/user/registerGuide',
-                            dataType: 'json',
+                            url: 'http://travelsl.herokuapp.com/user/registerGuide',
+                            dataType: 'jsonp',
                             data: {account_id:account_id },
                             success: function (obj, textstatus) {
 
@@ -264,8 +392,8 @@ function registerCorporateAccount() {
 
                         jQuery.ajax({
                             type: "GET",
-                            url: 'http://localhost/travelSL/web/user/registerPhotographer',
-                            dataType: 'json',
+                            url: 'http://travelsl.herokuapp.com/user/registerPhotographer',
+                            dataType: 'jsonp',
                             data: {account_id:account_id },
                             success: function (obj, textstatus) {
 
@@ -275,6 +403,7 @@ function registerCorporateAccount() {
                             }
                         });
                     }
+                    hideLoadingOverlay();
                 }
             });
 
@@ -310,11 +439,16 @@ function showButton(){
         document.getElementById('loginButton').style.display = "block";
         document.getElementById('registerButton').style.display = "block";
         document.getElementById('logoutButton').style.display = "none";
+        document.getElementById('myProfileButton').style.display = "none";
+        document.getElementById('inboxButton').style.display = "none";
+
     }
     else{
         document.getElementById('loginButton').style.display = "none";
         document.getElementById('registerButton').style.display = "none";
         document.getElementById('logoutButton').style.display = "block";
+        document.getElementById('myProfileButton').style.display = "block";
+        document.getElementById('inboxButton').style.display = "block";
     }
 
 }
@@ -329,29 +463,37 @@ function showMessages(){
         var userName = sessionStorage.getItem("userName");
         jQuery.ajax({
             type: "GET",
-            url: 'http://localhost/travelSL/web/app_dev.php/user/getMessages',
-            dataType: 'json',
+            url: 'http://travelsl.herokuapp.com/user/getMessages',
+            dataType: 'jsonp',
             data: { userName:userName},
             success: function (obj, textstatus) {
 
-                var divID = ["message1", "message2", "message3" , "R14", "R21", "R22" , "R23", "R24", "R31" , "R32", "R33", "R34"];
-                var account = ["corporateAccountName1", "corporateAccountName2", "corporateAccountName3" , "R14H", "R21H", "R22H" , "R23H", "R24H", "R31H" , "R32H", "R33H", "R34H"];
-                var timeAndDate = ["timeAndDate1", "timeAndDate2", "timeAndDate3" , "R14T", "R21T", "R22T" , "R23T", "R24T", "R31T" , "R32T", "R33T", "R34T"];
-                var message = ["messageDescription1", "messageDescription2", "messageDescription3" , "R14A", "R21A", "R22A" , "R23A", "R24A", "R31A" , "R32A", "R33A", "R34A"];
-                var districtID = ["R11D", "R12D", "R13D" , "R14D", "R21D", "R22D" , "R23D", "R24D", "R31D" , "R32D", "R33D", "R34D"];
 
-                for (i = 0; i < 3; i++) {
+                if ( obj.result == ""){
 
-                    document.getElementById(divID[i]).style.display = "block";
-                    document.getElementById(account[i]).innerText = obj.result[i].User_Username;
-                    document.getElementById(timeAndDate[i]).innerText = obj.result[i].Time + ' & ' + obj.result[i].Date;
-                    document.getElementById(message[i]).innerText = 'Payment Made for: ' + obj.result[i].Amount + ' & Number of days on reservation: ' + obj.result[i].Description;
-                    //document.getElementById(districtID[i]).innerText = 'District: ' + obj.result[i].District;
                 }
+                else{
+                    var divID = ["message1", "message2", "message3" , "R14", "R21", "R22" , "R23", "R24", "R31" , "R32", "R33", "R34"];
+                    var account = ["corporateAccountName1", "corporateAccountName2", "corporateAccountName3" , "R14H", "R21H", "R22H" , "R23H", "R24H", "R31H" , "R32H", "R33H", "R34H"];
+                    var timeAndDate = ["timeAndDate1", "timeAndDate2", "timeAndDate3" , "R14T", "R21T", "R22T" , "R23T", "R24T", "R31T" , "R32T", "R33T", "R34T"];
+                    var message = ["messageDescription1", "messageDescription2", "messageDescription3" , "R14A", "R21A", "R22A" , "R23A", "R24A", "R31A" , "R32A", "R33A", "R34A"];
+                    var districtID = ["R11D", "R12D", "R13D" , "R14D", "R21D", "R22D" , "R23D", "R24D", "R31D" , "R32D", "R33D", "R34D"];
+
+                    for (i = 0; i < 3; i++) {
+
+                        document.getElementById(divID[i]).style.display = "block";
+                        document.getElementById(account[i]).innerText = obj.result[i].User_Username;
+                        document.getElementById(timeAndDate[i]).innerText = obj.result[i].Time + ' & ' + obj.result[i].Date;
+                        document.getElementById(message[i]).innerText = 'Payment Made for: ' + obj.result[i].Amount + ' & Number of days on reservation: ' + obj.result[i].Description;
+                        //document.getElementById(districtID[i]).innerText = 'District: ' + obj.result[i].District;
+                    }
+                }
+
+
 
             }
         });
     }
 
 }
-//--------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------

@@ -75,7 +75,42 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <!--Adding jQuery rating plug-in-->
     <script type="text/javascript" src="js/jquery.raty.min.js"></script>
+    <script>
+        function previewFile(){
+            var preview = document.querySelector('img'); //selects the query named img
+            var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+            var reader  = new FileReader();
 
+
+
+            reader.onloadend = function () {
+                preview.src = reader.result;
+                alert(reader.result);
+                jQuery.ajax({
+                    type: "GET",
+                    url: 'http://localhost/travelSL/web/user/sendImage',
+                    dataType: 'jsonp',
+                    processData: false, // this is true by default
+                    data: { image: reader.result},
+                    success: function (obj, textstatus) {
+
+                        alert(obj.image);
+
+
+
+                    }
+                });
+            }
+
+            if (file) {
+                reader.readAsDataURL(file); //reads the data as a URL
+            } else {
+                preview.src = "";
+            }
+        }
+
+        previewFile();  //calls the function named previewFile()
+    </script>
 </head>
 <body>
 
@@ -222,102 +257,8 @@
 
 <div id="wrapper">
 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox" align="center">
-            <div class="item active">
-                <img src="images/Photographer/Photographer3.jpg" alt="Photographer" width="460" height="345">
-            </div>
-
-            <div class="item">
-                <img src="images/Photographer/Photographer5.jpg" alt="Photographer" width="460" height="345">
-            </div>
-
-            <div class="item">
-                <img src="images/Photographer/Photographer6.jpg" alt="Photographer" width="460" height="345">
-            </div>
-
-            <div class="item">
-                <img src="images/Photographer/Photographer7.jpg" alt="Photographer" width="460" height="345">
-            </div>
-            <div class="item">
-                <img src="images/Photographer/Photographer8.jpg" alt="Photographer" width="460" height="345">
-            </div>
-
-            <div class="item">
-                <img src="images/Photographer/Photographer9.jpg" alt="Photographer" width="460" height="345">
-            </div>
-
-            <div class="item">
-                <img src="images/Photographer/Photographer10.jpg" alt="Photographer" width="460" height="345">
-            </div>
-        </div>
-
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-
-    <div class="row" align="left" style="color: white">
-        <div class="col-xs-12 col-md-8" >
-            <h4>Description</h4><div id="star"></div><p id="rating"></p>
-            <p id="modalDescription"></p>
-
-        </div>
-        <div class="col-xs-12 col-md-4" >
-            <h4>Contact Details</h4>
-            <p id="modalTelephone"></p>
-            <p id="modalAddress"></p>
-            <p id="modalDistrict"></p>
-        </div>
-    </div>
-
-    <div style="color: white">
-        <div >
-            <h4>Services Provided</h4>
-            <div class="row">
-                <div class="col-xs-6 col-md-3" >
-                    <ul>
-                        <li>Portrait photography</li>
-                        <li>Corporate portrait</li>
-                        <li>Event photography</li>
-                        <li>Artists and public figures</li>
-                        <li>Architectural and commercial photography</li>
-                    </ul>
-                </div>
-                <div class="col-xs-6 col-md-3" >
-                    <ul>
-                        <li>Beauty and fashion photography</li>
-                        <li>The body and artistic nudes</li>
-                        <li>Nature Photography</li>
-                        <li>Fair Prices</li>
-                        <li>Wedding Photography</li>
-                    </ul>
-                </div>
-                <div class="col-xs-12 col-md-6" >
-                    <ul>
-                        <button data-target="#reservationModal" data-toggle="modal" type="button" class="btn btn-primary">Make Reservation Now</button>
-                    </ul>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
+    <input type="file" onchange="previewFile()"><br>
+    <img src="" height="200" alt="Image preview...">
 
 </div>
 <!-- /#wrapper -->
@@ -506,7 +447,7 @@
 
                         </div>
                     </div>
-                    <img src="images/hero-recaptcha-demo.gif" width="300px" height="60px">
+                    <div class="g-recaptcha" data-sitekey="6LcyuyITAAAAAJTonyQ7wBBMo_bZBozRaqy11wLS"></div>
                     <br>
 
                     <button id="register-button"type="button" class="btn btn-primary">Register</button>
@@ -704,6 +645,6 @@
 
 <!--###########################################################################################################-->
 
-<script type="text/javascript" src="js/viewPhotographer.js"></script>
-</body>
+<!--<script type="text/javascript" src="js/viewPhotographer.js"></script>-->
+<script src='https://www.google.com/recaptcha/api.js'></script> </body>
 </html>

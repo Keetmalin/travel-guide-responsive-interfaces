@@ -15,6 +15,24 @@
                         {
                             "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"CallNumber\"><param name=\"android-package\" value=\"mx.ferreyra.callnumber.CFCallNumber\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "AndroidManifest.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.CALL_PHONE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-feature android:name=\"android.hardware.telephony\" android:required=\"false\" />",
+                            "count": 1
                         }
                     ]
                 }
@@ -27,6 +45,9 @@
         },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.example.travelSriLanka"
+        },
+        "mx.ferreyra.callnumber": {
+            "PACKAGE_NAME": "com.example.travelSriLanka"
         }
     },
     "dependent_plugins": {},
@@ -37,10 +58,18 @@
             "clobbers": [
                 "device"
             ]
+        },
+        {
+            "file": "plugins/mx.ferreyra.callnumber/www/CallNumber.js",
+            "id": "mx.ferreyra.callnumber.CallNumber",
+            "clobbers": [
+                "call"
+            ]
         }
     ],
     "plugin_metadata": {
         "cordova-plugin-whitelist": "1.2.2",
-        "cordova-plugin-device": "1.1.2"
+        "cordova-plugin-device": "1.1.2",
+        "mx.ferreyra.callnumber": "0.0.2"
     }
 }

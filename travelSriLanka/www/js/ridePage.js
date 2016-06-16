@@ -37,9 +37,9 @@ window.onload = function() {
             for (i = 0; i < Object.keys(obj.result).length; i++) {
                 document.getElementById(divID[i]).style.display = "block";
                 document.getElementById(headerID[i]).innerText = obj.result[i].Name;
-                document.getElementById(telephoneID[i]).innerText = 'Vehicle: ' + obj.result[i].Vehicle;
-                document.getElementById(addressID[i]).innerText = 'Capacity: ' + obj.result[i].Capacity;
-                document.getElementById(districtID[i]).innerText = 'District: ' + obj.result[i].District;
+                document.getElementById(telephoneID[i]).innerText = 'Phone: ' + obj.result[i].Telephone;
+                document.getElementById(addressID[i]).innerText = 'Vehicle: ' + obj.result[i].Vehicle;
+                document.getElementById(districtID[i]).innerText = 'Capacity: ' + obj.result[i].Capacity;
             }
 
             hideLoadingOverlay();

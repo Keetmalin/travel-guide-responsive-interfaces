@@ -8,6 +8,9 @@
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>
+    <feature name="CallNumber">
+        <param name="android-package" value="mx.ferreyra.callnumber.CFCallNumber" />
+    </feature>
     <allow-intent href="market:*" />
     <name>TravelSriLanka</name>
     <description>
