@@ -19,164 +19,34 @@ window.onload = function() {
     document.getElementById("messageMenu").addEventListener("click", showMessages);
     //-------------------------------------------------------------------------------------
 
-    getScore(false);
-    index = sessionStorage.getItem("photographerIndex");
-    document.getElementById("makePayment").addEventListener("click", makePayment);
-    showLoadingOverlay();
+//send ajax request
     jQuery.ajax({
         type: "GET",
-        url: 'http://travelsl.herokuapp.com/user/photographerPage',
+        url: 'http://travelsl.herokuapp.com/user/loginDetails',
         dataType: 'jsonp',
-
-        //view details loaded from the databsae of each unit
         success: function (obj, textstatus) {
 
-            document.getElementById('modalDescription').innerText = obj.result[index].description;
-            document.getElementById('modalTelephone').innerText = 'Phone: ' + obj.result[index].Telephone;
-            document.getElementById('modalAddress').innerText = 'Address: ' + obj.result[index].Address;
-            document.getElementById('modalDistrict').innerText = 'District: ' + obj.result[index].District;
+            for (i = 0; i < Object.keys(obj.result).length; i++) {
 
-            hideLoadingOverlay();
+                $('.list-group').append(
+                    '<div ><span>'+
+                    '<a href="#" class="list-group-item">' +
+                    '<h4 class="list-group-item-heading">' +obj.result[i].User_Username + '</h4>' +
+                    '<p class="list-group-item-text">   category: ' + obj.result[i].category +
+                    ' , last log in: ' + obj.result[i].last_login +
+                    '</p>' +
+                    ''+
+                    '</span>'+
+                    '</a></div>');
 
+
+
+            }
         }
     });
 
 
 };
-function getScore(status){
-    showLoadingOverlay();
-    index = sessionStorage.getItem("photographerIndex");
-    var score = 1;
-    //
-    jQuery.ajax({
-        type: "GET",
-        url: 'http://travelsl.herokuapp.com/user/photographerPage',
-        dataType: 'jsonp',
-        success: function (obj, textstatus) {
-
-            var account_id = obj.result[index].account_id;
-
-            jQuery.ajax({
-                type: "GET",
-                url: 'http://travelsl.herokuapp.com/user/getReview',
-                dataType: 'jsonp',
-                data: { account_id:account_id},
-                //load details from the database
-                success: function (obj, textstatus) {
-
-
-
-                    var sum=0;
-                    for (i = 0; i < Object.keys(obj.result).length; i++) {
-
-                        sum= sum+ Number(obj.result[i].review);
-                    }
-                    
-
-                    if (Object.keys(obj.result).length == 0){
-                        score = 1;
-                    }
-                    else{
-                        score = sum/Object.keys(obj.result).length;
-                    }
-                    score = Math.round(score * 100) / 100
-
-                    if (status){
-                        $('#star').raty({
-                            score    : score,
-                            readOnly : true,
-                            path: 'lib/img',
-                            half: true,
-                            number: 5,
-                            click: function(score, evt) {
-                                setScore(score);
-                            }
-                        });
-                    }else{
-                        $('#star').raty({
-                            score    : score,
-                            path: 'lib/img',
-                            half: true,
-                            number: 5,
-                            click: function(score, evt) {
-                                setScore(score);
-                            }
-                        });
-                    }
-
-                    document.getElementById("rating").innerText='Rating: ' + score + ' (' + Object.keys(obj.result).length + ')' ;
-                }
-            });
-
-            hideLoadingOverlay();
-        }
-    });
-}
-
-function setScore(score){
-    showLoadingOverlay();
-    jQuery.ajax({
-        type: "GET",
-        url: 'http://travelsl.herokuapp.com/user/photographerPage',
-        dataType: 'jsonp',
-        success: function (obj, textstatus) {
-
-            var account_id = obj.result[index].account_id;
-
-            jQuery.ajax({
-                type: "GET",
-                url: 'http://travelsl.herokuapp.com/user/addReview',
-                dataType: 'jsonp',
-                data: { account_id:account_id, score:score },
-                //load details from the database
-                success: function (obj, textstatus) {
-
-                    getScore(true);
-                }
-            });
-            hideLoadingOverlay();
-        }
-    });
-}
-
-function makePayment(){
-
-    var numberOfDays = document.getElementById("numberOfDays").value;
-    var numberOfRooms = document.getElementById("numberOfRooms").value;
-    var cardNumber = document.getElementById("cardNumber").value;
-    var amount = document.getElementById("amount").value;
-    var booking = document.getElementById("booking").value;
-    var userName = sessionStorage.getItem("userName");
-
-    numberOfDays += ',' + numberOfRooms +','+booking;
-    showLoadingOverlay();
-    jQuery.ajax({
-        type: "GET",
-        url: 'http://travelsl.herokuapp.com/user/hotelPage',
-        dataType: 'jsonp',
-        success: function (obj, textstatus) {
-
-            var account_id = obj.result[index].account_id;
-
-            jQuery.ajax({
-                type: "GET",
-                url: 'http://travelsl.herokuapp.com/user/makePayment',
-                dataType: 'jsonp',
-                data: { account_id:account_id, userName:userName , amount:amount , numberOfDays:numberOfDays},
-                success: function (obj, textstatus) {
-
-
-                    $("#reservationModal").modal("hide");
-                    $("#paymentSuccessful").modal("show");
-
-                }
-            });
-            hideLoadingOverlay();
-        }
-    });
-
-
-}
 //-------------------------------------------------------------------------------------
 //main functionalities used in the user bundle
 
