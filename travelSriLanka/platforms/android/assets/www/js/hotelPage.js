@@ -33,7 +33,6 @@ window.onload = function() {
             var addressID = ["R11A", "R12A", "R13A" , "R14A", "R21A", "R22A" , "R23A", "R24A", "R31A" , "R32A", "R33A", "R34A"];
             var districtID = ["R11D", "R12D", "R13D" , "R14D", "R21D", "R22D" , "R23D", "R24D", "R31D" , "R32D", "R33D", "R34D"];
             var linkID = ["R11L", "R12L", "R13L" , "R14L", "R21L", "R22L" , "R23L", "R24L", "R31L" , "R32L", "R33L", "R34L"];
-            document.getElementById("R11L").href = 'tel:+94779711780';
             
             for (i = 0; i < Object.keys(obj.result).length; i++) {
                 document.getElementById(divID[i]).style.display = "block";

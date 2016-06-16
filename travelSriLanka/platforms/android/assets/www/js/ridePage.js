@@ -33,6 +33,7 @@ window.onload = function() {
             var telephoneID = ["R11T", "R12T", "R13T" , "R14T", "R21T", "R22T" , "R23T", "R24T", "R31T" , "R32T", "R33T", "R34T"];
             var addressID = ["R11A", "R12A", "R13A" , "R14A", "R21A", "R22A" , "R23A", "R24A", "R31A" , "R32A", "R33A", "R34A"];
             var districtID = ["R11D", "R12D", "R13D" , "R14D", "R21D", "R22D" , "R23D", "R24D", "R31D" , "R32D", "R33D", "R34D"];
+            var linkID = ["R11L", "R12L", "R13L" , "R14L", "R21L", "R22L" , "R23L", "R24L", "R31L" , "R32L", "R33L", "R34L"];
 
             for (i = 0; i < Object.keys(obj.result).length; i++) {
                 document.getElementById(divID[i]).style.display = "block";
@@ -40,6 +41,7 @@ window.onload = function() {
                 document.getElementById(telephoneID[i]).innerText = 'Phone: ' + obj.result[i].Telephone;
                 document.getElementById(addressID[i]).innerText = 'Vehicle: ' + obj.result[i].Vehicle;
                 document.getElementById(districtID[i]).innerText = 'Capacity: ' + obj.result[i].Capacity;
+                document.getElementById(linkID[i]).href = 'tel:' + obj.result[i].Telephone;
             }
 
             hideLoadingOverlay();
