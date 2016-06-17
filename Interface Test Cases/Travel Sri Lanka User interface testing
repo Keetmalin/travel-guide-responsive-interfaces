@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Test Suite</title>
+</head>
+<body>
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
+<tr><td><b>Test Suite</b></td></tr>
+<tr><td><a href="Admin Log in.html">Admin Log in</a></td></tr>
+<tr><td><a href="My profile edit and check.html">My profile edit and check</a></td></tr>
+<tr><td><a href="Create tour complete.html">Create tour complete</a></td></tr>
+<tr><td><a href="View Hotels and rate.html">View Hotels and rate</a></td></tr>
+<tr><td><a href="Make Payment and call hotel.html">Make Payment and call hotel</a></td></tr>
+<tr><td><a href="Read user messages.html">Read user messages</a></td></tr>
+<tr><td><a href="contact us page view.html">contact us page view</a></td></tr>
+<tr><td><a href="view Rides.html">view Rides</a></td></tr>
+<tr><td><a href="View photographers.html">View photographers</a></td></tr>
+<tr><td><a href="View and add destinations.html">View and add destinations</a></td></tr>
+<tr><td><a href="View and add emergency contacts.html">View and add emergency contacts</a></td></tr>
+<tr><td><a href="log in and out.html">log in and out</a></td></tr>
+<tr><td><a href="Traveller registration.html">Traveller registration</a></td></tr>
+</tbody></table>
+</body>
+</html>

@@ -71,7 +71,7 @@ function addNewDestination() {
             $("#addNewDestination").modal("hide");
 
             hideLoadingOverlay();
-            window.location.href = "destination.html";
+            window.location.href = "destinations.html";
 
 
         }
